@@ -1,0 +1,7 @@
+# robots.txt — Innovatis Soluções em TI
+# https://innovatis.com.br
+
+User-agent: *
+Allow: /
+
+Sitemap: https://innovatis.com.br/sitemap.xml
