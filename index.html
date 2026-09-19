@@ -15,8 +15,8 @@
      ============================================================ -->
 
 <title>Suporte Técnico de TI em Belo Horizonte | Innovatis Soluções em TI</title>
-<meta name="description" content="Suporte técnico de TI rápido e de confiança, para sua empresa ou sua casa, em Belo Horizonte. Atendimento presencial em toda a cidade e região metropolitana — manutenção de computadores, redes e mais. Orçamento transparente.">
-<meta name="keywords" content="suporte técnico de TI Belo Horizonte, manutenção de computadores BH, técnico de TI Céu Azul BH, suporte de TI para empresas BH, manutenção de notebook BH, formatação de computador BH, suporte de informática presencial BH">
+<meta name="description" content="Suporte técnico de TI rápido e de confiança, para sua empresa ou sua casa, em Belo Horizonte. Atendimento presencial agendado em toda a cidade e região metropolitana (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro) — manutenção de computadores, notebooks, redes, Wi-Fi, impressoras, backup e segurança. Orçamento transparente.">
+<meta name="keywords" content="suporte técnico de TI Belo Horizonte, manutenção de computadores BH, técnico de TI Céu Azul BH, suporte de TI para empresas BH, manutenção de notebook BH, formatação de computador BH, suporte de informática presencial BH, assistência técnica notebook Belo Horizonte, conserto computador BH, TI para pequenas empresas BH">
 <meta name="author" content="Innovatis Soluções em TI">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0e7490">
@@ -27,7 +27,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Innovatis Soluções em TI">
 <meta property="og:title" content="Suporte Técnico de TI em Belo Horizonte — Innovatis Soluções em TI">
-<meta property="og:description" content="Atendimento presencial para empresas e residências em BH e região. Suporte rápido, orçamento transparente e relação de confiança contínua.">
+<meta property="og:description" content="Atendimento presencial agendado para empresas e residências em BH e região (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro). Suporte rápido, orçamento transparente e relação de confiança contínua.">
 <meta property="og:url" content="https://innovatis.com.br/">
 <!-- AJUSTE: adicione um arquivo og-image.png (1200x630) na raiz do projeto
      e a URL abaixo passa a valer automaticamente. -->
@@ -39,7 +39,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Suporte Técnico de TI em Belo Horizonte — Innovatis Soluções em TI">
-<meta name="twitter:description" content="Atendimento presencial para empresas e residências em BH e região. Suporte rápido, orçamento transparente e relação de confiança contínua.">
+<meta name="twitter:description" content="Atendimento presencial agendado para empresas e residências em BH e região. Suporte rápido, orçamento transparente e relação de confiança contínua.">
 <meta name="twitter:image" content="https://innovatis.com.br/og-image.png">
 
 <!-- Favicon (SVG inline, sem arquivo extra) -->
@@ -341,54 +341,171 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   .hero-blob.b1,.hero-blob.b2{opacity:.42}
 }
 
-.hero .container{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero .container{position:relative;z-index:2;display:flex;flex-direction:column;gap:clamp(40px,6vw,80px);align-items:center;text-align:center}
 
 .hero-badge{
-  display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:8px;
   font-size:.82rem;font-weight:600;color:var(--muted);
   border:1px solid var(--line);background:var(--surface);
   padding:7px 14px;border-radius:999px;margin-bottom:22px;
   box-shadow:var(--shadow-sm);
+  white-space:nowrap;
+}
+@media (max-width:600px){
+  .hero-badge{white-space:normal;text-align:center}
 }
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
 .hero h1{font-size:clamp(2rem,4.6vw,3.35rem);font-weight:800;margin-bottom:20px}
 .hero h1 .grad-text{display:inline}
-.hero-sub{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.16rem);max-width:56ch;margin-bottom:34px}
+.hero-sub{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.16rem);max-width:56ch;margin:0 auto 34px}
 .hero-sub strong{color:var(--ink);font-weight:600}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px}
-.hero-trust{display:flex;flex-wrap:wrap;gap:10px 22px}
-.hero-trust li{display:inline-flex;align-items:center;gap:9px;font-size:.9rem;font-weight:600;color:var(--muted)}
-.hero-trust svg{width:17px;height:17px;color:var(--brand)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:38px}
 
-/* Card flutuante do hero (visual "atendimento") */
-.hero-visual{position:relative;min-height:420px}
-.ticket{
-  position:absolute;
+
+/* Hero Carousel Section (below text) */
+/* Hero badge responsive */
+@media (max-width:600px){
+  .hero-badge{white-space:normal;text-align:center}
+}
+
+/* ============================================================
+   HERO CAROUSEL (tickets)
+   ============================================================ */
+.hero-carousel{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.hero-carousel-viewport{
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-padding:0 24px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:var(--brand) transparent;
+}
+.hero-carousel-viewport::-webkit-scrollbar{height:8px}
+.hero-carousel-viewport::-webkit-scrollbar-track{background:transparent}
+.hero-carousel-viewport::-webkit-scrollbar-thumb{background:var(--brand);border-radius:4px}
+.hero-carousel-track{
+  display:flex;
+  gap:20px;
+  padding:8px 24px;
+  min-width:fit-content;
+}
+.hero-carousel-card{
+  flex:0 0 clamp(280px, 85vw, 360px);
+  scroll-snap-align:start;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow-lg);
-  padding:20px;
-  animation:floatY 7s ease-in-out infinite;
-  transform:translateZ(0);
+  padding:24px 20px;
+  min-height:280px;
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.ticket.t1{top:6%;left:0;width:min(330px,88%);z-index:2}
-.ticket.t2{top:44%;right:0;width:min(300px,72%);z-index:3;animation-delay:-2.5s}
-.ticket.t3{bottom:0;left:12%;width:min(280px,68%);z-index:1;animation-delay:-4.5s}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.ticket .tt-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.ticket .tt-ico{
+.hero-carousel-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--brand);
+}
+.hero-carousel-card .tt-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.hero-carousel-card .tt-ico{
   width:46px;height:46px;flex:none;border-radius:13px;display:grid;place-items:center;
   background:var(--grad);color:#fff;box-shadow:var(--shadow-sm);
 }
-.ticket .tt-ico svg{width:24px;height:24px}
-.ticket .tt-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;line-height:1.3}
-.ticket .tt-tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong)}
-.ticket p{font-size:.9rem;color:var(--muted)}
-.ticket .tt-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
-.ticket .tt-status{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;color:#16a34a}
-.ticket .tt-status .dot{width:7px;height:7px;border-radius:50%;background:#22c55e}
-.ticket .tt-price{font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink)}
+.hero-carousel-card .tt-ico svg{width:24px;height:24px}
+.hero-carousel-card .tt-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;line-height:1.3}
+.hero-carousel-card .tt-tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong)}
+.hero-carousel-card p{font-size:.9rem;color:var(--muted);flex:1}
+.hero-carousel-card .tt-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.hero-carousel-card .tt-status{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;color:#16a34a}
+.hero-carousel-card .tt-status .dot{width:7px;height:7px;border-radius:50%;background:#22c55e}
+.hero-carousel-card .tt-price{font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink)}
+
+.hero-carousel-btn{
+  position:relative;
+  flex:0 0 48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--surface);
+  border:1px solid var(--line);
+  color:var(--ink);
+  display:grid;
+  place-items:center;
+  box-shadow:var(--shadow-md);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease);
+  z-index:1;
+}
+.hero-carousel-btn:hover{
+  border-color:var(--brand);
+  color:var(--brand-strong);
+  transform:scale(1.07);
+  box-shadow:var(--shadow-lg);
+}
+.hero-carousel-btn svg{width:22px;height:22px}
+.hero-carousel-prev{margin-right:-24px}
+.hero-carousel-next{margin-left:-24px}
+
+.hero-carousel-dots{
+  position:absolute;
+  bottom:-40px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+}
+.hero-carousel-dots button{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--line);
+  border:none;padding:0;
+  transition:width .3s var(--ease),background .3s var(--ease);
+}
+.hero-carousel-dots button[aria-selected="true"]{
+  width:28px;
+  background:var(--brand);
+  border-radius:999px;
+}
+
+/* Hide dots on mobile if not enough space */
+@media (max-width:600px){
+  .hero-carousel-dots{bottom:-36px}
+}
+
+/* Full-page particles canvas */
+#particles[data-fullpage]{
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  pointer-events:none;
+  z-index:0;
+  opacity:.18;
+}
+@media (prefers-color-scheme: dark){
+  #particles[data-fullpage]{opacity:.12}
+}
+@media (prefers-reduced-motion: reduce){
+  #particles[data-fullpage]{display:none !important}
+}
+
+/* Ensure sections above particles have proper stacking */
+section{position:relative;z-index:1}
+.site-header{z-index:1000}
+.wa-float,.ig-float{z-index:990}
+
+/* Ensure cards and forms have readable backgrounds over particles */
+.service-card,.diff-card,.contact-card,.contact-form,.t-card,.stat-card,.stat-card,.marker-card{
+  background:var(--surface);
+}
+@supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)){
+  .service-card,.diff-card,.contact-card,.contact-form,.t-card,.stat-card,.marker-card{
+    background:rgba(var(--surface-rgb),0.95);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+}
 
 /* ============================================================
    SERVIÇOS
@@ -554,6 +671,24 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 .c-dot.active{width:26px;background:var(--brand)}
 
 /* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list{display:grid;gap:12px}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--ink);list-style:none;transition:background .2s var(--ease)}
+.faq-item summary:hover{background:var(--surface-2)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"";width:22px;height:22px;border-radius:50%;border:2px solid var(--brand);display:grid;place-items:center;flex:none;transition:transform .3s var(--ease);background:var(--brand-strong);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.faq-item[open] summary::after{transform:rotate(180deg)}
+.faq-item summary:focus{outline:none;box-shadow:0 0 0 3px var(--brand-soft)}
+.faq-item[open] summary{border-bottom:1px solid var(--line)}
+.faq-item p{padding:0 22px 20px;color:var(--muted);line-height:1.7;margin:0}
+@media (prefers-reduced-motion: no-preference) {
+  .faq-item p{animation:faqFade .3s var(--ease)}
+}
+@keyframes faqFade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
    MAPA
    ============================================================ */
 .map-frame{
@@ -684,8 +819,6 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
    RESPONSIVO
    ============================================================ */
 @media (max-width:1024px){
-  .hero .container{grid-template-columns:1fr}
-  .hero-visual{min-height:420px;max-width:640px;margin-inline:auto;width:100%}
   .services-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:768px){
@@ -722,12 +855,12 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   .marker-card{position:static;border-radius:0;max-width:none}
 }
 @media (max-width:480px){
-  .hero-trust{display:none}
+  
   .stats-grid{grid-template-columns:1fr 1fr}
   .hero-actions .btn{width:100%}
-  .hero-visual{min-height:500px}
-  .ticket.t1{left:4%}
-  .ticket.t2{right:2%}
+  .hero-carousel-btn{width:44px;height:44px}
+  .hero-carousel-dots{bottom:-32px}
+  .hero-carousel-card{min-width:260px}
 }
 
 /* ============================================================
@@ -737,7 +870,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   .pulse::before{animation:none}
-  .ticket{animation:none !important}
+  .hero-carousel-card{animation:none !important}
   .wa-float{animation:none}
 }
 /* Só renderiza partículas quando há JS + sem preferência reduzida */
@@ -796,12 +929,14 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 
 <main id="conteudo">
 
+<!-- Full-page particles background (fixed) -->
+<canvas id="particles" aria-hidden="true" data-fullpage></canvas>
+
 <!-- ============================================================
      HERO
      ============================================================ -->
 <section id="home" class="hero" aria-label="Apresentação">
   <div class="hero-grid-bg" aria-hidden="true"></div>
-  <canvas id="particles" aria-hidden="true"></canvas>
   <div class="hero-blob b1" aria-hidden="true" data-parallax="-0.12"></div>
   <div class="hero-blob b2" aria-hidden="true" data-parallax="0.10"></div>
 
@@ -809,70 +944,297 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     <div class="hero-copy">
       <span class="hero-badge reveal">
         <span class="dot" aria-hidden="true"></span>
-        Atendimento presencial em toda BH &amp; região
+        Atendimento presencial agendado em BH e região
       </span>
       <h1 class="reveal" data-d="1">
-        Suporte técnico de TI <span class="grad-text">rápido e de confiança</span>, para a sua empresa ou a sua casa.
+        Seu computador deu problema? A Innovatis vai até você, <span class="grad-text">no horário combinado</span>.
       </h1>
       <p class="hero-sub reveal" data-d="2">
-        O técnico vai até você — empresas e residências em <strong>Belo Horizonte e região metropolitana</strong>.
-        Manutenção de computadores, redes e segurança, com <strong>orçamento transparente</strong> antes de qualquer serviço.
+        Suporte técnico e manutenção de computadores, notebooks, redes e equipamentos em Belo Horizonte e região.
+        Atendimento presencial <strong>agendado</strong>, orçamento transparente e solução no local sempre que possível.
       </p>
       <div class="hero-actions reveal" data-d="3">
-        <a class="btn btn-whats pulse" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Preciso%20de%20suporte%20de%20TI." target="_blank" rel="noopener">
+        <a class="btn btn-whats pulse" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20meu%20computador." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
-          Chamar no WhatsApp
+          Agendar no WhatsApp
         </a>
         <a class="btn btn-ghost" href="#servicos">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
           Ver serviços
         </a>
       </div>
-      <ul class="hero-trust reveal" data-d="4" aria-hidden="false">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 12l-8-8M4 12V4m0 0h8M16 20h4v-4"/></svg>Técnico presencial</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6a3 3 0 0 1 6 0v6"/></svg>Empresas &amp; residências</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"/></svg>Orçamento transparente</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2l9 5v7c0 4-4 7-9 9-5-2-9-5-9-9V7zM8 12l3 3 5-6"/></svg>Confiança de longo prazo</li>
-      </ul>
     </div>
 
-    <div class="hero-visual reveal" data-d="2" aria-hidden="true">
-      <div class="ticket t1">
-        <div class="tt-head">
-          <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 0-6.4-1.6L6 7l7 7 2.3-2.3a4 4 0 0 0 1.6-6.4zM4 20l4-4M14 5l2-2 2 2-2 2M6 11l-2 2 2 2 2-2"/></svg></span>
-          <div>
-            <span class="tt-tag">Serviço realizado</span>
-            <div class="tt-title">Manutenção de notebook</div>
-          </div>
-        </div>
-        <p>Limpeza interna, troca de pasta térmica e otimização do sistema — feito na residência do cliente.</p>
-        <div class="tt-row"><span class="tt-status"><span class="dot"></span>Concluído no local</span><span class="tt-price">Orçamento fechado</span></div>
-      </div>
+    <!-- Hero Carousel - Full width below text -->
+    <div class="hero-carousel-section reveal" data-d="2" aria-hidden="true">
+      <!-- Hero Tickets Carousel -->
+      <div class="hero-carousel" role="region" aria-label="Exemplos de atendimentos realizados">
+        <button class="hero-carousel-btn hero-carousel-prev" aria-label="Exemplo anterior" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="hero-carousel-viewport">
+          <div class="hero-carousel-track" id="heroCarouselTrack">
+            <!-- Card 1: Manutenção de notebook -->
+            <article class="hero-carousel-card" data-service="manutencao">
+              <div class="tt-head">
+                <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 0-6.4-1.6L6 7l7 7 2.3-2.3a4 4 0 0 0 1.6-6.4zM4 20l4-4M14 5l2-2 2 2-2 2M6 11l-2 2 2 2 2-2"/></svg></span>
+                <div>
+                  <span class="tt-tag">Serviço agendado</span>
+                  <div class="tt-title">Manutenção de notebook</div>
+                </div>
+              </div>
+              <p>Limpeza interna, troca de pasta térmica e otimização — feito na residência do cliente, horário combinado.</p>
+              <div class="tt-row"><span class="tt-status"><span class="dot"></span>Concluído no local</span><span class="tt-price">Orçamento fechado</span></div>
+            </article>
 
-      <div class="ticket t2">
-        <div class="tt-head">
-          <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-          <div>
-            <span class="tt-tag">Empresas</span>
-            <div class="tt-title">Suporte para escritório</div>
-          </div>
-        </div>
-        <p>Configuração de rede, impressoras e estações de trabalho com manutenção periódica.</p>
-        <div class="tt-row"><span class="tt-status"><span class="dot"></span>SLA próximo</span><span class="tt-price">Contrato</span></div>
-      </div>
+            <!-- Card 2: Suporte para escritório -->
+            <article class="hero-carousel-card" data-service="empresas">
+              <div class="tt-head">
+                <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                <div>
+                  <span class="tt-tag">Empresas</span>
+                  <div class="tt-title">Suporte para escritório</div>
+                </div>
+              </div>
+              <p>Configuração de rede, impressoras e estações com manutenção preventiva agendada.</p>
+              <div class="tt-row"><span class="tt-status"><span class="dot"></span>Conforme cronograma</span><span class="tt-price">Contrato</span></div>
+            </article>
 
-      <div class="ticket t3">
-        <div class="tt-head">
-          <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a7.5 7.5 0 0 1 14 0"/><path d="M8 12.5a4.5 4.5 0 0 1 8 0"/><path d="M12 12.5v3"/><circle cx="12" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
-          <div>
-            <span class="tt-tag">Residências</span>
-            <div class="tt-title">Suporte em domicílio</div>
+            <!-- Card 3: Suporte em domicílio -->
+            <article class="hero-carousel-card" data-service="residencias">
+              <div class="tt-head">
+                <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a7.5 7.5 0 0 1 14 0"/><path d="M8 12.5a4.5 4.5 0 0 1 8 0"/><path d="M12 12.5v3"/><circle cx="12" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+                <div>
+                  <span class="tt-tag">Residências</span>
+                  <div class="tt-title">Suporte em domicílio</div>
+                </div>
+              </div>
+              <p>Instalação, formatação e montagem — horário combinado previamente conforme disponibilidade.</p>
+              <div class="tt-row"><span class="tt-status"><span class="dot"></span>Agendamento flexível</span><span class="tt-price">Sem taxas ocultas</span></div>
+            </article>
           </div>
         </div>
-        <p>Atendimento na sua casa, no seu horário — instalação, formatação e montagem.</p>
-        <div class="tt-row"><span class="tt-status"><span class="dot"></span>Agendamento flexível</span><span class="tt-price">Sem taxas ocultas</span></div>
+        <button class="hero-carousel-btn hero-carousel-next" aria-label="Próximo exemplo" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="hero-carousel-dots" role="tablist" aria-label="Navegar entre exemplos"></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PARA SUA CASA x PARA SUA EMPRESA
+     ============================================================ -->
+<section id="publicos" class="section-pad" aria-labelledby="publicos-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Para quem atendemos</span>
+      <h2 class="section-title reveal" id="publicos-titulo" data-d="1">Atendimento presencial agendado, <span class="grad-text">na sua casa ou na sua empresa</span></h2>
+      <p class="section-sub reveal" data-d="2">Mesma qualidade, mesmo cuidado. O técnico vai até você no horário combinado.</p>
+    </div>
+
+    <div class="diff-grid">
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6a3 3 0 0 1 6 0v6"/></svg></span>
+        <div>
+          <h3>Para sua casa</h3>
+          <p>Resolvemos os problemas do dia a dia com horário que cabe na sua rotina.</p>
+          <ul style="margin-top:12px;padding-left:20px;color:var(--muted);line-height:2">
+            <li>Computador ou notebook lento</li>
+            <li>Notebook superaquecendo</li>
+            <li>Formatação e instalação de sistemas</li>
+            <li>Configuração de Wi-Fi e impressoras</li>
+            <li>Upgrade (SSD, memória, peças)</li>
+            <li>Remoção de vírus e proteção</li>
+          </ul>
+          <a class="btn btn-whats" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20um%20atendimento%20em%20minha%20casa." target="_blank" rel="noopener" style="margin-top:16px">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
+            Agendar ajuda em casa
+          </a>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6a3 3 0 0 1 6 0v6"/></svg></span>
+        <div>
+          <h3>Para sua empresa</h3>
+          <p>Suporte técnico que mantém seu negócio rodando, com visitas agendadas conforme sua necessidade.</p>
+          <ul style="margin-top:12px;padding-left:20px;color:var(--muted);line-height:2">
+            <li>Manutenção de computadores e notebooks</li>
+            <li>Redes, Wi-Fi e impressoras</li>
+            <li>Suporte aos usuários (help desk presencial)</li>
+            <li>Backup e recuperação de dados</li>
+            <li>Segurança digital e antivírus</li>
+            <li>Manutenção preventiva agendada</li>
+          </ul>
+          <a class="btn btn-whats" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20suporte%20t%C3%A9cnico%20para%20minha%20empresa." target="_blank" rel="noopener" style="margin-top:16px">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
+            Agendar suporte para minha empresa
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SEU COMPUTADOR ESTÁ...?
+     ============================================================ -->
+<section id="problemas" class="section-pad" aria-labelledby="problemas-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Problemas comuns</span>
+      <h2 class="section-title reveal" id="problemas-titulo" data-d="1">Seu computador está... <span class="grad-text">?</span></h2>
+      <p class="section-sub reveal" data-d="2">Identificamos o sintoma, avaliamos a causa e agendamos a solução no local.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <span class="service-ico" style="font-size:2rem">🐢</span>
+        <h3>Muito lento?</h3>
+        <p>Lentidão pode ser acúmulo de arquivos temporários, disco cheio, memória insuficiente ou processos em segundo plano. Avaliamos e otimizamos no local.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-ico" style="font-size:2rem">🔥</span>
+        <h3>Esquentando demais?</h3>
+        <p>Superaquecimento costuma ser poeira, pasta térmica seca ou cooler com defeito. Fazemos limpeza interna e troca de pasta térmica na sua casa ou escritório.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-ico" style="font-size:2rem">🧊</span>
+        <h3>Travando ou desligando?</h3>
+        <p>Pode ser superaquecimento, falha de memória, disco com setores ruins ou driver conflitante. Diagnosticamos e resolvemos no local sempre que possível.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-ico" style="font-size:2rem">📶</span>
+        <h3>Com Wi-Fi ruim?</h3>
+        <p>Sinal fraco, quedas ou dead zones. Configuramos roteadores, repetidores e otimizamos canais para cobertura total no imóvel.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-ico" style="font-size:2rem">🦠</span>
+        <h3>Com vírus?</h3>
+        <p>Comportamento estranho, pop-ups, lentidão súbita. Fazemos varredura completa, removemos ameaças e orientamos sobre proteção contínua.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-ico" style="font-size:2rem">💾</span>
+        <h3>Com risco de perder arquivos?</h3>
+        <p>Disco fazendo barulho, arquivos corrompidos ou exclusão acidental. Tentamos recuperação no local e orientamos backup automático.</p>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:32px" class="reveal" data-d="3">
+      <a class="btn btn-whats pulse" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20computador." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
+        Quero agendar uma avaliação
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMO FUNCIONA
+     ============================================================ -->
+<section id="como-funciona" class="section-pad" aria-labelledby="como-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Processo simples</span>
+      <h2 class="section-title reveal" id="como-titulo" data-d="1">Como funciona <span class="grad-text">o atendimento</span></h2>
+      <p class="section-sub reveal" data-d="2">Cinco passos claros, do primeiro contato ao equipamento funcionando.</p>
+    </div>
+
+    <ol style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;list-style:none;max-width:900px;margin:0 auto">
+      <li class="reveal" style="position:relative;padding-left:60px;min-height:80px" data-d="1">
+        <span style="position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem">01</span>
+        <strong style="display:block;margin-bottom:6px;font-size:1.1rem">Você chama</strong>
+        <p style="color:var(--muted);font-size:.95rem">Chama no WhatsApp, explica o problema e o tipo de equipamento.</p>
+      </li>
+      <li class="reveal" style="position:relative;padding-left:60px;min-height:80px" data-d="2">
+        <span style="position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem">02</span>
+        <strong style="display:block;margin-bottom:6px;font-size:1.1rem">Avaliamos</strong>
+        <p style="color:var(--muted);font-size:.95rem">Entendemos o equipamento, a urgência e a melhor forma de atender.</p>
+      </li>
+      <li class="reveal" style="position:relative;padding-left:60px;min-height:80px" data-d="3">
+        <span style="position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem">03</span>
+        <strong style="display:block;margin-bottom:6px;font-size:1.1rem">Você recebe o orçamento</strong>
+        <p style="color:var(--muted);font-size:.95rem">Valor fechado, por escrito, antes de qualquer intervenção. Você aprova.</p>
+      </li>
+      <li class="reveal" style="position:relative;padding-left:60px;min-height:80px" data-d="4">
+        <span style="position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem">04</span>
+        <strong style="display:block;margin-bottom:6px;font-size:1.1rem">Agendamos e vamos até você</strong>
+        <p style="color:var(--muted);font-size:.95rem">Horário combinado conforme disponibilidade — geralmente fora do horário comercial ou aos finais de semana.</p>
+      </li>
+      <li class="reveal" style="position:relative;padding-left:60px;min-height:80px" data-d="5">
+        <span style="position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem">05</span>
+        <strong style="display:block;margin-bottom:6px;font-size:1.1rem">Problema resolvido</strong>
+        <p style="color:var(--muted);font-size:.95rem">Equipamento entregue funcionando, com orientações para evitar recorrência.</p>
+      </li>
+    </ol>
+
+    <p class="reveal" style="text-align:center;margin-top:28px;font-weight:600;color:var(--brand-strong)" data-d="6">
+      Você sabe o valor antes de aprovar. Sem serviço surpresa — e sempre com horário combinado.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     VEJA A INNOVATIS EM AÇÃO (placeholder para fotos)
+     ============================================================ -->
+<section id="fotos" class="section-pad" aria-labelledby="fotos-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">No dia a dia</span>
+      <h2 class="section-title reveal" id="fotos-titulo" data-d="1">Veja a Innovatis <span class="grad-text">em ação</span></h2>
+      <p class="section-sub reveal" data-d="2">Problemas reais. Equipamentos reais. Soluções feitas de perto.</p>
+    </div>
+
+    <div class="services-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <!-- Placeholder 1 -->
+      <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
+        <small style="color:var(--muted)">Ex: limpeza de notebook na residência</small>
+      </article>
+      <!-- Placeholder 2 -->
+      <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
+        <small style="color:var(--muted)">Ex: configuração de rede no escritório</small>
+      </article>
+      <!-- Placeholder 3 -->
+      <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
+        <small style="color:var(--muted)">Ex: upgrade de SSD no notebook</small>
+      </article>
+      <!-- Placeholder 4 -->
+      <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
+        <small style="color:var(--muted)">Ex: configuração de Wi-Fi residencial</small>
+      </article>
+      <!-- Placeholder 5 -->
+      <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
+        <small style="color:var(--muted)">Ex: formatação e backup de dados</small>
+      </article>
+      <!-- Placeholder 6 -->
+      <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
+        <small style="color:var(--muted)">Ex: manutenção preventiva em empresa</small>
+      </article>
+    </div>
+
+    <p class="reveal" style="text-align:center;margin-top:24px;color:var(--muted);font-size:.9rem" data-d="3">
+      <!-- AJUSTE: substituir estes placeholders por fotos reais dos atendimentos (proporção 4:3 recomendada) -->
+      Espaço reservado para fotos reais dos atendimentos. Substituir por imagens próprias (4:3).
+    </p>
   </div>
 </section>
 
@@ -1008,34 +1370,32 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     </div>
 
     <!--
-      AJUSTE: os valores abaixo (5, 1200, 300) são placeholders.
-      Substitua por números reais antes do lançamento, se houver.
-      Eles só funcionam com JS; sem JS exibem o valor final estático.
+      Valores confirmados: 10+ anos (desde 2016), 1200+ atendimentos, 500+ clientes, 50% presencial.
     -->
     <div class="stats-grid" role="list" aria-label="Números da Innovatis">
       <div class="stat-card reveal" role="listitem">
-        <span class="stat-num" data-count="5">5</span>
+        <span class="stat-num" data-count="10">10</span>
         <span class="stat-suffix">+</span>
-        <span class="stat-label">anos de experiência</span>
+        <span class="stat-label">anos de experiência (desde 2016)</span>
       </div>
       <div class="stat-card reveal" data-d="1" role="listitem">
-        <span class="stat-num" data-count="1200">1200</span>
-        <span class="stat-suffix">+</span>
-        <span class="stat-label">atendimentos realizados</span>
+        <span class="stat-num">5,0</span>
+        <span class="stat-suffix"></span>
+        <span class="stat-label">nota máxima de avaliação no Google</span>
       </div>
       <div class="stat-card reveal" data-d="2" role="listitem">
-        <span class="stat-num" data-count="300">300</span>
+        <span class="stat-num" data-count="500">500</span>
         <span class="stat-suffix">+</span>
         <span class="stat-label">clientes atendidos</span>
       </div>
       <div class="stat-card reveal" data-d="3" role="listitem">
-        <span class="stat-num" data-count="100" data-format="0">100</span>
+        <span class="stat-num" data-count="50" data-format="0">50</span>
         <span class="stat-suffix">%</span>
         <span class="stat-label">atendimento presencial</span>
       </div>
       <div class="map-chip reveal" data-d="3">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Base no bairro Céu Azul — vou até você onde estiver
+        Base no bairro Céu Azul — atendimento mediante agendamento prévio
       </div>
     </div>
   </div>
@@ -1075,6 +1435,18 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
             endpoint Place Details (campos: author_name, rating, text,
             author_url). Cada item vira um <article> com a mesma
             estrutura abaixo. Também atualize o `rating-summary`.
+            
+            SEPARAÇÃO POR TIPO DE CLIENTE (residencial / empresa):
+            Se a API do Google Places retornar informações que permitam
+            distinguir o tipo de cliente (ex: por contexto do review,
+            metadados da ficha, ou categorização manual), adicione aqui
+            a lógica para separar visualmente em dois grupos no carrossel:
+            - "Clientes residenciais" 
+            - "Empresas"
+            Exemplo de estrutura futura:
+            <div class="carousel-section" data-type="residencial">...</div>
+            <div class="carousel-section" data-type="empresarial">...</div>
+            Até lá, os depoimentos permanecem mistos conforme retornados pela API.
           -->
           <article class="carousel-slide">
             <div class="t-card">
@@ -1192,7 +1564,239 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
         </button>
       </div>
+
+      <p class="reveal" style="text-align:center;margin-top:24px" data-d="3">
+        <a href="https://www.google.com/search?q=Innovatis+Solu%C3%A7%C3%B5es+em+TI+Belo+Horizonte" target="_blank" rel="noopener" class="btn btn-ghost" style="max-width:300px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 11.08a18.1 18.1 0 0 0-3.14-.47 12 12 0 0 1-12-12 1.5 1.5 0 0 1 1.41-2.16A15 15 0 0 1 15.74 8a15 15 0 0 1 4.89 2.92 1.5 1.5 0 0 1 1.64 2.38 12 12 0 0 0 3.38 9.1 1.5 1.5 0 0 1-1.41 2.16 6.7 6.7 0 0 1-4.41 1.08 1.5 1.5 0 0 1-1.41-2.16 3.9 3.9 0 0 0-.71-1.52 4.6 4.6 0 0 1-2.42-.91 1.5 1.5 0 0 1-.66-2.54"/></svg>
+          Ver avaliações no Google
+        </a>
+      </p>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ORÇAMENTO TRANSPARENTE
+     ============================================================ -->
+<section id="orcamento" class="section-pad" aria-labelledby="orcamento-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Transparência total</span>
+      <h2 class="section-title reveal" id="orcamento-titulo" data-d="1">Você aprova antes. <span class="grad-text">A gente executa depois.</span></h2>
+      <p class="section-sub reveal" data-d="2">Nada de surpresa na fatura. O orçamento é fechado, por escrito, e só começamos depois do seu ok.</p>
+    </div>
+
+    <div class="diff-grid">
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"/></svg></span>
+        <div>
+          <h3>Sem serviço surpresa</h3>
+          <p>Você sabe exatamente o que será feito e quanto custa antes de qualquer intervenção. Nada de "enquanto estava lá aproveitei e fiz mais isso".</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"/></svg></span>
+        <div>
+          <h3>Sem cobrança escondida</h3>
+          <p>O valor acordado é o valor final. Não há taxas de deslocamento ocultas, hora extra não combinada ou "pequenas taxas" que somam no final.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"/></svg></span>
+        <div>
+          <h3>Sem troca de peça sem autorização</h3>
+          <p>Se durante o atendimento for necessária alguma peça ou serviço extra, paramos, explicamos o custo e só prosseguimos com sua autorização.</p>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:32px" class="reveal" data-d="4">
+      <a class="btn btn-whats pulse" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20meu%20computador." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
+        Solicitar orçamento
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TI PARA PEQUENAS EMPRESAS
+     ============================================================ -->
+<section id="ti-pequenas-empresas" class="section-pad" aria-labelledby="ti-empresas-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Para empresas</span>
+      <h2 class="section-title reveal" id="ti-empresas-titulo" data-d="1">TI para <span class="grad-text">pequenas empresas</span></h2>
+      <p class="section-sub reveal" data-d="2">Sua empresa não precisa de um departamento de TI para ter suporte profissional.</p>
+    </div>
+
+    <div class="diff-grid">
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l9 5v7c0 4-4 7-9 9-5-2-9-5-9-9V7z"/><path d="M8 12l3 3 5-6"/></svg></span>
+        <div>
+          <h3>Manutenção preventiva e corretiva</h3>
+          <p>Manutenção de computadores e notebooks, limpeza interna, troca de pasta térmica, otimização — para que a equipe não pare.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a7.5 7.5 0 0 1 14 0"/><path d="M8 12.5a4.5 4.5 0 0 1 8 0"/><path d="M12 12.5v3"/><circle cx="12" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <div>
+          <h3>Redes, Wi-Fi e impressoras</h3>
+          <p>Configuração, expansão e estabilidade de rede cabeada e sem fio. Impressoras em rede funcionando sem dor de cabeça.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
+        <div>
+          <h3>Backup e recuperação de dados</h3>
+          <p>Estratégia de backup automático, teste de restauração e recuperação em caso de perda — seus dados protegidos.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l9 5v7c0 4-4 7-9 9-5-2-9-5-9-9V7z"/><path d="M8 12l3 3 5-6"/></svg></span>
+        <div>
+          <h3>Segurança digital e antivírus</h3>
+          <p>Antivírus corporativo, política de senhas, bloqueio de ameaças e orientação de boas práticas para a equipe.</        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <div>
+          <h3>Suporte aos usuários (help desk presencial)</h3>
+          <p>Dúvidas do dia a dia, configuração de e-mail, acesso a sistemas, impressão — resolvemos no local.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+        <div>
+          <h3>Instalação, configuração e upgrades</h3>
+          <p>Novos equipamentos prontos para uso: Windows, drivers, softwares, SSD, memória, monitores.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
+        <div>
+          <h3>Manutenção preventiva agendada</h3>
+          <p>Visitas periódicas para limpeza, atualizações e verificação de saúde dos equipamentos — antes que algo pare.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l9 5v7c0 4-4 7-9 9-5-2-9-5-9-9V7z"/><path d="M8 12l3 3 5-6"/></svg></span>
+        <div>
+          <h3>Inventário de equipamentos</h3>
+          <p>Levantamento completo do parque de TI: modelos, garantias, vida útil — base para decisões de compra.</p>
+        </div>
+      </article>
+    </div>
+
+    <p style="text-align:center;margin-top:24px;font-weight:600;color:var(--muted)" class="reveal" data-d="3">
+      Atendimentos podem ser pontuais ou recorrentes, <strong>conforme agenda disponível</strong>. Não prometemos SLA fixo nem disponibilidade garantida — é uma operação de uma pessoa, em horário parcial.
+    </p>
+
+    <div style="text-align:center;margin-top:28px" class="reveal" data-d="4">
+      <a class="btn btn-whats pulse" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20suporte%20t%C3%A9cnico%20para%20minha%20empresa." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
+        Agendar suporte para minha empresa
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq" class="section-pad" aria-labelledby="faq-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Dúvidas frequentes</span>
+      <h2 class="section-title reveal" id="faq-titulo" data-d="1">Perguntas <span class="grad-text">frequentes</span></h2>
+      <p class="section-sub reveal" data-d="2">Respostas diretas para as principais dúvidas. Se não encontrar a sua, chame no WhatsApp.</p>
+    </div>
+
+    <div style="max-width:800px;margin:0 auto" class="faq-list">
+      <details class="faq-item reveal" data-d="1">
+        <summary>Vocês atendem em domicílio?</summary>
+        <p>Sim, mediante agendamento prévio pelo WhatsApp.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="2">
+        <summary>Vocês atendem fora de Belo Horizonte?</summary>
+        <p>Sim, conforme disponibilidade e região de atendimento.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="3">
+        <summary>Vocês fazem orçamento antes do serviço?</summary>
+        <p>Sim. O orçamento é aprovado antes da execução do serviço.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="4">
+        <summary>Vocês formatam computador sem perder meus arquivos?</summary>
+        <p>Primeiro avaliamos os dados existentes. Quando necessário, recomendamos backup antes da formatação.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="5">
+        <summary>Vocês atendem empresas?</summary>
+        <p>Sim, em demandas pontuais ou manutenção recorrente, conforme disponibilidade de agenda.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="6">
+        <summary>Vocês trabalham com notebook?</summary>
+        <p>Sim: manutenção, limpeza interna, troca de pasta térmica, upgrades, formatação, configuração e diagnóstico.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="7">
+        <summary>Vocês configuram Wi-Fi?</summary>
+        <p>Sim: configuração e análise de roteadores, repetidores e redes sem fio.</p>
+      </details>
+
+      <details class="faq-item reveal" data-d="8">
+        <summary>Posso chamar a Innovatis mesmo sem saber qual é o problema?</summary>
+        <p>Sim. Explique os sintomas pelo WhatsApp — a avaliação inicial ajuda a definir o próximo passo, incluindo o agendamento do atendimento.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SEO LOCAL — ATENDIMENTO EM BELO HORIZONTE E REGIÃO
+     ============================================================ -->
+<section id="regiao-atendimento" class="section-pad" aria-labelledby="regiao-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Cobertura</span>
+      <h2 class="section-title reveal" id="regiao-titulo" data-d="1">Atendimento em <span class="grad-text">Belo Horizonte e região</span></h2>
+      <p class="section-sub reveal" data-d="2">Suporte técnico de TI presencial agendado, com cobertura nas principais regiões da capital e cidades vizinhas.</p>
+    </div>
+
+    <div class="diff-grid">
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div>
+          <h3>Belo Horizonte</h3>
+          <p>Céu Azul · Venda Nova · Pampulha · Castelo · Ouro Preto · Centro · Savassi · Lourdes · Funcionários · Santa Efigênia · Barroca · Buritis · Belvedere · Cidade Nova · São Luiz · Padre Eustáquio · São Cristóvão · e demais bairros da capital.</p>
+        </div>
+      </article>
+
+      <article class="diff-card reveal">
+        <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div>
+          <h3>Região Metropolitana</h3>
+          <p>Contagem · Betim · Sabará · Santa Luzia · Ribeirão das Neves · Ibirité · Vespasiano · Lagoa Santa · e demais cidades — atendimento conforme disponibilidade e deslocamento.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="reveal" style="text-align:center;margin-top:24px;color:var(--muted);font-size:.95rem" data-d="3">
+      <strong>Suporte técnico de TI Belo Horizonte</strong>, <strong>manutenção de computadores BH</strong>, <strong>assistência técnica notebook Belo Horizonte</strong>, <strong>manutenção de notebook BH</strong>, <strong>formatação de computador BH</strong>, <strong>TI para pequenas empresas BH</strong> — atendimento presencial agendado onde você estiver.
+    </p>
   </div>
 </section>
 
@@ -1204,7 +1808,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     <div class="section-head">
       <span class="eyebrow reveal">Onde estamos</span>
       <h2 class="section-title reveal" id="mapa-titulo" data-d="1">Base no Céu Azul, <span class="grad-text">BH</span></h2>
-      <p class="section-sub reveal" data-d="2">Atendemos em sua empresa ou residência em toda Belo Horizonte e região metropolitana.</p>
+      <p class="section-sub reveal" data-d="2">Atendimento presencial mediante agendamento prévio pelo WhatsApp. Não há visitas sem hora marcada.</p>
     </div>
 
     <div class="map-frame reveal" data-d="1">
@@ -1215,6 +1819,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
       <div class="marker-card">
         <small>Innovatis Soluções em TI</small>
         <strong>Rua João Gualberto dos Santos, 47<br>Céu Azul · Belo Horizonte/MG · 31580-500</strong>
+        <p style="margin-top:8px;color:var(--brand-strong);font-weight:600;font-size:.85rem">⚠ Base operacional — atendimento presencial mediante agendamento prévio pelo WhatsApp</p>
         <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Jo%C3%A3o+Gualberto+dos+Santos+47,+C%C3%A9u+Azul,+Belo+Horizonte+-+MG,+31580-500" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Traçar rota no Google Maps
@@ -1271,8 +1876,8 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
       </div>
 
       <form class="contact-form reveal" data-d="2" id="contactForm" novalidate>
-        <h3>Peça um orçamento</h3>
-        <p class="form-sub">Preencha abaixo — sua mensagem abre direto no WhatsApp, sem precisar digitar nada nele depois.</p>
+        <h3>Solicite seu agendamento</h3>
+        <p class="form-sub">Preencha abaixo — sua mensagem abre direto no WhatsApp já com o contexto de agendamento.</p>
 
         <div class="field">
           <label for="f-nome">Seu nome</label>
@@ -1285,17 +1890,39 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
         </div>
 
         <div class="field">
-          <label for="f-msg">Como podemos ajudar?</label>
-          <textarea id="f-msg" name="mensagem" placeholder="Ex.: Meu notebook está muito lento e travando. Preciso de uma manutenção em casa." required></textarea>
+          <label for="f-onde">Onde será o atendimento? <span style="color:var(--brand-strong)" aria-hidden="true">*</span></label>
+          <select id="f-onde" name="onde" required>
+            <option value="">Selecione</option>
+            <option value="casa">Minha casa</option>
+            <option value="empresa">Minha empresa</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-equipamento">Qual equipamento/serviço? <span style="color:var(--brand-strong)" aria-hidden="true">*</span></label>
+          <select id="f-equipamento" name="equipamento" required>
+            <option value="">Selecione</option>
+            <option value="notebook">Notebook</option>
+            <option value="computador">Computador (desktop)</option>
+            <option value="rede-wifi">Rede / Wi-Fi</option>
+            <option value="impressora">Impressora</option>
+            <option value="backup-dados">Backup / Recuperação de dados</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">O que está acontecendo? <span style="color:var(--brand-strong)" aria-hidden="true">*</span></label>
+          <textarea id="f-msg" name="mensagem" placeholder="Ex.: Meu notebook está muito lento e travando. Gostaria de agendar uma manutenção em casa." required></textarea>
         </div>
 
         <button class="btn btn-whats" type="submit" id="formSubmit">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
-          Enviar pelo WhatsApp
+          Enviar e agendar no WhatsApp
         </button>
         <p class="form-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Nenhum dado é armazenado: você é redirecionado ao WhatsApp com a mensagem pronta.
+          Nenhum dado é armazenado: você é redirecionado ao WhatsApp com a mensagem de agendamento pronta.
         </p>
       </form>
     </div>
@@ -1307,7 +1934,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 <!-- ============================================================
      WHATSAPP FLUTUANTE
      ============================================================ -->
-<a class="wa-float" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Preciso%20de%20suporte%20de%20TI." target="_blank" rel="noopener" aria-label="Falar com a Innovatis no WhatsApp">
+<a class="wa-float" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Falar com a Innovatis no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
 </a>
 
@@ -1496,7 +2123,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   }
 
   /* ============================================================
-     6. PARTÍCULAS (canvas, hero) — leve; só sem reduzir motion
+     6. PARTÍCULAS (canvas, full-page) — leve; só sem reduzir motion
   ============================================================ */
   var canvas = document.getElementById('particles');
   if (canvas && !reduceMotion) {
@@ -1505,22 +2132,21 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     var rafId = null;
     var running = true;
     var mouse = { x: null, y: null };
-    var COUNT = 60;
+    var COUNT = 80;
     var W = 0, H = 0, DPR = 1;
 
     function readColors() {
       var cs = getComputedStyle(document.documentElement);
       return {
         dot: cs.getPropertyValue('--brand').trim(),
-        line: 'rgba(8,145,178,0.14)',
+        line: 'rgba(8,145,178,0.08)',
         accent: cs.getPropertyValue('--accent').trim()
       };
     }
 
     function resize() {
-      var rect = canvas.parentElement.getBoundingClientRect();
       DPR = Math.min(window.devicePixelRatio || 1, 2);
-      W = rect.width; H = rect.height;
+      W = window.innerWidth; H = window.innerHeight;
       canvas.width = W * DPR; canvas.height = H * DPR;
       canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -1533,9 +2159,9 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
         particles.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
-          r: Math.random() * 1.8 + 0.8
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.6 + 0.6
         });
       }
     }
@@ -1552,7 +2178,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = colors.dot;
-        ctx.globalAlpha = 0.55;
+        ctx.globalAlpha = 0.45;
         ctx.fill();
       }
       ctx.globalAlpha = 1;
@@ -1561,8 +2187,8 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
           var a = particles[i], b = particles[j];
           var dx = a.x - b.x, dy = a.y - b.y;
           var d2 = dx * dx + dy * dy;
-          if (d2 < 130 * 130) {
-            var alpha = (1 - Math.sqrt(d2) / 130) * 0.5;
+          if (d2 < 150 * 150) {
+            var alpha = (1 - Math.sqrt(d2) / 150) * 0.35;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -1576,9 +2202,9 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
       }
       // Leve conexão com o mouse (destaque ao mover)
       if (mouse.x !== null && mouse.y !== null) {
-        ctx.globalAlpha = 0.5;
+        ctx.globalAlpha = 0.4;
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 26, 0, Math.PI * 2);
+        ctx.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2);
         ctx.fillStyle = colors.accent;
         ctx.fill();
         ctx.globalAlpha = 1;
@@ -1586,25 +2212,137 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
       if (running) rafId = window.requestAnimationFrame(step);
     }
 
-    canvas.parentElement.addEventListener('mousemove', function (ev) {
-      var rect = canvas.parentElement.getBoundingClientRect();
-      mouse.x = ev.clientX - rect.left;
-      mouse.y = ev.clientY - rect.top;
+    window.addEventListener('mousemove', function (ev) {
+      mouse.x = ev.clientX;
+      mouse.y = ev.clientY;
     });
-    canvas.parentElement.addEventListener('mouseleave', function () { mouse.x = null; mouse.y = null; });
+    window.addEventListener('mouseleave', function () { mouse.x = null; mouse.y = null; });
 
-    var heroIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting && !running) { running = true; rafId = window.requestAnimationFrame(step); }
-        else if (!e.isIntersecting) { running = false; if (rafId) cancelAnimationFrame(rafId); }
-      });
-    }, { threshold: 0.05 });
-    heroIO.observe(canvas);
+    // Pause when tab not visible (Page Visibility API)
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { running = false; if (rafId) cancelAnimationFrame(rafId); }
+      else { running = true; rafId = window.requestAnimationFrame(step); }
+    });
 
     window.addEventListener('resize', resize, { passive: true });
     resize();
     running = true;
     rafId = window.requestAnimationFrame(step);
+  }
+
+  /* ============================================================
+     6b. HERO TICKETS CAROUSEL
+  ============================================================ */
+  var heroCarousel = document.querySelector('.hero-carousel');
+  if (heroCarousel && !reduceMotion) {
+    var heroTrack = document.getElementById('heroCarouselTrack');
+    var heroPrevBtn = heroCarousel.querySelector('.hero-carousel-prev');
+    var heroNextBtn = heroCarousel.querySelector('.hero-carousel-next');
+    var heroDotsWrap = heroCarousel.querySelector('.hero-carousel-dots');
+    var heroCards = Array.prototype.slice.call(heroTrack.children);
+    var heroIndex = 0;
+    var heroCardWidth = 0;
+    var heroGap = 20;
+
+    function heroUpdateLayout() {
+      var viewport = heroCarousel.querySelector('.hero-carousel-viewport');
+      var vpWidth = viewport.clientWidth;
+      heroCardWidth = heroCards[0] ? heroCards[0].offsetWidth : vpWidth;
+      // Ensure cards have minimum width
+      heroCards.forEach(function (c) {
+        c.style.flex = '0 0 ' + heroCardWidth + 'px';
+      });
+      heroUpdateDots();
+    }
+
+    function heroUpdateDots() {
+      heroDotsWrap.innerHTML = '';
+      heroCards.forEach(function (_, i) {
+        var btn = document.createElement('button');
+        btn.setAttribute('type', 'button');
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', 'Ir para exemplo ' + (i + 1));
+        btn.setAttribute('aria-selected', i === heroIndex ? 'true' : 'false');
+        btn.addEventListener('click', function () { heroGo(i); });
+        heroDotsWrap.appendChild(btn);
+      });
+    }
+
+    function heroGo(n) {
+      var max = heroCards.length - 1;
+      heroIndex = Math.max(0, Math.min(n, max));
+      var track = document.getElementById('heroCarouselTrack');
+      track.style.transform = 'translateX(-' + (heroIndex * (heroCardWidth + 20)) + 'px)';
+      heroUpdateDots();
+    }
+
+    function heroNext() { heroGo(heroIndex + 1); }
+    function heroPrev() { heroGo(heroIndex - 1); }
+
+    heroPrevBtn.addEventListener('click', heroPrev);
+    heroNextBtn.addEventListener('click', heroNext);
+
+    // Click card -> scroll to corresponding service section
+    heroCards.forEach(function (card) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function () {
+        var service = card.getAttribute('data-service');
+        var targetId = service === 'manutencao' ? 'servicos' : (service === 'empresas' ? 'servicos' : 'servicos');
+        var target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      // Keyboard accessibility
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+      card.setAttribute('tabindex', '0');
+    });
+
+    // Keyboard navigation for carousel
+    heroCarousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { heroPrev(); }
+      else if (e.key === 'ArrowRight') { heroNext(); }
+    });
+
+    // Mouse drag to scroll (desktop)
+    var isDragging = false, startX, scrollLeft;
+    var viewport = heroCarousel.querySelector('.hero-carousel-viewport');
+    viewport.addEventListener('mousedown', function (e) {
+      isDragging = true;
+      viewport.classList.add('dragging');
+      startX = e.pageX - viewport.offsetLeft;
+      scrollLeft = viewport.scrollLeft;
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      var x = e.pageX - viewport.offsetLeft;
+      var walk = (x - startX) * 1.5;
+      viewport.scrollLeft = scrollLeft - walk;
+    });
+    window.addEventListener('mouseup', function () {
+      if (isDragging) {
+        isDragging = false;
+        viewport.classList.remove('dragging');
+        // Snap to nearest card after drag
+        var cardW = heroCardWidth + 20;
+        var index = Math.round(viewport.scrollLeft / cardW);
+        heroGo(index);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      heroUpdateLayout();
+      heroGo(heroIndex);
+    });
+
+    heroUpdateLayout();
+    heroGo(0);
   }
 
   /* ============================================================
@@ -1794,17 +2532,119 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     var fone = document.getElementById('f-fone').value.trim();
     var msg = document.getElementById('f-msg').value.trim();
 
-    if (!nome || !fone || !msg) {
+        var onde = document.getElementById('f-onde').value;
+    var equip = document.getElementById('f-equipamento').value;
+    if (!nome || !fone || !onde || !equip || !msg) {
       var first = form.querySelector(':invalid') || null;
       if (first) first.focus();
       return;
     }
+    var onde = document.getElementById('f-onde').value;
+    var equip = document.getElementById('f-equipamento').value;
+    var ondeLabel = onde === 'casa' ? 'Minha casa' : (onde === 'empresa' ? 'Minha empresa' : onde);
+    var equipLabel = {
+      'notebook': 'Notebook',
+      'computador': 'Computador (desktop)',
+      'rede-wifi': 'Rede / Wi-Fi',
+      'impressora': 'Impressora',
+      'backup-dados': 'Backup / Recuperação de dados',
+      'outro': 'Outro'
+    }[equip] || equip;
     var texto =
       'Olá, Innovatis! Me chamo ' + nome + '.\n' +
-      'Telefone: ' + fone + '\n\n' +
+      'Telefone: ' + fone + '\n' +
+      'Local do atendimento: ' + ondeLabel + '\n' +
+      'Equipamento/Serviço: ' + equipLabel + '\n\n' +
       'Mensagem:\n' + msg;
+    
+    // ANALYTICS EVENT (descomente se tiver GA4/gtag configurado):
+    // if (typeof gtag === 'function') {
+    //   gtag('event', 'whatsapp_click', {
+    //     event_category: 'contato',
+    //     event_label: 'formulario_contato',
+    //     local_atendimento: ondeLabel,
+    //     equipamento: equipLabel
+    //   });
+    // }
+    
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
   });
+
+  /* ============================================================
+     10. ANALYTICS EVENT TRACKING (comentários para implementação futura)
+     ============================================================ */
+  // Se o site tiver Google Analytics (GA4) configurado via gtag(),
+  // descomente e adapte os blocos abaixo para rastrear eventos de clique:
+  //
+  // Botões WhatsApp (todos os CTAs):
+  // document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+  //   btn.addEventListener('click', function() {
+  //     if (typeof gtag === 'function') {
+  //       gtag('event', 'whatsapp_click', {
+  //         event_category: 'contato',
+  //         event_label: this.getAttribute('href').includes('agendar') ? 'agendamento' : 'contato_direto'
+  //       });
+  //     }
+  //   });
+  // });
+  //
+  // Telefone (click-to-call):
+  // document.querySelectorAll('a[href^="tel:"]').forEach(function(btn) {
+  //   btn.addEventListener('click', function() {
+  //     if (typeof gtag === 'function') {
+  //       gtag('event', 'phone_click', { event_category: 'contato' });
+  //     }
+  //   });
+  // });
+  //
+  // Google Maps / Traçar rota:
+  // document.querySelectorAll('a[href*="maps.google"], a[href*="google.com/maps"]').forEach(function(btn) {
+  //   btn.addEventListener('click', function() {
+  //     if (typeof gtag === 'function') {
+  //       gtag('event', 'maps_click', { event_category: 'navegacao' });
+  //     }
+  //   });
+  // });
+  //
+  // Link "Ver avaliações no Google":
+  // document.querySelectorAll('a[href*="google.com/search"]').forEach(function(btn) {
+  //   btn.addEventListener('click', function() {
+  //     if (typeof gtag === 'function') {
+  //       gtag('event', 'reviews_click', { event_category: 'reputacao' });
+  //     }
+  //   });
+  // });
+  //
+  // CTA "Para sua casa" vs "Para sua empresa":
+  // document.querySelectorAll('#publicos .btn-whats').forEach(function(btn) {
+  //   btn.addEventListener('click', function() {
+  //     if (typeof gtag === 'function') {
+  //       var tipo = this.textContent.includes('casa') ? 'residencial' : 'empresarial';
+  //       gtag('event', 'whatsapp_click', {
+  //         event_category: 'contato',
+  //         event_label: 'cta_publico_' + tipo
+  //       });
+  //     }
+  //   });
+  // });
+  //
+  // Envio do formulário:
+  // var form = document.getElementById('contactForm');
+  // form.addEventListener('submit', function(ev) {
+  //   if (typeof gtag === 'function') {
+  //     gtag('event', 'form_submit', {
+  //       event_category: 'contato',
+  //       event_label: 'formulario_agendamento'
+  //     });
+  //   }
+  // });
+  //
+  // IMPORTANTE: Não enviar nome/telefone/mensagem nos eventos de analytics.
+  // Use apenas metadados contextuais (tipo, origem, categoria).
+
+  /* ============================================================
+     10. CURSOR DE DESTAQUE (só em telas com mouse)
+  ============================================================ */});
 
   /* ============================================================
      10. CURSOR DE DESTAQUE (só em telas com mouse)

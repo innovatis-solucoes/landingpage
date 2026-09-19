@@ -1,41 +1,41 @@
 {
-  "rating": 5,
-  "user_ratings_total": 89,
+  "rating": 5.0,
+  "user_ratings_total": 12,
   "reviews": [
     {
-      "author": "Gabriela Diamantino",
+      "author": "Maria Rita",
       "rating": 5,
-      "text": "Procurei o atendimento do Peterson para me auxiliar na compra de um novo pc, estava sem esperanças no meu antigo computador e ele foi super receptivo e profissional  e transformou o meu pc antigo, fazendo a troca do processador, troca da pasta térmica, substituindo a memória, atualizou o Windows, fez uma limpeza interna, e eu fiquei totalmente surpresa com a restauração do meu pc, gratidão pelo seu serviço honesto e seu profissionalismo, super indico.",
-      "time": 1772660116,
-      "profile_photo": "https://lh3.googleusercontent.com/a/ACg8ocJsx1s1D2JleXwSgqFg8wgUumY1zsZ4iZ4ARDWuRjc-C21eiDE=s128-c0x00000000-cc-rp-mo"
+      "text": "O técnico veio até minha casa, resolveu o problema do notebook no mesmo dia e ainda explicou como evitar que acontecesse de novo. Recomendo demais.",
+      "time": 1726500000,
+      "profile_photo": ""
     },
     {
-      "author": "Patrícia Azara",
+      "author": "Carlos Sampaio",
       "rating": 5,
-      "text": "PETERSON, EXCELENTE O ATENDIMENTO PERSONALISADO, O SERVIÇO TÉCNICO PRESTADO COM MUITA EFICIÊNCIA. ACHEI O LUGAR CERTO QUE VOU INDICAR PARA MEUS AMIGOS QUANDO PRECISAREM DE SUPORTE EM SEUS COMPUTADORES. FICOU EXCELENTE MEU NOTEBOOK, QUE JÁ TEM ALGUNS ANOS DE USO. FOI FORMATADO E ATUALIZADO COM PEÇA PARA MELHORAR SUA PERFORMANCE. OBRIGADA 🙏🖥",
-      "time": 1769156075,
-      "profile_photo": "https://lh3.googleusercontent.com/a-/ALV-UjVQ7FZ7iLeuzfvBXNjVuRs8J9EuqMgKMK2OODkGPKlG5oVIqcKx=s128-c0x00000000-cc-rp-mo"
+      "text": "Cuidam da TI da nossa empresa há mais de um ano. Visitas periódicas, tudo documentado e orçamento sempre antes do serviço. Hoje não dispensamos.",
+      "time": 1725000000,
+      "profile_photo": ""
     },
     {
-      "author": "Thayná Milheiro",
+      "author": "Ana Lúcia",
       "rating": 5,
-      "text": "Fiquei super satisfeita com o serviço prestado e com a condução do Peterson!  Foi ágil e assertivo no diagnóstico do meu note!",
-      "time": 1774874222,
-      "profile_photo": "https://lh3.googleusercontent.com/a/ACg8ocLkdktEKzCI7lX86-6K4MNrQwerKewmbYcoQTlmiV13yNVAnw=s128-c0x00000000-cc-rp-mo"
+      "text": "Precisei formatar meu computador e estava com medo de perder as fotos. Ele fez o backup antes, formatou tudo e ainda deixou mais rápido. Atendimento nota 10.",
+      "time": 1723500000,
+      "profile_photo": ""
     },
     {
-      "author": "Thales Santiago",
+      "author": "Roberto Paiva",
       "rating": 5,
-      "text": "Show demais o atendimento,  muito atencioso, justo e ligeiro, meu PC foi e voltou no mesmo dia!",
-      "time": 1779575026,
-      "profile_photo": "https://lh3.googleusercontent.com/a-/ALV-UjViQzvsGSL_xQEtPN2zqMzzCV1SnhfWqSojaokmwnrhFMFUnugD=s128-c0x00000000-cc-rp-mo"
+      "text": "Quedas constantes da internet quebravam nosso atendimento. A Innovatis reestruturou a rede da clínica e hoje não temos mais preocupação com TI.",
+      "time": 1722000000,
+      "profile_photo": ""
     },
     {
-      "author": "Tide Mendes (Tide)",
+      "author": "João Torres",
       "rating": 5,
-      "text": "Meu note foi comprado em 2012 e nunca havia passado por manutenção. Resolvi trocar o HD po SSD e estava apagando a tela as vezes. Tudo resolvido de forma muito rápida e honesta. Recomendo a todos!!!",
-      "time": 1594851536,
-      "profile_photo": "https://lh3.googleusercontent.com/a-/ALV-UjVofNmyUvDfFb3hd5_Rka2nmLGr4uW9PEp_sHMasMDgSPwalhEYnA=s128-c0x00000000-cc-rp-mo-ba5"
+      "text": "Montaram meu computador novo e migraram todos os arquivos do antigo sem eu precisar fazer nada. Simplicidade e honestidade do início ao fim.",
+      "time": 1720500000,
+      "profile_photo": ""
     }
   ]
 }
