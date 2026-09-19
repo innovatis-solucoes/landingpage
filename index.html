@@ -2508,8 +2508,11 @@ section{position:relative;z-index:1}
     });
 
     // Carrega reviews.json (atualizado pelo GitHub Actions diariamente)
-    fetch('reviews.json?v=' + Date.now())
-      .then(function (r) { return r.json(); })
+    fetch('reviews.json?v=' + Date.now(), { cache: 'no-cache' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
       .then(function (data) { initCarousel(data); })
       .catch(function (err) {
         console.warn('Falha ao carregar reviews.json, usando fallback estático', err);
