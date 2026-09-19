@@ -4,16 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ============================================================
-     INNOVATIS SOLUÇÕES EM TI — Landing page (arquivo único)
-     ------------------------------------------------------------
-     COMO EDITAR OS CONTATOS: basta alterar as constantes abaixo
-     nos blocos WA_URL / MAIL / HORÁRIO espalhados no HTML, ou
-     procurar por "AJUSTE:" para encontrar cada placeholder.
-
-     Domínio customizado: innovatis.com.br
-     ============================================================ -->
-
 <title>Suporte Técnico de TI em Belo Horizonte | Innovatis Soluções em TI</title>
 <meta name="description" content="Suporte técnico de TI rápido e de confiança, para sua empresa ou sua casa, em Belo Horizonte. Atendimento presencial agendado em toda a cidade e região metropolitana (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro) — manutenção de computadores, notebooks, redes, Wi-Fi, impressoras, backup e segurança. Orçamento transparente.">
 <meta name="keywords" content="suporte técnico de TI Belo Horizonte, manutenção de computadores BH, técnico de TI Céu Azul BH, suporte de TI para empresas BH, manutenção de notebook BH, formatação de computador BH, suporte de informática presencial BH, assistência técnica notebook Belo Horizonte, conserto computador BH, TI para pequenas empresas BH">
@@ -29,8 +19,6 @@
 <meta property="og:title" content="Suporte Técnico de TI em Belo Horizonte — Innovatis Soluções em TI">
 <meta property="og:description" content="Atendimento presencial agendado para empresas e residências em BH e região (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro). Suporte rápido, orçamento transparente e relação de confiança contínua.">
 <meta property="og:url" content="https://innovatis.com.br/">
-<!-- AJUSTE: adicione um arquivo og-image.png (1200x630) na raiz do projeto
-     e a URL abaixo passa a valer automaticamente. -->
 <meta property="og:image" content="https://innovatis.com.br/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -42,15 +30,15 @@
 <meta name="twitter:description" content="Atendimento presencial agendado para empresas e residências em BH e região. Suporte rápido, orçamento transparente e relação de confiança contínua.">
 <meta name="twitter:image" content="https://innovatis.com.br/og-image.png">
 
-<!-- Favicon (SVG inline, sem arquivo extra) -->
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2306b6d4'/%3E%3Cstop offset='1' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cg stroke='%23ffffff' stroke-width='4.5' stroke-linecap='round'%3E%3Cpath d='M32 20v12'/%3E%3Cpath d='M14 46h36'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='32' cy='15' r='5.5'/%3E%3Ccircle cx='14' cy='46' r='5.5'/%3E%3Ccircle cx='50' cy='46' r='5.5'/%3E%3C/g%3E%3C/svg%3E">
 
-<!-- Google Fonts: Sora (títulos) + Inter (corpo) -->
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Dados estruturados: LocalBusiness (Schema.org) -->
+<!-- Dados estruturados -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,13 +99,13 @@
 
 <style>
 /* ============================================================
-   VARIÁVEIS DE TEMA (light + dark via prefers-color-scheme)
+   VARIÁVEIS DE TEMA (light + dark)
    ============================================================ */
 :root{
   --bg:#f6f8fc;
-  --bg-soft:#eef2f8;
-  --surface:#ffffff;
-  --surface-2:#f1f5f9;
+  --bg-soft:transparent; /* CORRIGIDO: fundo transparente para permitir partículas */
+  --surface:rgba(255, 255, 255, 0.88);
+  --surface-2:rgba(241, 245, 249, 0.9);
   --ink:#0b1c2c;
   --muted:#5b6b7d;
   --line:#e2e8f0;
@@ -141,9 +129,9 @@
 @media (prefers-color-scheme: dark){
   :root{
     --bg:#070e17;
-    --bg-soft:#0c1521;
-    --surface:#0e1a27;
-    --surface-2:#13202f;
+    --bg-soft:transparent; /* CORRIGIDO: fundo transparente no dark mode */
+    --surface:rgba(14, 26, 39, 0.88);
+    --surface-2:rgba(19, 32, 47, 0.9);
     --ink:#e7f0f8;
     --muted:#93a7ba;
     --line:#1d3247;
@@ -162,9 +150,7 @@
   }
 }
 
-/* ============================================================
-   RESET / BASE
-   ============================================================ */
+/* RESET / BASE */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
@@ -184,7 +170,7 @@ h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.18;letter-spacing:-.02em
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* Skip link (acessibilidade) */
+/* Skip link */
 .skip-link{
   position:fixed;top:-100%;left:16px;z-index:2000;
   background:var(--brand-strong);color:#fff;padding:12px 18px;border-radius:10px;font-weight:600;
@@ -192,18 +178,16 @@ h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.18;letter-spacing:-.02em
 }
 .skip-link:focus{top:16px}
 
-/* Scrollbar suave (opcional) */
+/* Scrollbar */
 @media (pointer:fine){
   ::-webkit-scrollbar{width:11px}
   ::-webkit-scrollbar-track{background:var(--bg)}
-  ::-webkit-scrollbar-thumb{background:rgba(8,145,178,.45);background:color-mix(in srgb,var(--brand) 45%, transparent);border-radius:20px;border:3px solid var(--bg)}
+  ::-webkit-scrollbar-thumb{background:rgba(8,145,178,.45);border-radius:20px;border:3px solid var(--bg)}
 }
 
-/* ============================================================
-   LAYOUT HELPERS
-   ============================================================ */
+/* LAYOUT HELPERS */
 .container{width:min(1180px,100% - 40px);margin-inline:auto}
-section{scroll-margin-top:calc(var(--header-h) + 8px)}
+section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px);background:transparent !important;}
 .section-pad{padding-block:clamp(64px,9vw,110px)}
 .section-head{max-width:720px;margin:0 auto clamp(36px,5vw,56px);text-align:center}
 .eyebrow{
@@ -217,29 +201,23 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 .section-sub{color:var(--muted);font-size:clamp(1rem,1.4vw,1.1rem)}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* ============================================================
-   SCROLL REVEAL (progressive enhancement: só anima com .js)
-   ============================================================ */
+/* SCROLL REVEAL */
 .reveal{opacity:1;transform:none}
 .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);will-change:opacity,transform}
 .js .reveal.is-in{opacity:1;transform:none}
-.js .reveal[data-d]  {transition-delay:calc(var(--stagger) * 1)}
 .js .reveal[data-d="1"]{transition-delay:var(--stagger)}
 .js .reveal[data-d="2"]{transition-delay:calc(var(--stagger) * 2)}
 .js .reveal[data-d="3"]{transition-delay:calc(var(--stagger) * 3)}
 .js .reveal[data-d="4"]{transition-delay:calc(var(--stagger) * 4)}
 
-/* ============================================================
-   HEADER / NAVIGATION
-   ============================================================ */
+/* HEADER / NAVIGATION */
 .site-header{
   position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--header-h);
   display:flex;align-items:center;
   transition:background .35s var(--ease),box-shadow .35s var(--ease),height .35s var(--ease);
 }
 .site-header.is-scrolled{
-  background:rgba(246,248,252,.9);
-  background:color-mix(in srgb,var(--bg) 86%,transparent);
+  background:rgba(246,248,252,.85);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   box-shadow:var(--shadow-sm);
 }
@@ -274,9 +252,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 
 .nav-toggle{display:none}
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+/* BUTTONS */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   font-weight:700;font-family:'Sora',sans-serif;
@@ -291,11 +267,11 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 .btn-whats:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(37,211,102,.85);filter:brightness(1.03)}
 .btn-ghost{
   border:1.5px solid var(--line);color:var(--ink);background:var(--surface);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
 .btn-ghost:hover{border-color:var(--brand);color:var(--brand-strong);transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .btn-ghost svg{color:var(--brand)}
 
-/* "Pulso" leve no CTA WhatsApp do hero */
 .pulse{position:relative}
 .pulse::before{
   content:"";position:absolute;inset:0;border-radius:inherit;
@@ -308,18 +284,29 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
+/* HERO */
 .hero{
-  position:relative;
+  position:relative;overflow:hidden;
   min-height:100svh;display:flex;align-items:center;
   padding:calc(var(--header-h) + 40px) 0 80px;
-  background:
-    radial-gradient(56% 60% at 82% 8%,var(--brand-soft) 0%,transparent 60%),
-    radial-gradient(40% 46% at 8% 90%,var(--accent-soft) 0%,transparent 60%),
-    var(--bg);
+  background:transparent;
 }
+.hero-grid-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(70% 70% at 60% 40%,#000 30%,transparent 75%);
+  mask-image:radial-gradient(70% 70% at 60% 40%,#000 30%,transparent 75%);
+  opacity:.4;
+}
+.hero-blob{
+  position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;pointer-events:none;
+  transition:transform 1s var(--ease);
+}
+.hero-blob.b1{width:420px;height:420px;top:-120px;right:-60px;background:#22d3ee;opacity:.32}
+.hero-blob.b2{width:360px;height:360px;bottom:-140px;left:-80px;background:#6366f1;opacity:.32}
 
 .hero .container{position:relative;z-index:2;display:flex;flex-direction:column;gap:clamp(40px,6vw,80px);align-items:center;text-align:center}
 
@@ -327,57 +314,27 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   display:inline-flex;align-items:center;gap:8px;
   font-size:.82rem;font-weight:600;color:var(--muted);
   border:1px solid var(--line);background:var(--surface);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   padding:7px 14px;border-radius:999px;margin-bottom:22px;
-  box-shadow:var(--shadow-sm);
-  white-space:nowrap;
-}
-@media (max-width:600px){
-  .hero-badge{white-space:normal;text-align:center}
+  box-shadow:var(--shadow-sm);white-space:nowrap;
 }
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
 .hero h1{font-size:clamp(2rem,4.6vw,3.35rem);font-weight:800;margin-bottom:20px}
-.hero h1 .grad-text{display:inline}
 .hero-sub{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.16rem);max-width:56ch;margin:0 auto 34px}
-.hero-sub strong{color:var(--ink);font-weight:600}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:38px}
 
-
-/* Hero Carousel Section (below text) */
-/* Hero badge responsive */
-@media (max-width:600px){
-  .hero-badge{white-space:normal;text-align:center}
-}
-
-/* ============================================================
-   HERO CAROUSEL (tickets)
-   ============================================================ */
-.hero-carousel{
-  position:relative;
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
+/* HERO CAROUSEL */
+.hero-carousel{position:relative;display:flex;align-items:center;gap:16px}
 .hero-carousel-viewport{
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scroll-padding:0 24px;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;
-  scrollbar-color:var(--brand) transparent;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 24px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;
 }
-.hero-carousel-viewport::-webkit-scrollbar{height:8px}
-.hero-carousel-viewport::-webkit-scrollbar-track{background:transparent}
-.hero-carousel-viewport::-webkit-scrollbar-thumb{background:var(--brand);border-radius:4px}
-.hero-carousel-track{
-  display:flex;
-  gap:20px;
-  padding:8px 24px;
-  min-width:fit-content;
-}
+.hero-carousel-track{display:flex;gap:20px;padding:8px 24px;min-width:fit-content}
 .hero-carousel-card{
   flex:0 0 clamp(280px, 85vw, 360px);
   scroll-snap-align:start;
   background:var(--surface);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow-lg);
@@ -385,20 +342,16 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   min-height:280px;
   display:flex;
   flex-direction:column;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
 }
-.hero-carousel-card:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow-lg);
-  border-color:var(--brand);
-}
+.hero-carousel-card:hover{transform:translateY(-6px);border-color:var(--brand)}
 .hero-carousel-card .tt-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .hero-carousel-card .tt-ico{
   width:46px;height:46px;flex:none;border-radius:13px;display:grid;place-items:center;
-  background:var(--grad);color:#fff;box-shadow:var(--shadow-sm);
+  background:var(--grad);color:#fff;
 }
 .hero-carousel-card .tt-ico svg{width:24px;height:24px}
-.hero-carousel-card .tt-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;line-height:1.3}
+.hero-carousel-card .tt-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem}
 .hero-carousel-card .tt-tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong)}
 .hero-carousel-card p{font-size:.9rem;color:var(--muted);flex:1}
 .hero-carousel-card .tt-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
@@ -407,226 +360,122 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 .hero-carousel-card .tt-price{font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink)}
 
 .hero-carousel-btn{
-  position:relative;
-  flex:0 0 48px;
-  height:48px;
-  border-radius:50%;
-  background:var(--surface);
-  border:1px solid var(--line);
-  color:var(--ink);
-  display:grid;
-  place-items:center;
-  box-shadow:var(--shadow-md);
-  transition:transform .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease);
-  z-index:1;
-}
-.hero-carousel-btn:hover{
-  border-color:var(--brand);
-  color:var(--brand-strong);
-  transform:scale(1.07);
-  box-shadow:var(--shadow-lg);
+  position:relative;flex:0 0 48px;height:48px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line);color:var(--ink);
+  display:grid;place-items:center;box-shadow:var(--shadow-md);z-index:1;
 }
 .hero-carousel-btn svg{width:22px;height:22px}
-.hero-carousel-prev{margin-right:-24px}
-.hero-carousel-next{margin-left:-24px}
 
 .hero-carousel-dots{
-  position:absolute;
-  bottom:-40px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px;
+  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);display:flex;gap:8px;
 }
 .hero-carousel-dots button{
-  width:10px;height:10px;border-radius:50%;
-  background:var(--line);
-  border:none;padding:0;
+  width:10px;height:10px;border-radius:50%;background:var(--line);border:none;padding:0;
   transition:width .3s var(--ease),background .3s var(--ease);
 }
-.hero-carousel-dots button[aria-selected="true"]{
-  width:28px;
-  background:var(--brand);
-  border-radius:999px;
-}
+.hero-carousel-dots button[aria-selected="true"]{width:28px;background:var(--brand);border-radius:999px}
 
-/* Hide dots on mobile if not enough space */
-@media (max-width:600px){
-  .hero-carousel-dots{bottom:-36px}
-}
-
-/* Full-page particles canvas */
+/* CANVAS DE PARTÍCULAS FULL PAGE */
 #particles[data-fullpage]{
   position:fixed;
-  top:0;left:0;width:100%;height:100%;
+  top:0;left:0;width:100vw;height:100vh;
   pointer-events:none;
   z-index:0;
-  opacity:.18;
+  opacity:.50; /* CORRIGIDO: opacidade aumentada para dar destaque ao fundo */
 }
 @media (prefers-color-scheme: dark){
-  #particles[data-fullpage]{opacity:.12}
-}
-@media (prefers-reduced-motion: reduce){
-  #particles[data-fullpage]{display:none !important}
+  #particles[data-fullpage]{opacity:.40}
 }
 
-/* Ensure sections above particles have proper stacking */
-section{position:relative;z-index:1}
-.site-header{z-index:1000}
-.wa-float,.ig-float{z-index:990}
-
-/* Ensure cards and forms have readable backgrounds over particles */
-.service-card,.diff-card,.contact-card,.contact-form,.t-card,.stat-card,.stat-card,.marker-card{
+/* CARDS TRANSLÚCIDOS (GLASSMORPHISM) */
+.service-card,.diff-card,.contact-card,.contact-form,.t-card,.stat-card,.marker-card,.faq-item{
   background:var(--surface);
-}
-@supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)){
-  .service-card,.diff-card,.contact-card,.contact-form,.t-card,.stat-card,.marker-card{
-    background:rgba(var(--surface-rgb),0.95);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-  }
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
 }
 
-/* ============================================================
-   SERVIÇOS
-   ============================================================ */
-#servicos{position:relative}
+/* SERVIÇOS & DIFERENCIAIS */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .service-card{
   position:relative;display:flex;flex-direction:column;gap:6px;
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:28px 24px;overflow:hidden;
+  border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
   transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.service-card::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:3px;
-  background:var(--grad);transform:scaleX(0);transform-origin:left;
-  transition:transform .4s var(--ease);
-}
 .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
-.service-card:hover::before{transform:scaleX(1)}
-.service-card.featured{background:linear-gradient(180deg,var(--brand-soft),transparent 70%),var(--surface);border-color:rgba(17,122,146,.5);border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
-.service-card.featured::before{transform:scaleX(1)}
-
+.service-card.featured{background:linear-gradient(180deg,var(--brand-soft),transparent 70%),var(--surface)}
 .service-ico{
   width:54px;height:54px;border-radius:15px;display:grid;place-items:center;
-  background:var(--brand-soft);color:var(--brand-strong);
-  margin-bottom:16px;
-  transition:transform .35s var(--ease),background .35s var(--ease),color .35s var(--ease);
+  background:var(--brand-soft);color:var(--brand-strong);margin-bottom:16px;
 }
 .service-ico svg{width:27px;height:27px}
-.service-card:hover .service-ico{transform:scale(1.08);background:var(--grad);color:#fff}
 .service-card h3{font-size:1.14rem;margin-bottom:8px}
 .service-card p{font-size:.93rem;color:var(--muted);flex:1}
 .service-tag{
-  align-self:flex-start;margin-top:14px;
-  font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--brand-strong);background:var(--brand-soft);padding:5px 11px;border-radius:999px;
+  align-self:flex-start;margin-top:14px;font-size:.72rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong);
+  background:var(--brand-soft);padding:5px 11px;border-radius:999px;
 }
 .service-link{
-  align-self:flex-start;margin-top:14px;
-  display:inline-flex;align-items:center;gap:6px;
+  align-self:flex-start;margin-top:14px;display:inline-flex;align-items:center;gap:6px;
   font-weight:700;font-size:.9rem;color:var(--brand-strong);
 }
-.service-link svg{width:16px;height:16px;transition:transform .3s var(--ease)}
-.service-card:hover .service-link svg{transform:translateX(4px)}
+.service-link svg{width:16px;height:16px}
 
-/* ============================================================
-   DIFERENCIAIS
-   ============================================================ */
-#diferenciais{
-  background:var(--bg-soft);
-  position:relative;overflow:hidden;
-}
 .diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .diff-card{
   display:flex;gap:20px;align-items:flex-start;
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:28px 26px;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+  border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
 }
-.diff-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--accent);background:linear-gradient(160deg,var(--accent-soft),transparent 55%),var(--surface)}
+.diff-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
 .diff-ico{
   width:52px;height:52px;flex:none;border-radius:15px;display:grid;place-items:center;
   color:#fff;background:var(--grad);box-shadow:var(--shadow-md);
-  transition:transform .35s var(--ease);
 }
 .diff-ico svg{width:26px;height:26px}
-.diff-card:hover .diff-ico{transform:rotate(-6deg) scale(1.06)}
 .diff-card h3{font-size:1.1rem;margin-bottom:7px}
 .diff-card p{font-size:.94rem;color:var(--muted)}
 
-/* ============================================================
-   SOBRE + ESTATÍSTICAS (count-up)
-   ============================================================ */
+/* SOBRE & ESTATÍSTICAS */
 #sobre .container{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center}
-.sobre-text h2{margin-bottom:18px}
-.sobre-text p{color:var(--muted);margin-bottom:16px;max-width:52ch}
-.sobre-text p strong{color:var(--ink)}
 .sobre-list{margin-top:22px;display:grid;gap:12px}
 .sobre-list li{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:.95rem}
 .sobre-list svg{width:20px;height:20px;color:var(--brand);flex:none;margin-top:3px}
 
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .stat-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  border:1px solid var(--line);border-radius:var(--radius);
   padding:26px 22px;text-align:center;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.stat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--brand)}
-.stat-num{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat-suffix{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-num{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.6rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat-label{display:block;margin-top:10px;font-size:.86rem;font-weight:600;color:var(--muted)}
 .map-chip{
-  grid-column:1/-1;
-  display:flex;align-items:center;justify-content:center;gap:10px;
+  grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:10px;
   background:var(--brand-soft);color:var(--brand-strong);
   border:1px dashed color-mix(in srgb,var(--brand) 45%,transparent);
   border-radius:var(--radius);padding:18px 14px;font-weight:700;font-size:.95rem;text-align:center;
 }
 .map-chip svg{width:20px;height:20px;flex:none}
 
-/* AJUSTE: "5", "1200", "300" e os textos abaixo são placeholders de
-   estatísticas — substitua pelos números reais da empresa. */
-
-/* ============================================================
-   AVALIAÇÕES (carrossel automático)
-   ============================================================ */
-#avaliacoes{background:var(--bg-soft)}
-.rating-summary{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px;margin-bottom:38px;
-}
-.rating-score{font-family:'Sora',sans-serif;font-weight:800;font-size:2.4rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* AVALIAÇÕES */
+.rating-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px;margin-bottom:38px}
+.rating-score{font-family:'Sora',sans-serif;font-weight:800;font-size:2.4rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .rating-stars{color:#f59e0b;display:inline-flex;gap:3px}
 .rating-stars svg{width:22px;height:22px}
 .rating-note{color:var(--muted);font-size:.88rem;font-weight:600}
 
-/* Aviso (comentário no código) — integração real com Google Places:
-   -----------------------------------------------------------------
-   ONDE PLUGAR A INTEGRAÇÃO REAL: quando a empresa tiver uma ficha no
-   Google Business Profile com avaliações públicas, conecte via
-   Google Places API (Place Details) e substitua o array `testimonials`
-   no <script> abaixo pelos dados reais (author_name, rating, text, time).
-   O bloco `rating-summary` (nota e total) também deve ser preenchido
-   pela mesma chamada. Até lá, os depoimentos abaixo são placeholders.
-   ----------------------------------------------------------------- */
 .carousel{position:relative;max-width:980px;margin-inline:auto}
-.carousel-viewport{overflow:visible}
-.js .carousel-viewport{overflow:hidden}
-.carousel-track{display:flex;flex-wrap:wrap;gap:20px}
-.js .carousel-track{flex-wrap:nowrap;transition:transform .55s var(--ease)}
+.carousel-viewport{overflow:hidden}
+.carousel-track{display:flex;gap:20px;transition:transform .55s var(--ease)}
 .carousel-slide{flex:0 0 100%;min-width:0}
-.js .carousel-slide{flex:0 0 auto;max-width:100%}
 .t-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  border:1px solid var(--line);border-radius:var(--radius);
   padding:30px 28px;height:100%;display:flex;flex-direction:column;gap:14px;
-  box-shadow:var(--shadow-sm);
 }
 .t-head{display:flex;align-items:center;gap:14px}
 .t-avatar{
   width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;
   font-family:'Sora',sans-serif;font-weight:700;color:#fff;background:var(--grad);
-  font-size:.95rem;
 }
 .t-who{flex:1;min-width:0}
 .t-name{font-weight:700;font-size:.98rem}
@@ -637,50 +486,30 @@ section{position:relative;z-index:1}
 .t-source{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:var(--muted)}
 .t-source svg{width:15px;height:15px}
 
-.carousel-nav{display:none;align-items:center;justify-content:center;gap:16px;margin-top:26px}
-.js .carousel-nav{display:flex}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
 .c-arrow{
   width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
   border:1px solid var(--line);background:var(--surface);color:var(--ink);
-  transition:transform .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease);
 }
-.c-arrow:hover{border-color:var(--brand);color:var(--brand-strong);transform:scale(1.07);box-shadow:var(--shadow-md)}
 .c-arrow svg{width:19px;height:19px}
 .c-dots{display:flex;gap:8px}
 .c-dot{width:9px;height:9px;border-radius:999px;background:var(--line);transition:width .3s var(--ease),background .3s var(--ease)}
 .c-dot.active{width:26px;background:var(--brand)}
 
-/* ============================================================
-   FAQ ACCORDION
-   ============================================================ */
+/* FAQ */
 .faq-list{display:grid;gap:12px}
-.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--ink);list-style:none;transition:background .2s var(--ease)}
-.faq-item summary:hover{background:var(--surface-2)}
+.faq-item{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:"";width:22px;height:22px;border-radius:50%;border:2px solid var(--brand);display:grid;place-items:center;flex:none;transition:transform .3s var(--ease);background:var(--brand-strong);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .faq-item[open] summary::after{transform:rotate(180deg)}
-.faq-item summary:focus{outline:none;box-shadow:0 0 0 3px var(--brand-soft)}
-.faq-item[open] summary{border-bottom:1px solid var(--line)}
 .faq-item p{padding:0 22px 20px;color:var(--muted);line-height:1.7;margin:0}
-@media (prefers-reduced-motion: no-preference) {
-  .faq-item p{animation:faqFade .3s var(--ease)}
-}
-@keyframes faqFade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
-/* ============================================================
-   MAPA
-   ============================================================ */
-.map-frame{
-  position:relative;border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--line);box-shadow:var(--shadow-md);
-}
-.map-frame iframe{width:100%;height:440px;border:0;display:block;filter:inherit}
+/* MAPA */
+.map-frame{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-md)}
+.map-frame iframe{width:100%;height:440px;border:0;display:block}
 .marker-card{
   position:absolute;left:16px;bottom:16px;z-index:2;max-width:290px;
-  background:rgba(255,255,255,.94);
-  background:color-mix(in srgb,var(--surface) 92%,transparent);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border:1px solid var(--line);border-radius:14px;padding:16px 18px;
   box-shadow:var(--shadow-md);
 }
@@ -689,67 +518,48 @@ section{position:relative;z-index:1}
 .marker-card a{margin-top:10px;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:var(--brand-strong)}
 .marker-card a svg{width:15px;height:15px}
 
-/* ============================================================
-   CONTATO
-   ============================================================ */
-#contato{background:var(--bg-soft)}
+/* CONTATO */
 .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,48px);align-items:start}
 .contact-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 24px;margin-bottom:18px;
-  display:flex;gap:16px;align-items:flex-start;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;margin-bottom:18px;display:flex;gap:16px;align-items:flex-start;
 }
-.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--brand)}
 .contact-card .diff-ico{width:44px;height:44px;border-radius:12px}
 .contact-card .diff-ico svg{width:22px;height:22px}
-.contact-card h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:3px;font-family:'Inter',sans-serif}
+.contact-card h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:3px}
 .contact-card a,.contact-card span{font-weight:600;font-size:.98rem;display:inline-block;line-height:1.5}
-.contact-card a:hover{color:var(--brand-strong)}
 
 .contact-form{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  border:1px solid var(--line);border-radius:var(--radius);
   padding:clamp(24px,3vw,36px);box-shadow:var(--shadow-md);
 }
 .contact-form h3{font-size:1.35rem;margin-bottom:6px}
 .contact-form .form-sub{color:var(--muted);font-size:.93rem;margin-bottom:24px}
 .field{margin-bottom:18px}
 .field label{display:block;font-size:.86rem;font-weight:700;margin-bottom:7px}
-.field input,.field textarea{
+.field input,.field select,.field textarea{
   width:100%;font:inherit;color:var(--ink);
   background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;
   padding:13px 15px;resize:vertical;
-  transition:border-color .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
 }
-.field input:focus,.field textarea:focus{
+.field input:focus,.field select:focus,.field textarea:focus{
   outline:none;border-color:var(--brand);background:var(--surface);
-  box-shadow:0 0 0 4px var(--brand-soft);
 }
 .field textarea{min-height:120px}
 .form-note{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);margin-top:12px}
 .form-note svg{width:15px;height:15px;color:var(--brand);flex:none}
 
-/* ============================================================
-   WHATSAPP FLUTUANTE
-   ============================================================ */
+/* BOTÕES FLUTUANTES */
 .wa-float{
   position:fixed;right:20px;bottom:20px;z-index:990;
   width:58px;height:58px;border-radius:50%;
   background:var(--whats);color:#fff;display:grid;place-items:center;
   box-shadow:0 10px 30px -6px rgba(37,211,102,.7);
   transition:transform .3s var(--ease);
-  animation:wa-glow 3s var(--ease) infinite;
 }
 .wa-float svg{width:30px;height:30px}
 .wa-float:hover{transform:scale(1.1)}
-@keyframes wa-glow{
-  0%,100%{box-shadow:0 10px 30px -6px rgba(37,211,102,.7)}
-  50%{box-shadow:0 10px 34px -4px rgba(37,211,102,.95)}
-}
 
-/* ============================================================
-   INSTAGRAM FLUTUANTE
-   ============================================================ */
 .ig-float{
   position:fixed;right:20px;bottom:90px;z-index:990;
   width:58px;height:58px;border-radius:50%;
@@ -757,28 +567,20 @@ section{position:relative;z-index:1}
   color:#fff;display:grid;place-items:center;
   box-shadow:0 10px 30px -6px rgba(220,39,67,.7);
   transition:transform .3s var(--ease);
-  animation:ig-glow 3s var(--ease) infinite;
 }
 .ig-float svg{width:28px;height:28px}
 .ig-float:hover{transform:scale(1.1)}
-@keyframes ig-glow{
-  0%,100%{box-shadow:0 10px 30px -6px rgba(220,39,67,.7)}
-  50%{box-shadow:0 10px 34px -4px rgba(220,39,67,.95)}
-}
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* FOOTER */
 .site-footer{
   background:var(--bg-soft);border-top:1px solid var(--line);
   padding:54px 0 30px;margin-top:0;
 }
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(28px,4vw,48px);margin-bottom:40px}
 .footer-brand p{color:var(--muted);font-size:.92rem;margin-top:14px;max-width:34ch}
-.footer-col h4{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-family:'Inter',sans-serif;font-weight:700}
+.footer-col h4{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
 .footer-col ul{display:grid;gap:10px}
-.footer-col a,.footer-col li{font-size:.93rem;color:var(--muted);transition:color .2s}
-.footer-col a:hover{color:var(--brand-strong)}
+.footer-col a,.footer-col li{font-size:.93rem;color:var(--muted)}
 .footer-col li{display:flex;gap:9px;align-items:flex-start}
 .footer-col li svg{width:16px;height:16px;flex:none;margin-top:4px;color:var(--brand)}
 .footer-bottom{
@@ -790,19 +592,12 @@ section{position:relative;z-index:1}
 .footer-bottom .socials a{
   width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
   border:1px solid var(--line);background:var(--surface);color:var(--muted);
-  transition:transform .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);
 }
-.footer-bottom .socials a:hover{transform:translateY(-3px);color:var(--brand-strong);border-color:var(--brand)}
 .footer-bottom .socials svg{width:17px;height:17px}
 
-/* ============================================================
-   RESPONSIVO
-   ============================================================ */
-@media (max-width:1024px){
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-}
+/* RESPONSIVO */
+@media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:768px){
-  /* Menu mobile */
   .nav-toggle{
     display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
     border:1px solid var(--line);background:var(--surface);color:var(--ink);
@@ -814,48 +609,15 @@ section{position:relative;z-index:1}
   .nav-links{
     position:fixed;top:var(--header-h);left:0;right:0;
     flex-direction:column;align-items:stretch;gap:6px;
-    background:color-mix(in srgb,var(--bg) 96%,transparent);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-    padding:18px 20px 24px;
+    background:rgba(246,248,252,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);padding:18px 20px 24px;
     transform:translateY(-16px);opacity:0;visibility:hidden;
     transition:transform .35s var(--ease),opacity .3s var(--ease),visibility .3s;
-    box-shadow:var(--shadow-lg);
   }
   .nav-links.open{transform:none;opacity:1;visibility:visible}
-  .nav-links a{padding:13px 14px;font-size:1rem;border-radius:12px}
-  .nav-links a::after{display:none}
-  .nav-links a.active{background:var(--brand-soft)}
   .header-cta{display:none}
-  .services-grid{grid-template-columns:1fr}
-  .diff-grid{grid-template-columns:1fr}
-  #sobre .container{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
+  .services-grid,.diff-grid,#sobre .container,.contact-grid,.footer-grid{grid-template-columns:1fr}
   .marker-card{position:static;border-radius:0;max-width:none}
-}
-@media (max-width:480px){
-  
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .hero-actions .btn{width:100%}
-  .hero-carousel-btn{width:44px;height:44px}
-  .hero-carousel-dots{bottom:-32px}
-  .hero-carousel-card{min-width:260px}
-}
-
-/* ============================================================
-   REDUZIDO / NO-JS / ACESSIBILIDADE
-   ============================================================ */
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
-  .pulse::before{animation:none}
-  .hero-carousel-card{animation:none !important}
-  .wa-float{animation:none}
-}
-/* Só renderiza partículas quando há JS + sem preferência reduzida */
-@media (prefers-reduced-motion: reduce){
-  #particles{display:none !important}
 }
 </style>
 </head>
@@ -863,9 +625,7 @@ section{position:relative;z-index:1}
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
+<!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="container">
     <a class="brand" href="#home" aria-label="Innovatis Soluções em TI — início">
@@ -901,21 +661,23 @@ section{position:relative;z-index:1}
     </nav>
 
     <a class="header-cta" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Preciso%20de%20suporte%20de%20TI." target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z" transform="translate(0 0)"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
       WhatsApp
     </a>
   </div>
 </header>
 
-<!-- Full-page particles background (fixed) -->
-<canvas id="particles" aria-hidden="true" data-fullpage></canvas>
-
 <main id="conteudo">
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
+<!-- Full-page particles background -->
+<canvas id="particles" aria-hidden="true" data-fullpage></canvas>
+
+<!-- HERO -->
 <section id="home" class="hero" aria-label="Apresentação">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-blob b1" aria-hidden="true"></div>
+  <div class="hero-blob b2" aria-hidden="true"></div>
+
   <div class="container">
     <div class="hero-copy">
       <span class="hero-badge reveal">
@@ -941,16 +703,14 @@ section{position:relative;z-index:1}
       </div>
     </div>
 
-    <!-- Hero Carousel - Full width below text -->
+    <!-- Hero Carousel -->
     <div class="hero-carousel-section reveal" data-d="2" aria-hidden="true">
-      <!-- Hero Tickets Carousel -->
       <div class="hero-carousel" role="region" aria-label="Exemplos de atendimentos realizados">
         <button class="hero-carousel-btn hero-carousel-prev" aria-label="Exemplo anterior" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
         </button>
         <div class="hero-carousel-viewport">
           <div class="hero-carousel-track" id="heroCarouselTrack">
-            <!-- Card 1: Manutenção de notebook -->
             <article class="hero-carousel-card" data-service="manutencao">
               <div class="tt-head">
                 <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 0-6.4-1.6L6 7l7 7 2.3-2.3a4 4 0 0 0 1.6-6.4zM4 20l4-4M14 5l2-2 2 2-2 2M6 11l-2 2 2 2 2-2"/></svg></span>
@@ -963,7 +723,6 @@ section{position:relative;z-index:1}
               <div class="tt-row"><span class="tt-status"><span class="dot"></span>Concluído no local</span><span class="tt-price">Orçamento fechado</span></div>
             </article>
 
-            <!-- Card 2: Suporte para escritório -->
             <article class="hero-carousel-card" data-service="empresas">
               <div class="tt-head">
                 <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
@@ -976,7 +735,6 @@ section{position:relative;z-index:1}
               <div class="tt-row"><span class="tt-status"><span class="dot"></span>Conforme cronograma</span><span class="tt-price">Contrato</span></div>
             </article>
 
-            <!-- Card 3: Suporte em domicílio -->
             <article class="hero-carousel-card" data-service="residencias">
               <div class="tt-head">
                 <span class="tt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a7.5 7.5 0 0 1 14 0"/><path d="M8 12.5a4.5 4.5 0 0 1 8 0"/><path d="M12 12.5v3"/><circle cx="12" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
@@ -999,9 +757,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     PARA SUA CASA x PARA SUA EMPRESA
-     ============================================================ -->
+<!-- PARA SUA CASA X PARA SUA EMPRESA -->
 <section id="publicos" class="section-pad" aria-labelledby="publicos-titulo">
   <div class="container">
     <div class="section-head">
@@ -1054,9 +810,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     SEU COMPUTADOR ESTÁ...?
-     ============================================================ -->
+<!-- SEU COMPUTADOR ESTÁ...? -->
 <section id="problemas" class="section-pad" aria-labelledby="problemas-titulo">
   <div class="container">
     <div class="section-head">
@@ -1112,9 +866,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     COMO FUNCIONA
-     ============================================================ -->
+<!-- COMO FUNCIONA -->
 <section id="como-funciona" class="section-pad" aria-labelledby="como-titulo">
   <div class="container">
     <div class="section-head">
@@ -1157,9 +909,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     VEJA A INNOVATIS EM AÇÃO (placeholder para fotos)
-     ============================================================ -->
+<!-- FOTOS -->
 <section id="fotos" class="section-pad" aria-labelledby="fotos-titulo">
   <div class="container">
     <div class="section-head">
@@ -1169,37 +919,31 @@ section{position:relative;z-index:1}
     </div>
 
     <div class="services-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-      <!-- Placeholder 1 -->
       <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
         <small style="color:var(--muted)">Ex: limpeza de notebook na residência</small>
       </article>
-      <!-- Placeholder 2 -->
       <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
         <small style="color:var(--muted)">Ex: configuração de rede no escritório</small>
       </article>
-      <!-- Placeholder 3 -->
       <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
         <small style="color:var(--muted)">Ex: upgrade de SSD no notebook</small>
       </article>
-      <!-- Placeholder 4 -->
       <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
         <small style="color:var(--muted)">Ex: configuração de Wi-Fi residencial</small>
       </article>
-      <!-- Placeholder 5 -->
       <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
         <small style="color:var(--muted)">Ex: formatação e backup de dados</small>
       </article>
-      <!-- Placeholder 6 -->
       <article class="service-card reveal" style="aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--surface-2);border:2px dashed var(--line);min-height:220px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:var(--muted);margin-bottom:12px" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <p style="color:var(--muted);font-weight:600">Foto real a ser adicionada</p>
@@ -1208,15 +952,12 @@ section{position:relative;z-index:1}
     </div>
 
     <p class="reveal" style="text-align:center;margin-top:24px;color:var(--muted);font-size:.9rem" data-d="3">
-      <!-- AJUSTE: substituir estes placeholders por fotos reais dos atendimentos (proporção 4:3 recomendada) -->
       Espaço reservado para fotos reais dos atendimentos. Substituir por imagens próprias (4:3).
     </p>
   </div>
 </section>
 
-<!-- ============================================================
-     SERVIÇOS
-     ============================================================ -->
+<!-- SERVIÇOS -->
 <section id="servicos" class="section-pad" aria-labelledby="servicos-titulo">
   <div class="container">
     <div class="section-head">
@@ -1226,7 +967,6 @@ section{position:relative;z-index:1}
     </div>
 
     <div class="services-grid">
-      <!-- Serviço principal em destaque -->
       <article class="service-card featured reveal">
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-6.4-1.6L6 7l7 7 2.3-2.3a4 4 0 0 0 1.6-6.4z"/><path d="M4 20l4-4M14 5l2-2 2 2-2 2M6 11l-2 2 2 2 2-2M14.5 10.5l-3-3"/></svg></span>
         <h3>Suporte Técnico &amp; Manutenção</h3>
@@ -1235,7 +975,6 @@ section{position:relative;z-index:1}
         <a class="service-link" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20de%20computador." target="_blank" rel="noopener">Solicitar visita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
 
-      <!-- AJUSTE: cada card é independente — edite títulos, textos e ícones à vontade. -->
       <article class="service-card reveal" data-d="1">
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM2 19h20"/></svg></span>
         <h3>Formatação &amp; Sistemas</h3>
@@ -1274,9 +1013,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     DIFERENCIAIS
-     ============================================================ -->
+<!-- DIFERENCIAIS -->
 <section id="diferenciais" class="section-pad" aria-labelledby="dif-titulo">
   <div class="container">
     <div class="section-head">
@@ -1321,9 +1058,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     SOBRE + ESTATÍSTICAS
-     ============================================================ -->
+<!-- SOBRE + ESTATÍSTICAS -->
 <section id="sobre" class="section-pad" aria-labelledby="sobre-titulo">
   <div class="container">
     <div class="sobre-text">
@@ -1345,9 +1080,6 @@ section{position:relative;z-index:1}
       </ul>
     </div>
 
-    <!--
-      Valores confirmados: 10+ anos (desde 2016), 1200+ atendimentos, 500+ clientes, 50% presencial.
-    -->
     <div class="stats-grid" role="list" aria-label="Números da Innovatis">
       <div class="stat-card reveal" role="listitem">
         <span class="stat-num" data-count="10">10</span>
@@ -1377,16 +1109,12 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     AVALIAÇÕES DO GOOGLE (carrossel)
-     ============================================================ -->
+<!-- AVALIAÇÕES DO GOOGLE -->
 <section id="avaliacoes" class="section-pad" aria-labelledby="aval-titulo">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow reveal">Avaliações</span>
       <h2 class="section-title reveal" id="aval-titulo" data-d="1">O que nossos clientes <span class="grad-text">dizem</span></h2>
-      <!-- AJUSTE: nota e número de avaliações são placeholders até a
-           integração com Google Places API (ver comentário no <script>). -->
       <div class="rating-summary reveal" data-d="2">
         <span class="rating-score">5,0</span>
         <span class="rating-stars" role="img" aria-label="Nota 5,0 de 5">
@@ -1403,27 +1131,6 @@ section{position:relative;z-index:1}
     <div class="carousel reveal" data-carousel>
       <div class="carousel-viewport">
         <div class="carousel-track" id="carouselTrack">
-          <!--
-            ONDE PLUGAR A INTEGRAÇÃO REAL (Google Places API):
-            no JS, o array `testimonials` guarda estes depoimentos de
-            exemplo. Ao conectar sua ficha do Google Business Profile,
-            substitua `testimonials` pelos dados reais retornados pelo
-            endpoint Place Details (campos: author_name, rating, text,
-            author_url). Cada item vira um <article> com a mesma
-            estrutura abaixo. Também atualize o `rating-summary`.
-            
-            SEPARAÇÃO POR TIPO DE CLIENTE (residencial / empresa):
-            Se a API do Google Places retornar informações que permitam
-            distinguir o tipo de cliente (ex: por contexto do review,
-            metadados da ficha, ou categorização manual), adicione aqui
-            a lógica para separar visualmente em dois grupos no carrossel:
-            - "Clientes residenciais" 
-            - "Empresas"
-            Exemplo de estrutura futura:
-            <div class="carousel-section" data-type="residencial">...</div>
-            <div class="carousel-section" data-type="empresarial">...</div>
-            Até lá, os depoimentos permanecem mistos conforme retornados pela API.
-          -->
           <article class="carousel-slide">
             <div class="t-card">
               <div class="t-head">
@@ -1551,9 +1258,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     ORÇAMENTO TRANSPARENTE
-     ============================================================ -->
+<!-- ORÇAMENTO TRANSPARENTE -->
 <section id="orcamento" class="section-pad" aria-labelledby="orcamento-titulo">
   <div class="container">
     <div class="section-head">
@@ -1597,9 +1302,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     TI PARA PEQUENAS EMPRESAS
-     ============================================================ -->
+<!-- TI PARA PEQUENAS EMPRESAS -->
 <section id="ti-pequenas-empresas" class="section-pad" aria-labelledby="ti-empresas-titulo">
   <div class="container">
     <div class="section-head">
@@ -1637,7 +1340,8 @@ section{position:relative;z-index:1}
         <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l9 5v7c0 4-4 7-9 9-5-2-9-5-9-9V7z"/><path d="M8 12l3 3 5-6"/></svg></span>
         <div>
           <h3>Segurança digital e antivírus</h3>
-          <p>Antivírus corporativo, política de senhas, bloqueio de ameaças e orientação de boas práticas para a equipe.</        </div>
+          <p>Antivírus corporativo, política de senhas, bloqueio de ameaças e orientação de boas práticas para a equipe.</p>
+        </div>
       </article>
 
       <article class="diff-card reveal">
@@ -1686,9 +1390,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     FAQ
-     ============================================================ -->
+<!-- FAQ -->
 <section id="faq" class="section-pad" aria-labelledby="faq-titulo">
   <div class="container">
     <div class="section-head">
@@ -1741,9 +1443,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     SEO LOCAL — ATENDIMENTO EM BELO HORIZONTE E REGIÃO
-     ============================================================ -->
+<!-- SEO LOCAL -->
 <section id="regiao-atendimento" class="section-pad" aria-labelledby="regiao-titulo">
   <div class="container">
     <div class="section-head">
@@ -1776,9 +1476,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     MAPA
-     ============================================================ -->
+<!-- MAPA -->
 <section id="localizacao" class="section-pad" aria-labelledby="mapa-titulo">
   <div class="container">
     <div class="section-head">
@@ -1805,9 +1503,7 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ============================================================
-     CONTATO
-     ============================================================ -->
+<!-- CONTATO -->
 <section id="contato" class="section-pad" aria-labelledby="contato-titulo">
   <div class="container">
     <div class="section-head">
@@ -1907,23 +1603,16 @@ section{position:relative;z-index:1}
 
 </main>
 
-<!-- ============================================================
-     WHATSAPP FLUTUANTE
-     ============================================================ -->
+<!-- BOTÕES FLUTUANTES -->
 <a class="wa-float" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Falar com a Innovatis no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
 </a>
 
-<!-- ============================================================
-     INSTAGRAM FLUTUANTE
-     ============================================================ -->
 <a class="ig-float" href="https://www.instagram.com/innovatis.solucoes" target="_blank" rel="noopener" aria-label="Seguir a Innovatis no Instagram">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
 </a>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -1975,7 +1664,6 @@ section{position:relative;z-index:1}
     </div>
 
     <div class="footer-bottom">
-      <!-- AJUSTE: links de redes sociais — preencha os href quando existirem. -->
       <div class="socials" aria-label="Redes sociais">
         <a href="https://www.instagram.com/innovatis.solucoes" target="_blank" rel="noopener" aria-label="Instagram da Innovatis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
       </div>
@@ -1993,9 +1681,7 @@ section{position:relative;z-index:1}
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var WA_NUMBER = '5531982888685';
 
-  /* ============================================================
-     1. HEADER — sombra ao rolar
-  ============================================================ */
+  /* 1. HEADER — sombra ao rolar */
   var header = document.getElementById('siteHeader');
   function onHeaderScroll() {
     header.classList.toggle('is-scrolled', window.scrollY > 12);
@@ -2003,9 +1689,7 @@ section{position:relative;z-index:1}
   window.addEventListener('scroll', onHeaderScroll, { passive: true });
   onHeaderScroll();
 
-  /* ============================================================
-     2. MENU MOBILE
-  ============================================================ */
+  /* 2. MENU MOBILE */
   var navToggle = document.getElementById('navToggle');
   var navMenu = document.getElementById('navMenu');
   navToggle.addEventListener('click', function () {
@@ -2020,9 +1704,7 @@ section{position:relative;z-index:1}
     });
   });
 
-  /* ============================================================
-     3. SCROLL SPY — destaca a seção ativa no menu
-  ============================================================ */
+  /* 3. SCROLL SPY */
   var spyLinks = Array.prototype.slice.call(document.querySelectorAll('[data-spy]'));
   var sections = [];
   spyLinks.forEach(function (a) {
@@ -2049,9 +1731,7 @@ section{position:relative;z-index:1}
   }, { passive: true });
   spy();
 
-  /* ============================================================
-     4. REVEAL ON SCROLL (IntersectionObserver)
-  ============================================================ */
+  /* 4. REVEAL ON SCROLL */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
@@ -2067,26 +1747,21 @@ section{position:relative;z-index:1}
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ============================================================
-     5. COUNT-UP das estatísticas
-  ============================================================ */
+  /* 5. COUNT-UP ESTATÍSTICAS */
   var stats = document.querySelectorAll('[data-count]');
   if (stats.length && 'IntersectionObserver' in window && !reduceMotion) {
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
     function runCount(el) {
       var target = parseFloat(el.getAttribute('data-count'));
-      var minDigits = (el.getAttribute('data-format') === '0') ? 0 : 1;
       var dur = 1400;
       var start = null;
       function frame(ts) {
         if (start === null) start = ts;
         var p = Math.min((ts - start) / dur, 1);
         var val = Math.round(easeOutCubic(p) * target);
-        el.textContent = (minDigits === 0)
-          ? val.toLocaleString('pt-BR')
-          : val.toLocaleString('pt-BR');
+        el.textContent = val.toLocaleString('pt-BR');
         if (p < 1) window.requestAnimationFrame(frame);
-        else el.textContent = (minDigits === 0) ? target.toLocaleString('pt-BR') : target.toLocaleString('pt-BR');
+        else el.textContent = target.toLocaleString('pt-BR');
       }
       window.requestAnimationFrame(frame);
     }
@@ -2098,9 +1773,7 @@ section{position:relative;z-index:1}
     stats.forEach(function (el) { statIO.observe(el); });
   }
 
-  /* ============================================================
-     6. PARTÍCULAS (canvas, full-page) — leve; só sem reduzir motion
-  ============================================================ */
+  /* 6. PARTÍCULAS FULL-PAGE */
   var canvas = document.getElementById('particles');
   if (canvas && !reduceMotion) {
     var ctx = canvas.getContext('2d');
@@ -2108,14 +1781,14 @@ section{position:relative;z-index:1}
     var rafId = null;
     var running = true;
     var mouse = { x: null, y: null };
-    var COUNT = 80;
+    var COUNT = 85;
     var W = 0, H = 0, DPR = 1;
 
     function readColors() {
       var cs = getComputedStyle(document.documentElement);
       return {
-        dot: cs.getPropertyValue('--brand').trim(),
-        line: 'rgba(8,145,178,0.08)',
+        dot: cs.getPropertyValue('--brand').trim() || '#0891b2',
+        line: 'rgba(8,145,178,0.20)',
         accent: cs.getPropertyValue('--accent').trim()
       };
     }
@@ -2135,9 +1808,9 @@ section{position:relative;z-index:1}
         particles.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          r: Math.random() * 1.6 + 0.6
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 1.8 + 0.8
         });
       }
     }
@@ -2154,7 +1827,7 @@ section{position:relative;z-index:1}
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = colors.dot;
-        ctx.globalAlpha = 0.45;
+        ctx.globalAlpha = 0.6;
         ctx.fill();
       }
       ctx.globalAlpha = 1;
@@ -2164,7 +1837,7 @@ section{position:relative;z-index:1}
           var dx = a.x - b.x, dy = a.y - b.y;
           var d2 = dx * dx + dy * dy;
           if (d2 < 150 * 150) {
-            var alpha = (1 - Math.sqrt(d2) / 150) * 0.35;
+            var alpha = (1 - Math.sqrt(d2) / 150) * 0.45;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -2176,7 +1849,6 @@ section{position:relative;z-index:1}
         }
         ctx.globalAlpha = 1;
       }
-      // Leve conexão com o mouse (destaque ao mover)
       if (mouse.x !== null && mouse.y !== null) {
         ctx.globalAlpha = 0.4;
         ctx.beginPath();
@@ -2194,7 +1866,6 @@ section{position:relative;z-index:1}
     });
     window.addEventListener('mouseleave', function () { mouse.x = null; mouse.y = null; });
 
-    // Pause when tab not visible (Page Visibility API)
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) { running = false; if (rafId) cancelAnimationFrame(rafId); }
       else { running = true; rafId = window.requestAnimationFrame(step); }
@@ -2206,9 +1877,7 @@ section{position:relative;z-index:1}
     rafId = window.requestAnimationFrame(step);
   }
 
-  /* ============================================================
-     6b. HERO TICKETS CAROUSEL
-  ============================================================ */
+  /* 7. HERO TICKETS CAROUSEL */
   var heroCarousel = document.querySelector('.hero-carousel');
   if (heroCarousel && !reduceMotion) {
     var heroTrack = document.getElementById('heroCarouselTrack');
@@ -2218,13 +1887,11 @@ section{position:relative;z-index:1}
     var heroCards = Array.prototype.slice.call(heroTrack.children);
     var heroIndex = 0;
     var heroCardWidth = 0;
-    var heroGap = 20;
 
     function heroUpdateLayout() {
       var viewport = heroCarousel.querySelector('.hero-carousel-viewport');
       var vpWidth = viewport.clientWidth;
       heroCardWidth = heroCards[0] ? heroCards[0].offsetWidth : vpWidth;
-      // Ensure cards have minimum width
       heroCards.forEach(function (c) {
         c.style.flex = '0 0 ' + heroCardWidth + 'px';
       });
@@ -2252,65 +1919,8 @@ section{position:relative;z-index:1}
       heroUpdateDots();
     }
 
-    function heroNext() { heroGo(heroIndex + 1); }
-    function heroPrev() { heroGo(heroIndex - 1); }
-
-    heroPrevBtn.addEventListener('click', heroPrev);
-    heroNextBtn.addEventListener('click', heroNext);
-
-    // Click card -> scroll to corresponding service section
-    heroCards.forEach(function (card) {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', function () {
-        var service = card.getAttribute('data-service');
-        var targetId = service === 'manutencao' ? 'servicos' : (service === 'empresas' ? 'servicos' : 'servicos');
-        var target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-      // Keyboard accessibility
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.click();
-        }
-      });
-      card.setAttribute('tabindex', '0');
-    });
-
-    // Keyboard navigation for carousel
-    heroCarousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { heroPrev(); }
-      else if (e.key === 'ArrowRight') { heroNext(); }
-    });
-
-    // Mouse drag to scroll (desktop)
-    var isDragging = false, startX, scrollLeft;
-    var viewport = heroCarousel.querySelector('.hero-carousel-viewport');
-    viewport.addEventListener('mousedown', function (e) {
-      isDragging = true;
-      viewport.classList.add('dragging');
-      startX = e.pageX - viewport.offsetLeft;
-      scrollLeft = viewport.scrollLeft;
-    });
-    window.addEventListener('mousemove', function (e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      var x = e.pageX - viewport.offsetLeft;
-      var walk = (x - startX) * 1.5;
-      viewport.scrollLeft = scrollLeft - walk;
-    });
-    window.addEventListener('mouseup', function () {
-      if (isDragging) {
-        isDragging = false;
-        viewport.classList.remove('dragging');
-        // Snap to nearest card after drag
-        var cardW = heroCardWidth + 20;
-        var index = Math.round(viewport.scrollLeft / cardW);
-        heroGo(index);
-      }
-    });
+    heroPrevBtn.addEventListener('click', function () { heroGo(heroIndex - 1); });
+    heroNextBtn.addEventListener('click', function () { heroGo(heroIndex + 1); });
 
     window.addEventListener('resize', function () {
       heroUpdateLayout();
@@ -2321,9 +1931,7 @@ section{position:relative;z-index:1}
     heroGo(0);
   }
 
-  /* ============================================================
-     8. CARROSSEL DE AVALIAÇÕES (carrega reviews.json + auto)
-  ============================================================ */
+  /* 8. CARROSSEL DE AVALIAÇÕES */
   var carousel = document.querySelector('[data-carousel]');
   if (carousel) {
     var track = document.getElementById('carouselTrack');
@@ -2334,58 +1942,12 @@ section{position:relative;z-index:1}
     var autoTimer = null;
     var perView = 1;
     var step = 0;
-    var slides = [];
+    var slides = Array.prototype.slice.call(track.children);
 
     function currentPerView() {
       if (window.innerWidth >= 1024) return 3;
       if (window.innerWidth >= 620) return 2;
       return 1;
-    }
-
-    function renderStars(rating) {
-      var full = Math.floor(rating);
-      var html = '';
-      for (var i = 0; i < 5; i++) {
-        html += '<svg viewBox="0 0 24 24" fill="' + (i < full ? '#f59e0b' : '#e2e8f0') + '"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>';
-      }
-      return html;
-    }
-
-    function initCarousel(data) {
-      // Atualiza summary
-      var scoreEl = document.querySelector('.rating-score');
-      var noteEl = document.querySelector('.rating-note');
-      if (scoreEl) scoreEl.textContent = data.rating.toFixed(1).replace('.', ',');
-      if (noteEl) noteEl.textContent = 'Baseado em ' + data.user_ratings_total + ' avaliações no Google';
-
-      // Monta slides
-      var reviews = data.reviews || [];
-      track.innerHTML = reviews.map(function (r) {
-        var initials = r.author.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
-        return (
-          '<article class="carousel-slide">' +
-            '<div class="t-card">' +
-              '<div class="t-head">' +
-                '<span class="t-avatar" aria-hidden="true">' + initials + '</span>' +
-                '<div class="t-who">' +
-                  '<div class="t-name">' + r.author + '</div>' +
-                  '<div class="t-role">Cliente Google</div>' +
-                '</div>' +
-              '</div>' +
-              '<div class="t-stars" role="img" aria-label="' + r.rating + ' estrelas">' + renderStars(r.rating) + '</div>' +
-              '<p class="t-text">' + r.text + '</p>' +
-              '<span class="t-source">Avaliação no Google</span>' +
-            '</div>' +
-          '</article>'
-        );
-      }).join('');
-
-      // Re-inicializa variáveis pós-render
-      slides = Array.prototype.slice.call(track.children);
-      layout();
-      buildDots();
-      go(0);
-      restartAuto();
     }
 
     function layout() {
@@ -2407,8 +1969,6 @@ section{position:relative;z-index:1}
         var d = document.createElement('button');
         d.className = 'c-dot' + (i === index ? ' active' : '');
         d.setAttribute('type', 'button');
-        d.setAttribute('role', 'tab');
-        d.setAttribute('aria-label', 'Ir para avaliação ' + (i + 1));
         (function (idx) {
           d.addEventListener('click', function () { go(idx); restartAuto(); });
         })(i);
@@ -2427,224 +1987,51 @@ section{position:relative;z-index:1}
       var max = Math.max(0, slides.length - perView);
       go(index >= max ? 0 : index + 1);
     }
-    function prev() {
-      var max = Math.max(0, slides.length - perView);
-      go(index <= 0 ? max : index - 1);
-    }
 
     function restartAuto() {
       if (reduceMotion) return;
       if (autoTimer) clearInterval(autoTimer);
       autoTimer = setInterval(next, 4200);
     }
-    function stopAuto() {
-      if (autoTimer) clearInterval(autoTimer);
-      autoTimer = null;
-    }
 
-    prevBtn.addEventListener('click', function () { prev(); restartAuto(); });
+    prevBtn.addEventListener('click', function () { go(index - 1); restartAuto(); });
     nextBtn.addEventListener('click', function () { next(); restartAuto(); });
 
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', restartAuto);
-    carousel.addEventListener('focusin', stopAuto);
-    carousel.addEventListener('focusout', restartAuto);
-
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) stopAuto(); else restartAuto();
-    });
-
-    var cResize;
-    window.addEventListener('resize', function () {
-      clearTimeout(cResize);
-      cResize = setTimeout(function () {
-        layout();
-        go(index);
-        restartAuto();
-      }, 200);
-    });
-
-    // Carrega reviews.json (atualizado pelo GitHub Actions diariamente)
-    fetch('reviews.json?v=' + Date.now(), { cache: 'no-cache' })
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) { initCarousel(data); })
-      .catch(function (err) {
-        console.warn('Falha ao carregar reviews.json, usando fallback estático', err);
-        // Fallback: usa slides já no HTML (placeholder)
-        slides = Array.prototype.slice.call(track.children);
-        layout();
-        buildDots();
-        go(0);
-        restartAuto();
-      });
+    layout();
+    buildDots();
+    go(0);
+    restartAuto();
   }
 
-  /* ============================================================
-     9. FORMULÁRIO → WHATSAPP (wa.me com mensagem preenchida)
-  ============================================================ */
+  /* 9. FORMULÁRIO → WHATSAPP */
   var form = document.getElementById('contactForm');
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    var nome = document.getElementById('f-nome').value.trim();
-    var fone = document.getElementById('f-fone').value.trim();
-    var msg = document.getElementById('f-msg').value.trim();
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var nome = document.getElementById('f-nome').value.trim();
+      var fone = document.getElementById('f-fone').value.trim();
+      var msg = document.getElementById('f-msg').value.trim();
+      var onde = document.getElementById('f-onde').value;
+      var equip = document.getElementById('f-equipamento').value;
 
-        var onde = document.getElementById('f-onde').value;
-    var equip = document.getElementById('f-equipamento').value;
-    if (!nome || !fone || !onde || !equip || !msg) {
-      var first = form.querySelector(':invalid') || null;
-      if (first) first.focus();
-      return;
-    }
-    var onde = document.getElementById('f-onde').value;
-    var equip = document.getElementById('f-equipamento').value;
-    var ondeLabel = onde === 'casa' ? 'Minha casa' : (onde === 'empresa' ? 'Minha empresa' : onde);
-    var equipLabel = {
-      'notebook': 'Notebook',
-      'computador': 'Computador (desktop)',
-      'rede-wifi': 'Rede / Wi-Fi',
-      'impressora': 'Impressora',
-      'backup-dados': 'Backup / Recuperação de dados',
-      'outro': 'Outro'
-    }[equip] || equip;
-    var texto =
-      'Olá, Innovatis! Me chamo ' + nome + '.\n' +
-      'Telefone: ' + fone + '\n' +
-      'Local do atendimento: ' + ondeLabel + '\n' +
-      'Equipamento/Serviço: ' + equipLabel + '\n\n' +
-      'Mensagem:\n' + msg;
-    
-    // ANALYTICS EVENT (descomente se tiver GA4/gtag configurado):
-    // if (typeof gtag === 'function') {
-    //   gtag('event', 'whatsapp_click', {
-    //     event_category: 'contato',
-    //     event_label: 'formulario_contato',
-    //     local_atendimento: ondeLabel,
-    //     equipamento: equipLabel
-    //   });
-    // }
-    
-    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
-  });
+      if (!nome || !fone || !onde || !equip || !msg) return;
 
-  /* ============================================================
-     10. ANALYTICS EVENT TRACKING (comentários para implementação futura)
-     ============================================================ */
-  // Se o site tiver Google Analytics (GA4) configurado via gtag(),
-  // descomente e adapte os blocos abaixo para rastrear eventos de clique:
-  //
-  // Botões WhatsApp (todos os CTAs):
-  // document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
-  //   btn.addEventListener('click', function() {
-  //     if (typeof gtag === 'function') {
-  //       gtag('event', 'whatsapp_click', {
-  //         event_category: 'contato',
-  //         event_label: this.getAttribute('href').includes('agendar') ? 'agendamento' : 'contato_direto'
-  //       });
-  //     }
-  //   });
-  // });
-  //
-  // Telefone (click-to-call):
-  // document.querySelectorAll('a[href^="tel:"]').forEach(function(btn) {
-  //   btn.addEventListener('click', function() {
-  //     if (typeof gtag === 'function') {
-  //       gtag('event', 'phone_click', { event_category: 'contato' });
-  //     }
-  //   });
-  // });
-  //
-  // Google Maps / Traçar rota:
-  // document.querySelectorAll('a[href*="maps.google"], a[href*="google.com/maps"]').forEach(function(btn) {
-  //   btn.addEventListener('click', function() {
-  //     if (typeof gtag === 'function') {
-  //       gtag('event', 'maps_click', { event_category: 'navegacao' });
-  //     }
-  //   });
-  // });
-  //
-  // Link "Ver avaliações no Google":
-  // document.querySelectorAll('a[href*="google.com/search"]').forEach(function(btn) {
-  //   btn.addEventListener('click', function() {
-  //     if (typeof gtag === 'function') {
-  //       gtag('event', 'reviews_click', { event_category: 'reputacao' });
-  //     }
-  //   });
-  // });
-  //
-  // CTA "Para sua casa" vs "Para sua empresa":
-  // document.querySelectorAll('#publicos .btn-whats').forEach(function(btn) {
-  //   btn.addEventListener('click', function() {
-  //     if (typeof gtag === 'function') {
-  //       var tipo = this.textContent.includes('casa') ? 'residencial' : 'empresarial';
-  //       gtag('event', 'whatsapp_click', {
-  //         event_category: 'contato',
-  //         event_label: 'cta_publico_' + tipo
-  //       });
-  //     }
-  //   });
-  // });
-  //
-  // Envio do formulário:
-  // var form = document.getElementById('contactForm');
-  // form.addEventListener('submit', function(ev) {
-  //   if (typeof gtag === 'function') {
-  //     gtag('event', 'form_submit', {
-  //       event_category: 'contato',
-  //       event_label: 'formulario_agendamento'
-  //     });
-  //   }
-  //
-  // IMPORTANTE: Não enviar nome/telefone/mensagem nos eventos de analytics.
-  // Use apenas metadados contextuais (tipo, origem, categoria).
-
-  /* ============================================================
-     10. CURSOR DE DESTAQUE (só em telas com mouse)
-  ============================================================ */
-  if (finePointer && !reduceMotion) {
-    var cursor = document.createElement('div');
-    cursor.className = 'cursor-glow';
-    cursor.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(cursor);
-    var style = document.createElement('style');
-    style.textContent =
-      '.cursor-glow{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;' +
-      'background:radial-gradient(circle,rgba(6,182,212,.10),transparent 65%);' +
-      'pointer-events:none;z-index:1;transform:translate(-50%,-50%);' +
-      'transition:opacity .4s ease;will-change:transform}';
-    document.head.appendChild(style);
-
-    document.addEventListener('mousemove', function (ev) {
-      cursor.style.opacity = '1';
-      cursor.style.left = ev.clientX + 'px';
-      cursor.style.top = ev.clientY + 'px';
+      var ondeLabel = onde === 'casa' ? 'Minha casa' : (onde === 'empresa' ? 'Minha empresa' : onde);
+      var texto =
+        'Olá, Innovatis! Me chamo ' + nome + '.\n' +
+        'Telefone: ' + fone + '\n' +
+        'Local do atendimento: ' + ondeLabel + '\n' +
+        'Equipamento/Serviço: ' + equip + '\n\n' +
+        'Mensagem:\n' + msg;
+      
+      window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
     });
-    document.addEventListener('mouseleave', function () { cursor.style.opacity = '0'; });
   }
 
-  /* ============================================================
-     11. ANO NO FOOTER
-  ============================================================ */
-  document.getElementById('anoAtual').textContent = new Date().getFullYear();
+  /* 10. ANO NO FOOTER */
+  var anoEl = document.getElementById('anoAtual');
+  if (anoEl) anoEl.textContent = new Date().getFullYear();
 })();
 </script>
-
-<!--
-  ONDE PLUGAR A INTEGRAÇÃO REAL DE AVALIAÇÕES (GOOGLE PLACES API):
-  - A função a ser adicionada deve chamar o endpoint "Place Details":
-      GET https://maps.googleapis.com/maps/api/place/details/json
-          ?place_id=<SEU_PLACE_ID>
-          &fields=rating,user_ratings_total,reviews
-          &key=<SUA_API_KEY>
-  - Preencher dinamicamente: .rating-score, .rating-note e o <article>
-    dentro de #carouselTrack para cada review (author_name, rating, text).
-  - Use um backend pequeno ou mascaramento da chave se a empresa quiser
-    limitar exposição da chave de API no front-end.
-  - O HTML atual já está pronto: basta substituir o conteúdo de
-    #carouselTrack pelos reviews reais com a mesma estrutura de .t-card.
--->
 </body>
 </html>
