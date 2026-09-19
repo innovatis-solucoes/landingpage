@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ============================================================
+     INNOVATIS SOLUÇÕES EM TI — Landing page (arquivo único)
+     ============================================================ -->
+
 <title>Suporte Técnico de TI em Belo Horizonte | Innovatis Soluções em TI</title>
 <meta name="description" content="Suporte técnico de TI rápido e de confiança, para sua empresa ou sua casa, em Belo Horizonte. Atendimento presencial agendado em toda a cidade e região metropolitana (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro) — manutenção de computadores, notebooks, redes, Wi-Fi, impressoras, backup e segurança. Orçamento transparente.">
 <meta name="keywords" content="suporte técnico de TI Belo Horizonte, manutenção de computadores BH, técnico de TI Céu Azul BH, suporte de TI para empresas BH, manutenção de notebook BH, formatação de computador BH, suporte de informática presencial BH, assistência técnica notebook Belo Horizonte, conserto computador BH, TI para pequenas empresas BH">
@@ -30,15 +34,15 @@
 <meta name="twitter:description" content="Atendimento presencial agendado para empresas e residências em BH e região. Suporte rápido, orçamento transparente e relação de confiança contínua.">
 <meta name="twitter:image" content="https://innovatis.com.br/og-image.png">
 
-<!-- Favicon -->
+<!-- Favicon (SVG inline) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2306b6d4'/%3E%3Cstop offset='1' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cg stroke='%23ffffff' stroke-width='4.5' stroke-linecap='round'%3E%3Cpath d='M32 20v12'/%3E%3Cpath d='M14 46h36'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='32' cy='15' r='5.5'/%3E%3Ccircle cx='14' cy='46' r='5.5'/%3E%3Ccircle cx='50' cy='46' r='5.5'/%3E%3C/g%3E%3C/svg%3E">
 
-<!-- Google Fonts -->
+<!-- Google Fonts: Sora + Inter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Dados estruturados -->
+<!-- Schema.org -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -99,11 +103,11 @@
 
 <style>
 /* ============================================================
-   VARIÁVEIS DE TEMA (light + dark)
+   VARIÁVEIS DE TEMA
    ============================================================ */
 :root{
   --bg:#f6f8fc;
-  --bg-soft:transparent; /* CORRIGIDO: fundo transparente para permitir partículas */
+  --bg-soft:rgba(238, 242, 248, 0.65);
   --surface:rgba(255, 255, 255, 0.88);
   --surface-2:rgba(241, 245, 249, 0.9);
   --ink:#0b1c2c;
@@ -129,7 +133,7 @@
 @media (prefers-color-scheme: dark){
   :root{
     --bg:#070e17;
-    --bg-soft:transparent; /* CORRIGIDO: fundo transparente no dark mode */
+    --bg-soft:rgba(12, 21, 33, 0.65);
     --surface:rgba(14, 26, 39, 0.88);
     --surface-2:rgba(19, 32, 47, 0.9);
     --ink:#e7f0f8;
@@ -187,7 +191,7 @@ h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.18;letter-spacing:-.02em
 
 /* LAYOUT HELPERS */
 .container{width:min(1180px,100% - 40px);margin-inline:auto}
-section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px);background:transparent !important;}
+section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px)}
 .section-pad{padding-block:clamp(64px,9vw,110px)}
 .section-head{max-width:720px;margin:0 auto clamp(36px,5vw,56px);text-align:center}
 .eyebrow{
@@ -210,16 +214,17 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .js .reveal[data-d="3"]{transition-delay:calc(var(--stagger) * 3)}
 .js .reveal[data-d="4"]{transition-delay:calc(var(--stagger) * 4)}
 
-/* HEADER / NAVIGATION */
+/* HEADER / NAVIGATION (CORRIGIDO: USA COR DA PÁGINA) */
 .site-header{
   position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--header-h);
   display:flex;align-items:center;
-  transition:background .35s var(--ease),box-shadow .35s var(--ease),height .35s var(--ease);
+  transition:background .35s var(--ease),box-shadow .35s var(--ease),height .35s var(--ease),border-color .35s var(--ease);
 }
 .site-header.is-scrolled{
-  background:rgba(246,248,252,.85);
+  background:color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   box-shadow:var(--shadow-sm);
+  border-bottom:1px solid var(--line);
 }
 .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
 
@@ -289,7 +294,10 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   position:relative;overflow:hidden;
   min-height:100svh;display:flex;align-items:center;
   padding:calc(var(--header-h) + 40px) 0 80px;
-  background:transparent;
+  background:
+    radial-gradient(56% 60% at 82% 8%,var(--brand-soft) 0%,transparent 60%),
+    radial-gradient(40% 46% at 8% 90%,var(--accent-soft) 0%,transparent 60%),
+    transparent;
 }
 .hero-grid-bg{
   position:absolute;inset:0;pointer-events:none;
@@ -299,10 +307,10 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   background-size:56px 56px;
   -webkit-mask-image:radial-gradient(70% 70% at 60% 40%,#000 30%,transparent 75%);
   mask-image:radial-gradient(70% 70% at 60% 40%,#000 30%,transparent 75%);
-  opacity:.4;
+  opacity:.5;
 }
 .hero-blob{
-  position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;pointer-events:none;
+  position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;
   transition:transform 1s var(--ease);
 }
 .hero-blob.b1{width:420px;height:420px;top:-120px;right:-60px;background:#22d3ee;opacity:.32}
@@ -321,6 +329,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
 .hero h1{font-size:clamp(2rem,4.6vw,3.35rem);font-weight:800;margin-bottom:20px}
 .hero-sub{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.16rem);max-width:56ch;margin:0 auto 34px}
+.hero-sub strong{color:var(--ink);font-weight:600}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:38px}
 
 /* HERO CAROUSEL */
@@ -328,7 +337,11 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .hero-carousel-viewport{
   overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 24px;
   -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  scrollbar-color:var(--brand) transparent;
 }
+.hero-carousel-viewport::-webkit-scrollbar{height:8px}
+.hero-carousel-viewport::-webkit-scrollbar-track{background:transparent}
+.hero-carousel-viewport::-webkit-scrollbar-thumb{background:var(--brand);border-radius:4px}
 .hero-carousel-track{display:flex;gap:20px;padding:8px 24px;min-width:fit-content}
 .hero-carousel-card{
   flex:0 0 clamp(280px, 85vw, 360px);
@@ -342,16 +355,16 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   min-height:280px;
   display:flex;
   flex-direction:column;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.hero-carousel-card:hover{transform:translateY(-6px);border-color:var(--brand)}
+.hero-carousel-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
 .hero-carousel-card .tt-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .hero-carousel-card .tt-ico{
   width:46px;height:46px;flex:none;border-radius:13px;display:grid;place-items:center;
-  background:var(--grad);color:#fff;
+  background:var(--grad);color:#fff;box-shadow:var(--shadow-sm);
 }
 .hero-carousel-card .tt-ico svg{width:24px;height:24px}
-.hero-carousel-card .tt-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem}
+.hero-carousel-card .tt-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;line-height:1.3}
 .hero-carousel-card .tt-tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong)}
 .hero-carousel-card p{font-size:.9rem;color:var(--muted);flex:1}
 .hero-carousel-card .tt-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
@@ -362,9 +375,14 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .hero-carousel-btn{
   position:relative;flex:0 0 48px;height:48px;border-radius:50%;
   background:var(--surface);border:1px solid var(--line);color:var(--ink);
-  display:grid;place-items:center;box-shadow:var(--shadow-md);z-index:1;
+  display:grid;place-items:center;box-shadow:var(--shadow-md);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease);
+  z-index:1;
 }
+.hero-carousel-btn:hover{border-color:var(--brand);color:var(--brand-strong);transform:scale(1.07);box-shadow:var(--shadow-lg)}
 .hero-carousel-btn svg{width:22px;height:22px}
+.hero-carousel-prev{margin-right:-24px}
+.hero-carousel-next{margin-left:-24px}
 
 .hero-carousel-dots{
   position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);display:flex;gap:8px;
@@ -381,63 +399,93 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   top:0;left:0;width:100vw;height:100vh;
   pointer-events:none;
   z-index:0;
-  opacity:.50; /* CORRIGIDO: opacidade aumentada para dar destaque ao fundo */
+  opacity:.50;
 }
 @media (prefers-color-scheme: dark){
   #particles[data-fullpage]{opacity:.40}
 }
+@media (prefers-reduced-motion: reduce){
+  #particles[data-fullpage]{display:none !important}
+}
 
-/* CARDS TRANSLÚCIDOS (GLASSMORPHISM) */
+/* SEÇÕES COM SEU FUNDO TRANSLÚCIDO E CARDS */
+#diferenciais, #avaliacoes, #contato, .site-footer {
+  background:var(--bg-soft);
+}
+
 .service-card,.diff-card,.contact-card,.contact-form,.t-card,.stat-card,.marker-card,.faq-item{
   background:var(--surface);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
 }
 
-/* SERVIÇOS & DIFERENCIAIS */
+/* SERVIÇOS */
+#servicos{position:relative}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .service-card{
   position:relative;display:flex;flex-direction:column;gap:6px;
-  border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 24px;overflow:hidden;
   transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
+.service-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
 .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
-.service-card.featured{background:linear-gradient(180deg,var(--brand-soft),transparent 70%),var(--surface)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card.featured{background:linear-gradient(180deg,var(--brand-soft),transparent 70%),var(--surface);border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
+.service-card.featured::before{transform:scaleX(1)}
+
 .service-ico{
   width:54px;height:54px;border-radius:15px;display:grid;place-items:center;
-  background:var(--brand-soft);color:var(--brand-strong);margin-bottom:16px;
+  background:var(--brand-soft);color:var(--brand-strong);
+  margin-bottom:16px;
+  transition:transform .35s var(--ease),background .35s var(--ease),color .35s var(--ease);
 }
 .service-ico svg{width:27px;height:27px}
+.service-card:hover .service-ico{transform:scale(1.08);background:var(--grad);color:#fff}
 .service-card h3{font-size:1.14rem;margin-bottom:8px}
 .service-card p{font-size:.93rem;color:var(--muted);flex:1}
 .service-tag{
-  align-self:flex-start;margin-top:14px;font-size:.72rem;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong);
-  background:var(--brand-soft);padding:5px 11px;border-radius:999px;
+  align-self:flex-start;margin-top:14px;
+  font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--brand-strong);background:var(--brand-soft);padding:5px 11px;border-radius:999px;
 }
 .service-link{
-  align-self:flex-start;margin-top:14px;display:inline-flex;align-items:center;gap:6px;
+  align-self:flex-start;margin-top:14px;
+  display:inline-flex;align-items:center;gap:6px;
   font-weight:700;font-size:.9rem;color:var(--brand-strong);
 }
-.service-link svg{width:16px;height:16px}
+.service-link svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.service-card:hover .service-link svg{transform:translateX(4px)}
 
+/* DIFERENCIAIS */
+#diferenciais{position:relative;overflow:hidden}
 .diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .diff-card{
   display:flex;gap:20px;align-items:flex-start;
-  border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
 }
-.diff-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.diff-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--accent);background:linear-gradient(160deg,var(--accent-soft),transparent 55%),var(--surface)}
 .diff-ico{
   width:52px;height:52px;flex:none;border-radius:15px;display:grid;place-items:center;
   color:#fff;background:var(--grad);box-shadow:var(--shadow-md);
+  transition:transform .35s var(--ease);
 }
 .diff-ico svg{width:26px;height:26px}
+.diff-card:hover .diff-ico{transform:rotate(-6deg) scale(1.06)}
 .diff-card h3{font-size:1.1rem;margin-bottom:7px}
 .diff-card p{font-size:.94rem;color:var(--muted)}
 
-/* SOBRE & ESTATÍSTICAS */
+/* SOBRE + ESTATÍSTICAS */
 #sobre .container{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center}
+.sobre-text h2{margin-bottom:18px}
+.sobre-text p{color:var(--muted);margin-bottom:16px;max-width:52ch}
+.sobre-text p strong{color:var(--ink)}
 .sobre-list{margin-top:22px;display:grid;gap:12px}
 .sobre-list li{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:.95rem}
 .sobre-list svg{width:20px;height:20px;color:var(--brand);flex:none;margin-top:3px}
@@ -446,11 +494,15 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .stat-card{
   border:1px solid var(--line);border-radius:var(--radius);
   padding:26px 22px;text-align:center;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.stat-num{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.6rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--brand)}
+.stat-num{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-suffix{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat-label{display:block;margin-top:10px;font-size:.86rem;font-weight:600;color:var(--muted)}
 .map-chip{
-  grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:10px;
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:10px;
   background:var(--brand-soft);color:var(--brand-strong);
   border:1px dashed color-mix(in srgb,var(--brand) 45%,transparent);
   border-radius:var(--radius);padding:18px 14px;font-weight:700;font-size:.95rem;text-align:center;
@@ -458,24 +510,31 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .map-chip svg{width:20px;height:20px;flex:none}
 
 /* AVALIAÇÕES */
-.rating-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px;margin-bottom:38px}
-.rating-score{font-family:'Sora',sans-serif;font-weight:800;font-size:2.4rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rating-summary{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px;margin-bottom:38px;
+}
+.rating-score{font-family:'Sora',sans-serif;font-weight:800;font-size:2.4rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .rating-stars{color:#f59e0b;display:inline-flex;gap:3px}
 .rating-stars svg{width:22px;height:22px}
 .rating-note{color:var(--muted);font-size:.88rem;font-weight:600}
 
 .carousel{position:relative;max-width:980px;margin-inline:auto}
-.carousel-viewport{overflow:hidden}
-.carousel-track{display:flex;gap:20px;transition:transform .55s var(--ease)}
+.carousel-viewport{overflow:visible}
+.js .carousel-viewport{overflow:hidden}
+.carousel-track{display:flex;flex-wrap:wrap;gap:20px}
+.js .carousel-track{flex-wrap:nowrap;transition:transform .55s var(--ease)}
 .carousel-slide{flex:0 0 100%;min-width:0}
+.js .carousel-slide{flex:0 0 auto;max-width:100%}
 .t-card{
   border:1px solid var(--line);border-radius:var(--radius);
   padding:30px 28px;height:100%;display:flex;flex-direction:column;gap:14px;
+  box-shadow:var(--shadow-sm);
 }
 .t-head{display:flex;align-items:center;gap:14px}
 .t-avatar{
   width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;
   font-family:'Sora',sans-serif;font-weight:700;color:#fff;background:var(--grad);
+  font-size:.95rem;
 }
 .t-who{flex:1;min-width:0}
 .t-name{font-weight:700;font-size:.98rem}
@@ -486,11 +545,14 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .t-source{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:var(--muted)}
 .t-source svg{width:15px;height:15px}
 
-.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
+.carousel-nav{display:none;align-items:center;justify-content:center;gap:16px;margin-top:26px}
+.js .carousel-nav{display:flex}
 .c-arrow{
   width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
   border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease);
 }
+.c-arrow:hover{border-color:var(--brand);color:var(--brand-strong);transform:scale(1.07);box-shadow:var(--shadow-md)}
 .c-arrow svg{width:19px;height:19px}
 .c-dots{display:flex;gap:8px}
 .c-dot{width:9px;height:9px;border-radius:999px;background:var(--line);transition:width .3s var(--ease),background .3s var(--ease)}
@@ -499,14 +561,20 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 /* FAQ */
 .faq-list{display:grid;gap:12px}
 .faq-item{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--ink);list-style:none;transition:background .2s var(--ease)}
+.faq-item summary:hover{background:var(--surface-2)}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:"";width:22px;height:22px;border-radius:50%;border:2px solid var(--brand);display:grid;place-items:center;flex:none;transition:transform .3s var(--ease);background:var(--brand-strong);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .faq-item[open] summary::after{transform:rotate(180deg)}
+.faq-item summary:focus{outline:none;box-shadow:0 0 0 3px var(--brand-soft)}
+.faq-item[open] summary{border-bottom:1px solid var(--line)}
 .faq-item p{padding:0 22px 20px;color:var(--muted);line-height:1.7;margin:0}
 
 /* MAPA */
-.map-frame{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-md)}
+.map-frame{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow-md);
+}
 .map-frame iframe{width:100%;height:440px;border:0;display:block}
 .marker-card{
   position:absolute;left:16px;bottom:16px;z-index:2;max-width:290px;
@@ -522,12 +590,16 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,48px);align-items:start}
 .contact-card{
   border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 24px;margin-bottom:18px;display:flex;gap:16px;align-items:flex-start;
+  padding:26px 24px;margin-bottom:18px;
+  display:flex;gap:16px;align-items:flex-start;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
+.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--brand)}
 .contact-card .diff-ico{width:44px;height:44px;border-radius:12px}
 .contact-card .diff-ico svg{width:22px;height:22px}
-.contact-card h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:3px}
+.contact-card h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:3px;font-family:'Inter',sans-serif}
 .contact-card a,.contact-card span{font-weight:600;font-size:.98rem;display:inline-block;line-height:1.5}
+.contact-card a:hover{color:var(--brand-strong)}
 
 .contact-form{
   border:1px solid var(--line);border-radius:var(--radius);
@@ -541,9 +613,11 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   width:100%;font:inherit;color:var(--ink);
   background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;
   padding:13px 15px;resize:vertical;
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
 }
 .field input:focus,.field select:focus,.field textarea:focus{
   outline:none;border-color:var(--brand);background:var(--surface);
+  box-shadow:0 0 0 4px var(--brand-soft);
 }
 .field textarea{min-height:120px}
 .form-note{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);margin-top:12px}
@@ -556,9 +630,14 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   background:var(--whats);color:#fff;display:grid;place-items:center;
   box-shadow:0 10px 30px -6px rgba(37,211,102,.7);
   transition:transform .3s var(--ease);
+  animation:wa-glow 3s var(--ease) infinite;
 }
 .wa-float svg{width:30px;height:30px}
 .wa-float:hover{transform:scale(1.1)}
+@keyframes wa-glow{
+  0%,100%{box-shadow:0 10px 30px -6px rgba(37,211,102,.7)}
+  50%{box-shadow:0 10px 34px -4px rgba(37,211,102,.95)}
+}
 
 .ig-float{
   position:fixed;right:20px;bottom:90px;z-index:990;
@@ -567,20 +646,26 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   color:#fff;display:grid;place-items:center;
   box-shadow:0 10px 30px -6px rgba(220,39,67,.7);
   transition:transform .3s var(--ease);
+  animation:ig-glow 3s var(--ease) infinite;
 }
 .ig-float svg{width:28px;height:28px}
 .ig-float:hover{transform:scale(1.1)}
+@keyframes ig-glow{
+  0%,100%{box-shadow:0 10px 30px -6px rgba(220,39,67,.7)}
+  50%{box-shadow:0 10px 34px -4px rgba(220,39,67,.95)}
+}
 
 /* FOOTER */
 .site-footer{
-  background:var(--bg-soft);border-top:1px solid var(--line);
+  border-top:1px solid var(--line);
   padding:54px 0 30px;margin-top:0;
 }
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(28px,4vw,48px);margin-bottom:40px}
 .footer-brand p{color:var(--muted);font-size:.92rem;margin-top:14px;max-width:34ch}
-.footer-col h4{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
+.footer-col h4{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-family:'Inter',sans-serif;font-weight:700}
 .footer-col ul{display:grid;gap:10px}
-.footer-col a,.footer-col li{font-size:.93rem;color:var(--muted)}
+.footer-col a,.footer-col li{font-size:.93rem;color:var(--muted);transition:color .2s}
+.footer-col a:hover{color:var(--brand-strong)}
 .footer-col li{display:flex;gap:9px;align-items:flex-start}
 .footer-col li svg{width:16px;height:16px;flex:none;margin-top:4px;color:var(--brand)}
 .footer-bottom{
@@ -592,7 +677,9 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .footer-bottom .socials a{
   width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
   border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  transition:transform .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);
 }
+.footer-bottom .socials a:hover{transform:translateY(-3px);color:var(--brand-strong);border-color:var(--brand)}
 .footer-bottom .socials svg{width:17px;height:17px}
 
 /* RESPONSIVO */
@@ -609,10 +696,13 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   .nav-links{
     position:fixed;top:var(--header-h);left:0;right:0;
     flex-direction:column;align-items:stretch;gap:6px;
-    background:rgba(246,248,252,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);padding:18px 20px 24px;
+    background:color-mix(in srgb,var(--bg) 96%,transparent);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    padding:18px 20px 24px;
     transform:translateY(-16px);opacity:0;visibility:hidden;
     transition:transform .35s var(--ease),opacity .3s var(--ease),visibility .3s;
+    box-shadow:var(--shadow-lg);
   }
   .nav-links.open{transform:none;opacity:1;visibility:visible}
   .header-cta{display:none}
@@ -669,14 +759,14 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 
 <main id="conteudo">
 
-<!-- Full-page particles background -->
+<!-- Full-page particles background (fixed) -->
 <canvas id="particles" aria-hidden="true" data-fullpage></canvas>
 
 <!-- HERO -->
 <section id="home" class="hero" aria-label="Apresentação">
   <div class="hero-grid-bg" aria-hidden="true"></div>
-  <div class="hero-blob b1" aria-hidden="true"></div>
-  <div class="hero-blob b2" aria-hidden="true"></div>
+  <div class="hero-blob b1" aria-hidden="true" data-parallax="-0.12"></div>
+  <div class="hero-blob b2" aria-hidden="true" data-parallax="0.10"></div>
 
   <div class="container">
     <div class="hero-copy">
@@ -909,7 +999,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   </div>
 </section>
 
-<!-- FOTOS -->
+<!-- VEJA A INNOVATIS EM AÇÃO -->
 <section id="fotos" class="section-pad" aria-labelledby="fotos-titulo">
   <div class="container">
     <div class="section-head">
@@ -979,35 +1069,35 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM2 19h20"/></svg></span>
         <h3>Formatação &amp; Sistemas</h3>
         <p>Formatação de Windows e Linux, instalação de drivers e configuração inicial, preservando seus documentos e arquivos importantes.</p>
-        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6"/></svg></a>
       </article>
 
       <article class="service-card reveal" data-d="2">
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a7.5 7.5 0 0 1 14 0"/><path d="M8 12.5a4.5 4.5 0 0 1 8 0"/><path d="M12 12.5v3"/><circle cx="12" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
         <h3>Redes &amp; Internet</h3>
         <p>Configuração de roteadores, repetidores e redes sem fio com boa cobertura em qualquer cômodo da empresa ou da residência.</p>
-        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6"/></svg></a>
       </article>
 
       <article class="service-card reveal">
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
         <h3>Montagem &amp; Upgrades</h3>
         <p>Montagem de PCs novos e upgrades inteligentes — SSD, memória e placas que dão nova vida ao seu equipamento atual.</p>
-        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6"/></svg></a>
       </article>
 
       <article class="service-card reveal" data-d="1">
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
         <h3>Backup &amp; Recuperação</h3>
         <p>Organização de backups e recuperação de dados importantes — evitando prejuízos de documentos e fotos que não têm volta.</p>
-        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6"/></svg></a>
       </article>
 
       <article class="service-card reveal" data-d="2">
         <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l9 5v7c0 4-4 7-9 9-5-2-9-5-9-9V7z"/><path d="M8 12l3 3 5-6"/></svg></span>
         <h3>Segurança Digital</h3>
         <p>Antivírus, remoção de vírus e trojans e orientação de boas práticas para sua empresa e sua família navegarem tranquilos.</p>
-        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="service-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6"/></svg></a>
       </article>
     </div>
   </div>
@@ -1131,6 +1221,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     <div class="carousel reveal" data-carousel>
       <div class="carousel-viewport">
         <div class="carousel-track" id="carouselTrack">
+          <!-- Fallback de Avaliações em HTML -->
           <article class="carousel-slide">
             <div class="t-card">
               <div class="t-head">
@@ -1190,48 +1281,6 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
               </div>
               <p class="t-text">"Precisei formatar meu computador e estava com medo de perder as fotos. Ele fez o backup antes, formatou tudo e ainda deixou mais rápido. Atendimento nota 10."</p>
-              <span class="t-source"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 12.4a9.5 9.5 0 1 0-8.4 8.4c.3 0 .5-.2.5-.5v-2.3c0-.3-.2-.5-.5-.5A6.6 6.6 0 1 1 18.6 11v1.5a1.4 1.4 0 0 1-2.8 0V8.9a.6.6 0 0 0-1.2 0v.5a3.8 3.8 0 1 0-.1 5.6.6.6 0 0 1 1 .5v2.5c0 .3.2.5.5.5a9.5 9.5 0 0 0 4.6-6.1z"/></svg>Avaliação no Google</span>
-            </div>
-          </article>
-
-          <article class="carousel-slide">
-            <div class="t-card">
-              <div class="t-head">
-                <span class="t-avatar" aria-hidden="true">RP</span>
-                <div class="t-who">
-                  <div class="t-name">Roberto Paiva</div>
-                  <div class="t-role">Clínica odontológica · Norte</div>
-                </div>
-              </div>
-              <div class="t-stars" role="img" aria-label="5 estrelas">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-              </div>
-              <p class="t-text">"Quedas constantes da internet quebravam nosso atendimento. A Innovatis reestruturou a rede da clínica e hoje não temos mais preocupação com TI."</p>
-              <span class="t-source"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 12.4a9.5 9.5 0 1 0-8.4 8.4c.3 0 .5-.2.5-.5v-2.3c0-.3-.2-.5-.5-.5A6.6 6.6 0 1 1 18.6 11v1.5a1.4 1.4 0 0 1-2.8 0V8.9a.6.6 0 0 0-1.2 0v.5a3.8 3.8 0 1 0-.1 5.6.6.6 0 0 1 1 .5v2.5c0 .3.2.5.5.5a9.5 9.5 0 0 0 4.6-6.1z"/></svg>Avaliação no Google</span>
-            </div>
-          </article>
-
-          <article class="carousel-slide">
-            <div class="t-card">
-              <div class="t-head">
-                <span class="t-avatar" aria-hidden="true">JT</span>
-                <div class="t-who">
-                  <div class="t-name">João Torres</div>
-                  <div class="t-role">Cliente residencial · Xangrilá</div>
-                </div>
-              </div>
-              <div class="t-stars" role="img" aria-label="5 estrelas">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>
-              </div>
-              <p class="t-text">"Montaram meu computador novo e migraram todos os arquivos do antigo sem eu precisar fazer nada. Simplicidade e honestidade do início ao fim."</p>
               <span class="t-source"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 12.4a9.5 9.5 0 1 0-8.4 8.4c.3 0 .5-.2.5-.5v-2.3c0-.3-.2-.5-.5-.5A6.6 6.6 0 1 1 18.6 11v1.5a1.4 1.4 0 0 1-2.8 0V8.9a.6.6 0 0 0-1.2 0v.5a3.8 3.8 0 1 0-.1 5.6.6.6 0 0 1 1 .5v2.5c0 .3.2.5.5.5a9.5 9.5 0 0 0 4.6-6.1z"/></svg>Avaliação no Google</span>
             </div>
           </article>
@@ -1390,7 +1439,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- FAQ ACCORDION -->
 <section id="faq" class="section-pad" aria-labelledby="faq-titulo">
   <div class="container">
     <div class="section-head">
@@ -1603,11 +1652,12 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 
 </main>
 
-<!-- BOTÕES FLUTUANTES -->
+<!-- WHATSAPP FLUTUANTE -->
 <a class="wa-float" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Falar com a Innovatis no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
 </a>
 
+<!-- INSTAGRAM FLUTUANTE -->
 <a class="ig-float" href="https://www.instagram.com/innovatis.solucoes" target="_blank" rel="noopener" aria-label="Seguir a Innovatis no Instagram">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
 </a>
@@ -1753,6 +1803,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
     function runCount(el) {
       var target = parseFloat(el.getAttribute('data-count'));
+      var minDigits = (el.getAttribute('data-format') === '0') ? 0 : 1;
       var dur = 1400;
       var start = null;
       function frame(ts) {
@@ -1781,7 +1832,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     var rafId = null;
     var running = true;
     var mouse = { x: null, y: null };
-    var COUNT = 85;
+    var COUNT = 80;
     var W = 0, H = 0, DPR = 1;
 
     function readColors() {
@@ -1808,9 +1859,9 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
         particles.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          r: Math.random() * 1.8 + 0.8
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.6 + 0.6
         });
       }
     }
@@ -1827,7 +1878,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = colors.dot;
-        ctx.globalAlpha = 0.6;
+        ctx.globalAlpha = 0.5;
         ctx.fill();
       }
       ctx.globalAlpha = 1;
@@ -1837,7 +1888,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
           var dx = a.x - b.x, dy = a.y - b.y;
           var d2 = dx * dx + dy * dy;
           if (d2 < 150 * 150) {
-            var alpha = (1 - Math.sqrt(d2) / 150) * 0.45;
+            var alpha = (1 - Math.sqrt(d2) / 150) * 0.4;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -1922,6 +1973,14 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     heroPrevBtn.addEventListener('click', function () { heroGo(heroIndex - 1); });
     heroNextBtn.addEventListener('click', function () { heroGo(heroIndex + 1); });
 
+    heroCards.forEach(function (card) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function () {
+        var target = document.getElementById('servicos');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
     window.addEventListener('resize', function () {
       heroUpdateLayout();
       heroGo(heroIndex);
@@ -1931,7 +1990,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     heroGo(0);
   }
 
-  /* 8. CARROSSEL DE AVALIAÇÕES */
+  /* 8. CARROSSEL DE AVALIAÇÕES (com Fetch para reviews.json) */
   var carousel = document.querySelector('[data-carousel]');
   if (carousel) {
     var track = document.getElementById('carouselTrack');
@@ -1942,12 +2001,55 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     var autoTimer = null;
     var perView = 1;
     var step = 0;
-    var slides = Array.prototype.slice.call(track.children);
+    var slides = [];
 
     function currentPerView() {
       if (window.innerWidth >= 1024) return 3;
       if (window.innerWidth >= 620) return 2;
       return 1;
+    }
+
+    function renderStars(rating) {
+      var full = Math.floor(rating);
+      var html = '';
+      for (var i = 0; i < 5; i++) {
+        html += '<svg viewBox="0 0 24 24" fill="' + (i < full ? '#f59e0b' : '#e2e8f0') + '"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>';
+      }
+      return html;
+    }
+
+    function initCarousel(data) {
+      var scoreEl = document.querySelector('.rating-score');
+      var noteEl = document.querySelector('.rating-note');
+      if (scoreEl) scoreEl.textContent = data.rating.toFixed(1).replace('.', ',');
+      if (noteEl) noteEl.textContent = 'Baseado em ' + data.user_ratings_total + ' avaliações no Google';
+
+      var reviews = data.reviews || [];
+      track.innerHTML = reviews.map(function (r) {
+        var initials = r.author.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+        return (
+          '<article class="carousel-slide">' +
+            '<div class="t-card">' +
+              '<div class="t-head">' +
+                '<span class="t-avatar" aria-hidden="true">' + initials + '</span>' +
+                '<div class="t-who">' +
+                  '<div class="t-name">' + r.author + '</div>' +
+                  '<div class="t-role">Cliente Google</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="t-stars" role="img" aria-label="' + r.rating + ' estrelas">' + renderStars(r.rating) + '</div>' +
+              '<p class="t-text">' + r.text + '</p>' +
+              '<span class="t-source"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 12.4a9.5 9.5 0 1 0-8.4 8.4c.3 0 .5-.2.5-.5v-2.3c0-.3-.2-.5-.5-.5A6.6 6.6 0 1 1 18.6 11v1.5a1.4 1.4 0 0 1-2.8 0V8.9a.6.6 0 0 0-1.2 0v.5a3.8 3.8 0 1 0-.1 5.6.6.6 0 0 1 1 .5v2.5c0 .3.2.5.5.5a9.5 9.5 0 0 0 4.6-6.1z"/></svg>Avaliação no Google</span>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+
+      slides = Array.prototype.slice.call(track.children);
+      layout();
+      buildDots();
+      go(0);
+      restartAuto();
     }
 
     function layout() {
@@ -1969,6 +2071,8 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
         var d = document.createElement('button');
         d.className = 'c-dot' + (i === index ? ' active' : '');
         d.setAttribute('type', 'button');
+        d.setAttribute('role', 'tab');
+        d.setAttribute('aria-label', 'Ir para avaliação ' + (i + 1));
         (function (idx) {
           d.addEventListener('click', function () { go(idx); restartAuto(); });
         })(i);
@@ -1987,23 +2091,55 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
       var max = Math.max(0, slides.length - perView);
       go(index >= max ? 0 : index + 1);
     }
+    function prev() {
+      var max = Math.max(0, slides.length - perView);
+      go(index <= 0 ? max : index - 1);
+    }
 
     function restartAuto() {
       if (reduceMotion) return;
       if (autoTimer) clearInterval(autoTimer);
       autoTimer = setInterval(next, 4200);
     }
+    function stopAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = null;
+    }
 
-    prevBtn.addEventListener('click', function () { go(index - 1); restartAuto(); });
+    prevBtn.addEventListener('click', function () { prev(); restartAuto(); });
     nextBtn.addEventListener('click', function () { next(); restartAuto(); });
 
-    layout();
-    buildDots();
-    go(0);
-    restartAuto();
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', restartAuto);
+
+    var cResize;
+    window.addEventListener('resize', function () {
+      clearTimeout(cResize);
+      cResize = setTimeout(function () {
+        layout();
+        go(index);
+        restartAuto();
+      }, 200);
+    });
+
+    // Carrega reviews.json dinamicamente
+    fetch('reviews.json?v=' + Date.now(), { cache: 'no-cache' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) { initCarousel(data); })
+      .catch(function (err) {
+        console.warn('Falha ao carregar reviews.json, usando fallback estático', err);
+        slides = Array.prototype.slice.call(track.children);
+        layout();
+        buildDots();
+        go(0);
+        restartAuto();
+      });
   }
 
-  /* 9. FORMULÁRIO → WHATSAPP */
+  /* 9. FORMULÁRIO DE CONTATO */
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (ev) {
@@ -2014,21 +2150,56 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
       var onde = document.getElementById('f-onde').value;
       var equip = document.getElementById('f-equipamento').value;
 
-      if (!nome || !fone || !onde || !equip || !msg) return;
+      if (!nome || !fone || !onde || !equip || !msg) {
+        var first = form.querySelector(':invalid');
+        if (first) first.focus();
+        return;
+      }
 
       var ondeLabel = onde === 'casa' ? 'Minha casa' : (onde === 'empresa' ? 'Minha empresa' : onde);
+      var equipLabel = {
+        'notebook': 'Notebook',
+        'computador': 'Computador (desktop)',
+        'rede-wifi': 'Rede / Wi-Fi',
+        'impressora': 'Impressora',
+        'backup-dados': 'Backup / Recuperação de dados',
+        'outro': 'Outro'
+      }[equip] || equip;
+
       var texto =
         'Olá, Innovatis! Me chamo ' + nome + '.\n' +
         'Telefone: ' + fone + '\n' +
         'Local do atendimento: ' + ondeLabel + '\n' +
-        'Equipamento/Serviço: ' + equip + '\n\n' +
+        'Equipamento/Serviço: ' + equipLabel + '\n\n' +
         'Mensagem:\n' + msg;
-      
+
       window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
     });
   }
 
-  /* 10. ANO NO FOOTER */
+  /* 10. CURSOR GLOW */
+  if (finePointer && !reduceMotion) {
+    var cursor = document.createElement('div');
+    cursor.className = 'cursor-glow';
+    cursor.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cursor);
+    var style = document.createElement('style');
+    style.textContent =
+      '.cursor-glow{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;' +
+      'background:radial-gradient(circle,rgba(6,182,212,.10),transparent 65%);' +
+      'pointer-events:none;z-index:1;transform:translate(-50%,-50%);' +
+      'transition:opacity .4s ease;will-change:transform}';
+    document.head.appendChild(style);
+
+    document.addEventListener('mousemove', function (ev) {
+      cursor.style.opacity = '1';
+      cursor.style.left = ev.clientX + 'px';
+      cursor.style.top = ev.clientY + 'px';
+    });
+    document.addEventListener('mouseleave', function () { cursor.style.opacity = '0'; });
+  }
+
+  /* 11. ANO NO FOOTER */
   var anoEl = document.getElementById('anoAtual');
   if (anoEl) anoEl.textContent = new Date().getFullYear();
 })();
