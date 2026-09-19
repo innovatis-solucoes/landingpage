@@ -1,0 +1,64 @@
+name: Fetch Google Reviews
+on:
+  schedule:
+    - cron: '0 3 * * *'  # todo dia às 3h UTC
+  workflow_dispatch:      # permite rodar manualmente na aba Actions
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch Google Reviews
+        id: fetch
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+        run: |
+          URL="https://maps.googleapis.com/maps/api/place/details/json?place_id=$PLACE_ID&fields=rating,user_ratings_total,reviews&key=$GOOGLE_API_KEY"
+          RESPONSE=$(curl -s "$URL")
+          
+          # Verifica se a resposta é válida
+          STATUS=$(echo "$RESPONSE" | jq -r '.status')
+          if [ "$STATUS" != "OK" ]; then
+            echo "Erro na API: $STATUS"
+            echo "$RESPONSE" | jq '.'
+            exit 1
+          fi
+          
+          # Extrai apenas o necessário e salva em reviews.json
+          echo "$RESPONSE" | jq '
+            .result |
+            {
+              rating: .rating,
+              user_ratings_total: .user_ratings_total,
+              reviews: (.reviews[:5] | map({
+                author: .author_name,
+                rating: .rating,
+                text: .text,
+                time: .time,
+                profile_photo: .profile_photo_url
+              }))
+            }
+          ' > reviews.json
+          
+          echo "Reviews atualizados com sucesso"
+          cat reviews.json
+
+      - name: Commit e push se houver mudanças
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reviews.json
+          if git diff --staged --quiet; then
+            echo "Sem mudanças nos reviews"
+          else
+            git commit -m "chore: atualiza avaliações do Google [skip ci]"
+            git push

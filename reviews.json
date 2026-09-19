@@ -1,0 +1,41 @@
+{
+  "rating": 5.0,
+  "user_ratings_total": 12,
+  "reviews": [
+    {
+      "author": "Maria Rita",
+      "rating": 5,
+      "text": "O técnico veio até minha casa, resolveu o problema do notebook no mesmo dia e ainda explicou como evitar que acontecesse de novo. Recomendo demais.",
+      "time": 1726500000,
+      "profile_photo": ""
+    },
+    {
+      "author": "Carlos Sampaio",
+      "rating": 5,
+      "text": "Cuidam da TI da nossa empresa há mais de um ano. Visitas periódicas, tudo documentado e orçamento sempre antes do serviço. Hoje não dispensamos.",
+      "time": 1725000000,
+      "profile_photo": ""
+    },
+    {
+      "author": "Ana Lúcia",
+      "rating": 5,
+      "text": "Precisei formatar meu computador e estava com medo de perder as fotos. Ele fez o backup antes, formatou tudo e ainda deixou mais rápido. Atendimento nota 10.",
+      "time": 1723500000,
+      "profile_photo": ""
+    },
+    {
+      "author": "Roberto Paiva",
+      "rating": 5,
+      "text": "Quedas constantes da internet quebravam nosso atendimento. A Innovatis reestruturou a rede da clínica e hoje não temos mais preocupação com TI.",
+      "time": 1722000000,
+      "profile_photo": ""
+    },
+    {
+      "author": "João Torres",
+      "rating": 5,
+      "text": "Montaram meu computador novo e migraram todos os arquivos do antigo sem eu precisar fazer nada. Simplicidade e honestidade do início ao fim.",
+      "time": 1720500000,
+      "profile_photo": ""
+    }
+  ]
+}

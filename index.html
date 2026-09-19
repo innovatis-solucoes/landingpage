@@ -633,6 +633,25 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 }
 
 /* ============================================================
+   INSTAGRAM FLUTUANTE
+   ============================================================ */
+.ig-float{
+  position:fixed;right:20px;bottom:90px;z-index:990;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 30px -6px rgba(220,39,67,.7);
+  transition:transform .3s var(--ease);
+  animation:ig-glow 3s var(--ease) infinite;
+}
+.ig-float svg{width:28px;height:28px}
+.ig-float:hover{transform:scale(1.1)}
+@keyframes ig-glow{
+  0%,100%{box-shadow:0 10px 30px -6px rgba(220,39,67,.7)}
+  50%{box-shadow:0 10px 34px -4px rgba(220,39,67,.95)}
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .site-footer{
@@ -1293,6 +1312,13 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
 </a>
 
 <!-- ============================================================
+     INSTAGRAM FLUTUANTE
+     ============================================================ -->
+<a class="ig-float" href="https://www.instagram.com/innovatis.solucoes" target="_blank" rel="noopener" aria-label="Seguir a Innovatis no Instagram">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+</a>
+
+<!-- ============================================================
      FOOTER
      ============================================================ -->
 <footer class="site-footer">
@@ -1348,8 +1374,7 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     <div class="footer-bottom">
       <!-- AJUSTE: links de redes sociais — preencha os href quando existirem. -->
       <div class="socials" aria-label="Redes sociais">
-        <a href="#" aria-label="Instagram da Innovatis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
-        <a href="#" aria-label="Facebook da Innovatis"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.instagram.com/innovatis.solucoes" target="_blank" rel="noopener" aria-label="Instagram da Innovatis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
       </div>
       <span>© <span id="anoAtual">2026</span> Innovatis Soluções em TI. Todos os direitos reservados.</span>
     </div>
@@ -1602,12 +1627,11 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
   }
 
   /* ============================================================
-     8. CARROSSEL DE AVALIAÇÕES (auto + pause on hover)
+     8. CARROSSEL DE AVALIAÇÕES (carrega reviews.json + auto)
   ============================================================ */
   var carousel = document.querySelector('[data-carousel]');
   if (carousel) {
     var track = document.getElementById('carouselTrack');
-    var slides = Array.prototype.slice.call(track.children);
     var prevBtn = carousel.querySelector('[data-carousel-prev]');
     var nextBtn = carousel.querySelector('[data-carousel-next]');
     var dotsWrap = carousel.querySelector('[data-carousel-dots]');
@@ -1615,11 +1639,58 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     var autoTimer = null;
     var perView = 1;
     var step = 0;
+    var slides = [];
 
     function currentPerView() {
       if (window.innerWidth >= 1024) return 3;
       if (window.innerWidth >= 620) return 2;
       return 1;
+    }
+
+    function renderStars(rating) {
+      var full = Math.floor(rating);
+      var html = '';
+      for (var i = 0; i < 5; i++) {
+        html += '<svg viewBox="0 0 24 24" fill="' + (i < full ? '#f59e0b' : '#e2e8f0') + '"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21l1.4-7L2 9.5l7-.9z"/></svg>';
+      }
+      return html;
+    }
+
+    function initCarousel(data) {
+      // Atualiza summary
+      var scoreEl = document.querySelector('.rating-score');
+      var noteEl = document.querySelector('.rating-note');
+      if (scoreEl) scoreEl.textContent = data.rating.toFixed(1).replace('.', ',');
+      if (noteEl) noteEl.textContent = 'Baseado em ' + data.user_ratings_total + ' avaliações no Google';
+
+      // Monta slides
+      var reviews = data.reviews || [];
+      track.innerHTML = reviews.map(function (r) {
+        var initials = r.author.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+        return (
+          '<article class="carousel-slide">' +
+            '<div class="t-card">' +
+              '<div class="t-head">' +
+                '<span class="t-avatar" aria-hidden="true">' + initials + '</span>' +
+                '<div class="t-who">' +
+                  '<div class="t-name">' + r.author + '</div>' +
+                  '<div class="t-role">Cliente Google</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="t-stars" role="img" aria-label="' + r.rating + ' estrelas">' + renderStars(r.rating) + '</div>' +
+              '<p class="t-text">' + r.text + '</p>' +
+              '<span class="t-source">Avaliação no Google</span>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+
+      // Re-inicializa variáveis pós-render
+      slides = Array.prototype.slice.call(track.children);
+      layout();
+      buildDots();
+      go(0);
+      restartAuto();
     }
 
     function layout() {
@@ -1679,13 +1750,11 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
     prevBtn.addEventListener('click', function () { prev(); restartAuto(); });
     nextBtn.addEventListener('click', function () { next(); restartAuto(); });
 
-    // Pause on hover/focus
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', restartAuto);
     carousel.addEventListener('focusin', stopAuto);
     carousel.addEventListener('focusout', restartAuto);
 
-    // Pausa quando a aba não está visível
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) stopAuto(); else restartAuto();
     });
@@ -1700,10 +1769,19 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
       }, 200);
     });
 
-    layout();
-    buildDots();
-    go(0);
-    restartAuto();
+    // Carrega reviews.json (atualizado pelo GitHub Actions diariamente)
+    fetch('reviews.json?v=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (data) { initCarousel(data); })
+      .catch(function (err) {
+        console.warn('Falha ao carregar reviews.json, usando fallback estático', err);
+        // Fallback: usa slides já no HTML (placeholder)
+        slides = Array.prototype.slice.call(track.children);
+        layout();
+        buildDots();
+        go(0);
+        restartAuto();
+      });
   }
 
   /* ============================================================
