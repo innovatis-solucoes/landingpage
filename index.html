@@ -312,33 +312,13 @@ section{scroll-margin-top:calc(var(--header-h) + 8px)}
    HERO
    ============================================================ */
 .hero{
-  position:relative;overflow:hidden;
+  position:relative;
   min-height:100svh;display:flex;align-items:center;
   padding:calc(var(--header-h) + 40px) 0 80px;
   background:
     radial-gradient(56% 60% at 82% 8%,var(--brand-soft) 0%,transparent 60%),
     radial-gradient(40% 46% at 8% 90%,var(--accent-soft) 0%,transparent 60%),
     var(--bg);
-}
-.hero-grid-bg{
-  position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(var(--line) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:56px 56px;
-  -webkit-mask-image:radial-gradient(70% 70% at 60% 40%,#000 30%,transparent 75%);
-  mask-image:radial-gradient(70% 70% at 60% 40%,#000 30%,transparent 75%);
-  opacity:.5;
-}
-#particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8}
-.hero-blob{
-  position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;
-  transition:transform 1s var(--ease);
-}
-.hero-blob.b1{width:420px;height:420px;top:-120px;right:-60px;background:#22d3ee;opacity:.32}
-.hero-blob.b2{width:360px;height:360px;bottom:-140px;left:-80px;background:#6366f1;opacity:.32}
-@media (prefers-color-scheme: dark){
-  .hero-blob.b1,.hero-blob.b2{opacity:.42}
 }
 
 .hero .container{position:relative;z-index:2;display:flex;flex-direction:column;gap:clamp(40px,6vw,80px);align-items:center;text-align:center}
@@ -927,19 +907,15 @@ section{position:relative;z-index:1}
   </div>
 </header>
 
-<main id="conteudo">
-
 <!-- Full-page particles background (fixed) -->
 <canvas id="particles" aria-hidden="true" data-fullpage></canvas>
+
+<main id="conteudo">
 
 <!-- ============================================================
      HERO
      ============================================================ -->
 <section id="home" class="hero" aria-label="Apresentação">
-  <div class="hero-grid-bg" aria-hidden="true"></div>
-  <div class="hero-blob b1" aria-hidden="true" data-parallax="-0.12"></div>
-  <div class="hero-blob b2" aria-hidden="true" data-parallax="0.10"></div>
-
   <div class="container">
     <div class="hero-copy">
       <span class="hero-badge reveal">
@@ -2346,25 +2322,6 @@ section{position:relative;z-index:1}
   }
 
   /* ============================================================
-     7. PARALLAX SUTIL (blobs do hero)
-  ============================================================ */
-  if (!reduceMotion) {
-    var blobs = document.querySelectorAll('[data-parallax]');
-    var pxTimer = null;
-    window.addEventListener('scroll', function () {
-      if (pxTimer) return;
-      pxTimer = window.requestAnimationFrame(function () {
-        var y = window.scrollY;
-        blobs.forEach(function (b) {
-          var f = parseFloat(b.getAttribute('data-parallax'));
-          b.style.translate = '0 ' + (y * f) + 'px';
-        });
-        pxTimer = null;
-      });
-    }, { passive: true });
-  }
-
-  /* ============================================================
      8. CARROSSEL DE AVALIAÇÕES (carrega reviews.json + auto)
   ============================================================ */
   var carousel = document.querySelector('[data-carousel]');
@@ -2640,7 +2597,6 @@ section{position:relative;z-index:1}
   //       event_label: 'formulario_agendamento'
   //     });
   //   }
-  // });
   //
   // IMPORTANTE: Não enviar nome/telefone/mensagem nos eventos de analytics.
   // Use apenas metadados contextuais (tipo, origem, categoria).
