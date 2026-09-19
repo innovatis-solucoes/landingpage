@@ -62,3 +62,4 @@ jobs:
           else
             git commit -m "chore: atualiza avaliações do Google [skip ci]"
             git push
+          fi
