@@ -9,8 +9,8 @@
      ============================================================ -->
 
 <title>Suporte Técnico de TI em Belo Horizonte | Innovatis Soluções em TI</title>
-<meta name="description" content="Suporte técnico de TI rápido e de confiança, para sua empresa ou sua casa, em Belo Horizonte. Atendimento presencial agendado em toda a cidade e região metropolitana (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro) — manutenção de computadores, notebooks, redes, Wi-Fi, impressoras, backup e segurança. Orçamento transparente.">
-<meta name="keywords" content="suporte técnico de TI Belo Horizonte, manutenção de computadores BH, técnico de TI Céu Azul BH, suporte de TI para empresas BH, manutenção de notebook BH, formatação de computador BH, suporte de informática presencial BH, assistência técnica notebook Belo Horizonte, conserto computador BH, TI para pequenas empresas BH">
+<meta name="description" content="Suporte técnico de TI rápido e de confiança, para sua empresa ou sua casa, em Belo Horizonte. Atendimento presencial agendado em toda a cidade e região metropolitana — manutenção de computadores, notebooks, redes, Wi-Fi, backup e segurança. Orçamento transparente. Conheça também o Não Perca Prazo, radar jurídico para advogados.">
+<meta name="keywords" content="suporte técnico de TI Belo Horizonte, manutenção de computadores BH, técnico de TI Céu Azul BH, suporte de TI para empresas BH, manutenção de notebook BH, formatação de computador BH, suporte de informática presencial BH, assistência técnica notebook Belo Horizonte, conserto computador BH, TI para pequenas empresas BH, radar jurídico, software para advogados, controle de prazos advocatícios, Não Perca Prazo">
 <meta name="author" content="Innovatis Soluções em TI">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0e7490">
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Innovatis Soluções em TI">
 <meta property="og:title" content="Suporte Técnico de TI em Belo Horizonte — Innovatis Soluções em TI">
-<meta property="og:description" content="Atendimento presencial agendado para empresas e residências em BH e região (Céu Azul, Venda Nova, Pampulha, Castelo, Ouro Preto, Centro). Suporte rápido, orçamento transparente e relação de confiança contínua.">
+<meta property="og:description" content="Atendimento presencial agendado para empresas e residências em BH e região. Suporte rápido, orçamento transparente e relação de confiança contínua. Conheça o Não Perca Prazo, o radar jurídico da Innovatis.">
 <meta property="og:url" content="https://innovatis.com.br/">
 <meta property="og:image" content="https://innovatis.com.br/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -95,8 +95,27 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Configuração de redes e internet" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montagem e upgrade de hardware" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Backup e recuperação de dados" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Segurança digital e remoção de vírus" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Segurança digital e remoção de vírus" } },
+      { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Não Perca Prazo", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://nao-perca-prazo.pages.dev", "description": "Radar jurídico para acompanhamento de processos, prazos e audiências" } }
     ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Não Perca Prazo",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Radar jurídico",
+  "operatingSystem": "Web",
+  "url": "https://nao-perca-prazo.pages.dev",
+  "description": "Radar jurídico para advogados e escritórios: acompanhe processos, movimentações, prazos e audiências em um único lugar.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Innovatis Soluções em TI",
+    "url": "https://innovatis.com.br/"
   }
 }
 </script>
@@ -244,6 +263,38 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .nav-links a:hover{color:var(--ink);background:var(--surface-2)}
 .nav-links a.active{color:var(--brand-strong)}
 .nav-links a.active::after{transform:scaleX(1)}
+
+/* NAV DROPDOWN */
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 14px;font-weight:600;font-size:.93rem;color:var(--muted);
+  border-radius:10px;background:transparent;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  transition:color .25s var(--ease),background .25s var(--ease);
+}
+.nav-dropdown-toggle:hover{color:var(--ink);background:var(--surface-2)}
+.nav-dropdown-menu{
+  position:absolute;top:100%;left:0;z-index:100;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:8px;min-width:220px;box-shadow:var(--shadow-lg);
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .2s var(--ease),visibility .2s var(--ease),transform .2s var(--ease);
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-toggle[aria-expanded="true"] + .nav-dropdown-menu{
+  opacity:1;visibility:visible;transform:translateY(0);
+}
+.nav-dropdown-menu a{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 16px;font-weight:500;font-size:.95rem;color:var(--ink);
+  border-radius:8px;transition:background .2s var(--ease),color .2s var(--ease);
+}
+.nav-dropdown-menu a:hover{background:var(--brand-soft);color:var(--brand-strong)}
+.nav-dropdown-menu a.active{background:var(--brand-soft);color:var(--brand-strong);font-weight:600}
+.nav-dropdown-menu a.active::after{display:none}
+.nav-dropdown-toggle svg{width:16px;height:16px;transition:transform .2s var(--ease)}
+.nav-dropdown-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 
 .header-cta{
   display:inline-flex;align-items:center;gap:8px;
@@ -481,6 +532,85 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 .diff-card h3{font-size:1.1rem;margin-bottom:7px}
 .diff-card p{font-size:.94rem;color:var(--muted)}
 
+/* NÃO PERCA PRAZO — MOCKUP */
+.npp-mockup{
+  max-width:860px;margin:0 auto;
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  background:var(--surface);box-shadow:var(--shadow-lg);
+}
+.npp-mockup-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line);
+}
+.npp-dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.npp-dot:nth-child(1){background:#ff5f57}
+.npp-dot:nth-child(2){background:#febc2e}
+.npp-dot:nth-child(3){background:#28c840}
+.npp-url{
+  flex:1;margin-left:12px;padding:6px 14px;border-radius:8px;
+  background:var(--bg);border:1px solid var(--line);
+  font-size:.78rem;color:var(--muted);text-align:center;
+  font-family:'Inter',sans-serif;
+}
+.npp-mockup-body{display:flex;min-height:340px}
+.npp-mockup-side{
+  width:64px;flex:none;padding:16px 12px;
+  background:var(--surface-2);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:10px;align-items:center;
+}
+.npp-side-logo{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--grad);color:#fff;font-weight:800;font-size:.65rem;
+  display:grid;place-items:center;font-family:'Sora',sans-serif;margin-bottom:8px;
+}
+.npp-side-item{width:36px;height:36px;border-radius:10px;background:var(--line);opacity:.5}
+.npp-side-item.active{background:var(--brand-soft);opacity:1;border:1px solid var(--brand)}
+.npp-mockup-main{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:18px}
+.npp-mockup-header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.npp-mockup-title{width:180px;height:18px;border-radius:6px;background:var(--grad);opacity:.7}
+.npp-mockup-search{width:160px;height:32px;border-radius:8px;background:var(--surface-2);border:1px solid var(--line)}
+.npp-mockup-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.npp-mini-card{
+  padding:14px;border-radius:12px;
+  background:var(--surface-2);border:1px solid var(--line);
+  display:flex;flex-direction:column;gap:8px;
+}
+.npp-mini-label{width:60%;height:8px;border-radius:4px;background:var(--line)}
+.npp-mini-value{width:40%;height:16px;border-radius:4px}
+.npp-mini-value.v1{background:var(--brand)}
+.npp-mini-value.v2{background:var(--accent)}
+.npp-mini-value.v3{background:#f59e0b}
+.npp-mini-bar{width:100%;height:6px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}
+.npp-mini-bar::after{content:"";position:absolute;left:0;top:0;bottom:0;width:65%;background:var(--brand);border-radius:3px;opacity:.6}
+.npp-mini-bar.b2::after{width:40%;background:var(--accent)}
+.npp-mini-bar.b3::after{width:80%;background:#f59e0b}
+.npp-mockup-table{display:flex;flex-direction:column;gap:8px}
+.npp-row{
+  display:grid;grid-template-columns:2fr 1fr 1fr .8fr;gap:12px;align-items:center;
+  padding:10px 12px;border-radius:8px;background:var(--surface-2);border:1px solid var(--line);
+}
+.npp-row.head{background:transparent;border:none;padding:2px 12px}
+.npp-row.head span{height:8px;border-radius:4px;background:var(--line);opacity:.7}
+.npp-row span{height:10px;border-radius:5px;background:var(--line)}
+.npp-row span.w30{width:70%}
+.npp-row span.w40{width:85%}
+.npp-row span.w50{width:80%}
+.npp-row span.w55{width:75%}
+.npp-row span.w60{width:90%}
+.npp-row span.w70{width:95%}
+.npp-row .tag{height:20px;border-radius:999px;width:70%;justify-self:start}
+.npp-row .tag.t-warn{background:rgba(245,158,11,.25);border:1px solid rgba(245,158,11,.5)}
+.npp-row .tag.t-ok{background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.45)}
+.npp-row .tag.t-alert{background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.45)}
+@media (max-width:640px){
+  .npp-mockup-body{min-height:260px}
+  .npp-mockup-side{display:none}
+  .npp-mockup-cards{grid-template-columns:1fr 1fr}
+  .npp-mockup-cards .npp-mini-card:last-child{display:none}
+  .npp-row{grid-template-columns:1.5fr 1fr .8fr}
+  .npp-row span:last-child{display:none}
+}
+
 /* SOBRE + ESTATÍSTICAS */
 #sobre .container{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center}
 .sobre-text h2{margin-bottom:18px}
@@ -706,6 +836,15 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   }
   .nav-links.open{transform:none;opacity:1;visibility:visible}
   .header-cta{display:none}
+  /* NAV DROPDOWN MOBILE */
+  .nav-dropdown{width:100%}
+  .nav-dropdown-toggle{width:100%;justify-content:space-between;padding:9px 0;font-size:1rem}
+  .nav-dropdown-menu{
+    position:static;box-shadow:none;border:none;background:transparent;
+    padding:0;min-width:0;opacity:1;visibility:visible;transform:none;
+    border-top:1px solid var(--line);margin-top:4px;padding-top:4px;
+  }
+  .nav-dropdown-menu a{padding:12px 0 12px 12px}
   .services-grid,.diff-grid,#sobre .container,.contact-grid,.footer-grid{grid-template-columns:1fr}
   .marker-card{position:static;border-radius:0;max-width:none}
 }
@@ -744,6 +883,15 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     <nav class="nav-links" id="navMenu" aria-label="Navegação principal">
       <a href="#home" data-spy="home">Início</a>
       <a href="#servicos" data-spy="servicos">Serviços</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Produtos">
+          Produtos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="#nao-perca-prazo" role="menuitem" data-spy="nao-perca-prazo">Não Perca Prazo</a>
+        </div>
+      </div>
       <a href="#diferenciais" data-spy="diferenciais">Diferenciais</a>
       <a href="#sobre" data-spy="sobre">Sobre</a>
       <a href="#avaliacoes" data-spy="avaliacoes">Avaliações</a>
@@ -1043,6 +1191,181 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 
     <p class="reveal" style="text-align:center;margin-top:24px;color:var(--muted);font-size:.9rem" data-d="3">
       Espaço reservado para fotos reais dos atendimentos. Substituir por imagens próprias (4:3).
+    </p>
+  </div>
+</section>
+
+<!-- NÃO PERCA PRAZO -->
+<section id="nao-perca-prazo" class="section-pad" aria-labelledby="npp-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Produto próprio</span>
+      <h2 class="section-title reveal" id="npp-titulo" data-d="1">Não Perca <span class="grad-text">Prazo</span></h2>
+      <p class="section-sub reveal" data-d="2">Seu radar jurídico para processos, prazos e audiências. Uma solução Innovatis.</p>
+    </div>
+
+    <div class="reveal" data-d="1" style="max-width:720px;margin:0 auto 40px;text-align:center">
+      <p style="font-size:1.1rem;color:var(--muted);line-height:1.8">
+        Processos mudam. Você fica sabendo.<br>
+        O <strong style="color:var(--ink)">Não Perca Prazo</strong> foi criado para ajudar advogados independentes e escritórios
+        a acompanhar processos, movimentações, possíveis prazos e audiências em um único lugar.
+      </p>
+    </div>
+
+    <!-- PRÉVIA VISUAL (mockup HTML/CSS) -->
+    <div class="npp-mockup reveal" data-d="2" role="img" aria-label="Prévia visual da interface do Não Perca Prazo">
+      <div class="npp-mockup-bar" aria-hidden="true">
+        <span class="npp-dot"></span><span class="npp-dot"></span><span class="npp-dot"></span>
+        <span class="npp-url">nao-perca-prazo.pages.dev</span>
+      </div>
+      <div class="npp-mockup-body" aria-hidden="true">
+        <aside class="npp-mockup-side">
+          <div class="npp-side-logo">NPP</div>
+          <div class="npp-side-item active"></div>
+          <div class="npp-side-item"></div>
+          <div class="npp-side-item"></div>
+          <div class="npp-side-item"></div>
+        </aside>
+        <div class="npp-mockup-main">
+          <div class="npp-mockup-header">
+            <div class="npp-mockup-title"></div>
+            <div class="npp-mockup-search"></div>
+          </div>
+          <div class="npp-mockup-cards">
+            <div class="npp-mini-card">
+              <div class="npp-mini-label"></div>
+              <div class="npp-mini-value v1"></div>
+              <div class="npp-mini-bar"></div>
+            </div>
+            <div class="npp-mini-card">
+              <div class="npp-mini-label"></div>
+              <div class="npp-mini-value v2"></div>
+              <div class="npp-mini-bar b2"></div>
+            </div>
+            <div class="npp-mini-card">
+              <div class="npp-mini-label"></div>
+              <div class="npp-mini-value v3"></div>
+              <div class="npp-mini-bar b3"></div>
+            </div>
+          </div>
+          <div class="npp-mockup-table">
+            <div class="npp-row head"><span></span><span></span><span></span><span></span></div>
+            <div class="npp-row"><span class="w60"></span><span class="tag t-warn"></span><span class="w40"></span><span class="w30"></span></div>
+            <div class="npp-row"><span class="w50"></span><span class="tag t-ok"></span><span class="w40"></span><span class="w30"></span></div>
+            <div class="npp-row"><span class="w70"></span><span class="tag t-alert"></span><span class="w40"></span><span class="w30"></span></div>
+            <div class="npp-row"><span class="w55"></span><span class="tag t-ok"></span><span class="w40"></span><span class="w30"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOR COMUM -->
+    <div class="reveal" data-d="1" style="max-width:720px;margin:64px auto 0">
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.5rem;text-align:center;margin-bottom:16px">
+        Uma dor comum na advocacia
+      </h3>
+      <p style="text-align:center;color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:640px;margin:0 auto">
+        E-mail, diário, sistemas diferentes, planilhas, calendários e várias fontes de informação.
+        No meio de tudo isso, acompanhar o que realmente exige atenção pode consumir tempo
+        e aumentar a complexidade da rotina.
+      </p>
+      <p style="text-align:center;color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:640px;margin:24px auto 0">
+        Foi pensando nessa dor, comum tanto para advogados independentes quanto para escritórios,
+        que nasceu o <strong style="color:var(--ink)">Não Perca Prazo</strong>.
+      </p>
+    </div>
+
+    <!-- BENEFÍCIOS -->
+    <div class="services-grid reveal" data-d="1" style="margin-top:48px">
+      <article class="service-card">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Processos sob controle</h3>
+        <p>Acompanhe sua carteira de processos em um único ambiente, sem pular entre sistemas.</p>
+      </article>
+
+      <article class="service-card" data-d="1">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        <h3>Prazos e atenção</h3>
+        <p>Visualize situações que podem exigir atenção e organize as próximas ações com clareza.</p>
+      </article>
+
+      <article class="service-card" data-d="2">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M5 8l7-5 7 5M5 8l-2 6a4 4 0 0 0 8 0L9 8M19 8l-2 6a4 4 0 0 0 8 0L21 8" transform="scale(.85) translate(2 2)"/></svg></span>
+        <h3>Audiências</h3>
+        <p>Tenha as audiências em destaque, com data, horário e informações relevantes.</p>
+      </article>
+
+      <article class="service-card">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        <h3>Movimentações</h3>
+        <p>Acompanhe atualizações processuais provenientes das fontes integradas.</p>
+      </article>
+
+      <article class="service-card" data-d="1">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></span>
+        <h3>Calendário</h3>
+        <p>Organize prazos e audiências em uma visão centralizada da sua rotina.</p>
+      </article>
+
+      <article class="service-card" data-d="2">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+        <h3>Alertas</h3>
+        <p>Receba alertas para acompanhar situações relevantes da sua carteira.</p>
+      </article>
+
+      <article class="service-card featured">
+        <span class="service-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
+        <h3>DJEN + DataJud/CNJ</h3>
+        <p>Importação e acompanhamento de informações provenientes das integrações disponíveis.</p>
+        <span class="service-tag">Integrações</span>
+      </article>
+    </div>
+
+    <!-- DIFERENCIAL -->
+    <div class="reveal" data-d="2" style="max-width:720px;margin:64px auto 0;padding:40px 32px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);text-align:center">
+      <p style="font-size:1.15rem;color:var(--ink);font-weight:700;font-family:'Sora',sans-serif;margin-bottom:12px">
+        Não é mais um sistema para preencher.
+      </p>
+      <p style="color:var(--muted);max-width:600px;margin:0 auto;line-height:1.8">
+        A proposta do Não Perca Prazo é reduzir o trabalho operacional de acompanhamento
+        e transformar informações espalhadas em informações mais fáceis de acompanhar.
+      </p>
+    </div>
+
+    <!-- NOVO CAPÍTULO -->
+    <div class="reveal" data-d="3" style="max-width:720px;margin:64px auto 0;text-align:center">
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.5rem;margin-bottom:16px">
+        Um novo capítulo para a Innovatis
+      </h3>
+      <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:640px;margin:0 auto 20px">
+        O Não Perca Prazo é o primeiro projeto da Innovatis desenvolvido especificamente
+        para atacar uma dor de um segmento profissional.
+      </p>
+      <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:640px;margin:0 auto 24px">
+        A partir da nossa experiência com tecnologia, automação e desenvolvimento de soluções,
+        estamos criando produtos que não apenas resolvem problemas técnicos, mas também
+        problemas reais do dia a dia de profissionais e empresas.
+      </p>
+      <p style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem">
+        <span class="grad-text">Tecnologia aplicada a problemas reais.</span>
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal" data-d="4" style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:48px">
+      <a href="https://nao-perca-prazo.pages.dev" target="_blank" rel="noopener" class="btn" style="background:var(--grad);color:#fff;box-shadow:0 10px 30px -8px rgba(6,182,212,.55)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+        Testar a demo
+      </a>
+      <a class="btn btn-whats" href="https://wa.me/5531982888685?text=Ol%C3%A1%2C%20Innovatis!%20Tenho%20interesse%20no%20produto%20N%C3%A3o%20Perca%20Prazo." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
+        Falar com a Innovatis
+      </a>
+    </div>
+
+    <!-- CRÉDITO -->
+    <p class="reveal" data-d="5" style="text-align:center;margin-top:32px;color:var(--muted);font-size:.9rem">
+      Desenvolvido pela <strong>Innovatis Soluções em TI</strong> — uma solução Innovatis.
     </p>
   </div>
 </section>
@@ -1751,8 +2074,29 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
     a.addEventListener('click', function () {
       navMenu.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
+      var ddToggle = a.closest('.nav-dropdown') && a.closest('.nav-dropdown').querySelector('.nav-dropdown-toggle');
+      if (ddToggle) ddToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  /* NAV DROPDOWN */
+  var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+  var dropdownMenu = document.querySelector('.nav-dropdown-menu');
+  if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+      dropdownToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+    document.addEventListener('click', function (e) {
+      if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') dropdownToggle.setAttribute('aria-expanded', 'false');
+    });
+  }
 
   /* 3. SCROLL SPY */
   var spyLinks = Array.prototype.slice.call(document.querySelectorAll('[data-spy]'));
