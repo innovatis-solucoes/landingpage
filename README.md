@@ -118,7 +118,8 @@ git push
 Edite no `index.html` (procure por `AJUSTE:`):
 
 - **Telefone/WhatsApp:** `(31) 98288-8685` → `WA_NUMBER = '5531982888685'`
-- **E-mail:** `innovatis.solucoes@gmail.com`
+- **E-mail:** `contato@innovatis.com.br` — **DPO (LGPD):** `dpo@innovatis.com.br`
+- **CNPJ:** `42.042.979/0001-00` (footer e Schema.org)
 - **Horário:** `Seg–Sex 8h–18h, Sáb 8h–12h`
 - **Estatísticas (contadores):** `data-count="5"`, `data-count="1200"`, `data-count="300"`, `data-count="100"`
 - **Avaliações Google:** bloco comentado no JS (`ONDE PLUGAR A INTEGRAÇÃO REAL`)

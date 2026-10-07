@@ -52,7 +52,8 @@
   "description": "Suporte técnico de TI e manutenção de computadores com atendimento presencial para empresas e residências em Belo Horizonte e região metropolitana.",
   "url": "https://innovatis.com.br/",
   "telephone": "+5531982888685",
-  "email": "innovatis.solucoes@gmail.com",
+  "email": "contato@innovatis.com.br",
+  "taxID": "42.042.979/0001-00",
   "priceRange": "$$",
   "image": "https://innovatis.com.br/og-image.png",
   "address": {
@@ -843,8 +844,60 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   box-shadow:0 0 0 4px var(--brand-soft);
 }
 .field textarea{min-height:120px}
-.form-note{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);margin-top:12px}
-.form-note svg{width:15px;height:15px;color:var(--brand);flex:none}
+.form-note{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:var(--muted);margin-top:12px}
+.form-note svg{width:15px;height:15px;color:var(--brand);flex:none;margin-top:3px}
+.form-note a{color:var(--brand-strong);font-weight:700;text-decoration:underline}
+
+/* LGPD — CONSENTIMENTO NO FORMULÁRIO */
+.field .consent{
+  display:flex;gap:10px;align-items:flex-start;font-size:.84rem;font-weight:500;
+  color:var(--muted);line-height:1.5;margin-bottom:0;
+}
+.field .consent input[type="checkbox"]{
+  width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--brand-strong);cursor:pointer;
+}
+.field .consent a{color:var(--brand-strong);font-weight:700;text-decoration:underline}
+
+/* LGPD — POLÍTICA DE PRIVACIDADE */
+.legal{max-width:860px;margin-inline:auto}
+.legal-meta{
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  display:grid;gap:6px;background:var(--surface);box-shadow:var(--shadow-sm);
+}
+.legal-meta strong{font-family:'Sora',sans-serif;color:var(--ink);font-size:1.05rem}
+.legal-meta span{font-size:.92rem;color:var(--muted)}
+.legal h3{font-size:1.12rem;margin:28px 0 8px}
+.legal p{color:var(--muted);font-size:.95rem}
+.legal ul{list-style:disc;padding-left:22px;display:grid;gap:6px;margin-top:8px}
+.legal li{color:var(--muted);font-size:.95rem}
+.legal a{color:var(--brand-strong);font-weight:600;text-decoration:underline}
+.legal-updated{margin-top:26px;font-size:.85rem;color:var(--muted)}
+
+/* LGPD — BANNER DE CONSENTIMENTO */
+.lgpd-banner{
+  position:fixed;left:0;right:0;bottom:0;z-index:1100;
+  background:var(--surface);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);box-shadow:var(--shadow-lg);
+  padding:18px 0;transform:translateY(120%);transition:transform .4s var(--ease);
+}
+.lgpd-banner.is-visible{transform:none}
+.lgpd-inner{
+  width:min(1180px,100% - 40px);margin-inline:auto;
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+}
+.lgpd-inner p{font-size:.88rem;color:var(--muted);max-width:72ch}
+.lgpd-inner p a{color:var(--brand-strong);font-weight:700;text-decoration:underline}
+.lgpd-actions{display:flex;gap:10px;flex:none}
+.lgpd-actions button{
+  font-size:.86rem;font-weight:700;border-radius:999px;padding:11px 22px;
+  border:1.5px solid var(--line);
+  transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease),color .2s var(--ease);
+}
+.lgpd-actions .lgpd-accept{background:var(--brand-strong);color:#fff;border-color:var(--brand-strong)}
+.lgpd-actions .lgpd-accept:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.lgpd-actions .lgpd-reject:hover{border-color:var(--brand);color:var(--brand-strong);transform:translateY(-2px)}
+body.lgpd-open .wa-float{bottom:120px}
+body.lgpd-open .ig-float{bottom:190px}
 
 /* BOTÕES FLUTUANTES */
 .wa-float{
@@ -852,7 +905,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   width:58px;height:58px;border-radius:50%;
   background:var(--whats);color:#fff;display:grid;place-items:center;
   box-shadow:0 10px 30px -6px rgba(37,211,102,.7);
-  transition:transform .3s var(--ease);
+  transition:transform .3s var(--ease),bottom .3s var(--ease);
   animation:wa-glow 3s var(--ease) infinite;
 }
 .wa-float svg{width:30px;height:30px}
@@ -868,7 +921,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
   color:#fff;display:grid;place-items:center;
   box-shadow:0 10px 30px -6px rgba(220,39,67,.7);
-  transition:transform .3s var(--ease);
+  transition:transform .3s var(--ease),bottom .3s var(--ease);
   animation:ig-glow 3s var(--ease) infinite;
 }
 .ig-float svg{width:28px;height:28px}
@@ -904,6 +957,13 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
 }
 .footer-bottom .socials a:hover{transform:translateY(-3px);color:var(--brand-strong);border-color:var(--brand)}
 .footer-bottom .socials svg{width:17px;height:17px}
+.footer-brand .footer-cnpj{font-size:.85rem;margin-top:8px;color:var(--muted)}
+.footer-legal{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;
+  margin-top:14px;font-size:.83rem;color:var(--muted);
+}
+.footer-legal a{color:var(--muted);text-decoration:underline}
+.footer-legal a:hover{color:var(--brand-strong)}
 
 /* RESPONSIVO */
 @media (max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
@@ -2118,7 +2178,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
           <span class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6"/></svg></span>
           <div>
             <h3>E-mail</h3>
-            <a href="mailto:innovatis.solucoes@gmail.com">innovatis.solucoes@gmail.com</a>
+            <a href="mailto:contato@innovatis.com.br">contato@innovatis.com.br</a>
           </div>
         </div>
 
@@ -2172,15 +2232,86 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
           <textarea id="f-msg" name="mensagem" placeholder="Ex.: Meu notebook está muito lento e travando. Gostaria de agendar uma manutenção em casa." required></textarea>
         </div>
 
+        <div class="field">
+          <label class="consent" for="f-consent">
+            <input type="checkbox" id="f-consent" name="consentimento" required>
+            <span>Li e concordo com a <a href="#privacidade">Política de Privacidade</a> e autorizo o tratamento dos meus dados para retorno do contato e agendamento do atendimento, conforme a LGPD.</span>
+          </label>
+        </div>
+
         <button class="btn btn-whats" type="submit" id="formSubmit">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4l-2.2-1.1a.8.8 0 0 0-.8.1l-.9.9a.7.7 0 0 1-.8 0A11.5 11.5 0 0 1 9.8 11a.7.7 0 0 1 0-.9l.9-.9a.8.8 0 0 0 .1-.8L9.7 6.1a.7.7 0 0 0-.8-.4h-1.5c-.4 0-.8.3-.8.8A13.5 13.5 0 0 0 17.6 17.4c.5 0 .8-.4.8-.8v-1.5a.8.8 0 0 0-.9-.7zM12 0A12 12 0 0 0 2.5 17.8L.6 23.4l5.7-1.8A12 12 0 1 0 12 0z"/></svg>
           Enviar e agendar no WhatsApp
         </button>
         <p class="form-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Nenhum dado é armazenado: você é redirecionado ao WhatsApp com a mensagem de agendamento pronta.
+          <span>Nenhum dado é armazenado neste site: você é redirecionado ao WhatsApp com a mensagem pronta. Veja como tratamos seus dados na <a href="#privacidade">Política de Privacidade</a>.</span>
         </p>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- LGPD — POLÍTICA DE PRIVACIDADE -->
+<section id="privacidade" class="section-pad" aria-labelledby="privacidade-titulo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Privacidade e LGPD</span>
+      <h2 class="section-title" id="privacidade-titulo">Política de Privacidade</h2>
+      <p class="section-sub">Como a Innovatis Soluções em TI trata seus dados pessoais, em conformidade com a Lei nº 13.709/2018 (LGPD).</p>
+    </div>
+
+    <div class="legal">
+      <div class="legal-meta">
+        <strong>Controlador dos dados</strong>
+        <span>Innovatis Soluções em TI — CNPJ 42.042.979/0001-00</span>
+        <span>Rua João Gualberto dos Santos, 47 — Céu Azul, Belo Horizonte/MG, CEP 31580-500</span>
+        <span>Contato: <a href="mailto:contato@innovatis.com.br">contato@innovatis.com.br</a></span>
+        <span>Encarregado pelo Tratamento de Dados Pessoais (DPO): <a href="mailto:dpo@innovatis.com.br">dpo@innovatis.com.br</a></span>
+      </div>
+
+      <h3>1. Quais dados tratamos</h3>
+      <p>Ao preencher o formulário de agendamento, você nos fornece: nome, telefone/WhatsApp, local do atendimento, equipamento ou serviço desejado e a mensagem descritiva. Também podem ser tratados dados técnicos de navegação (como endereço IP e data/hora de acesso) gerados automaticamente pelos provedores de hospedagem e de fontes utilizados pelo site.</p>
+
+      <h3>2. Finalidades do tratamento</h3>
+      <ul>
+        <li>Responder à sua solicitação e entrar em contato;</li>
+        <li>Agendar, orçar e prestar o atendimento técnico solicitado;</li>
+        <li>Cumprir obrigações legais, regulatórias e contratuais aplicáveis;</li>
+        <li>Garantir a segurança e o funcionamento adequado do site.</li>
+      </ul>
+
+      <h3>3. Bases legais</h3>
+      <p>O tratamento dos dados do formulário é realizado com base no seu <strong>consentimento</strong> (art. 7º, I, da LGPD), manifestado no momento do envio. Dados necessários à execução dos serviços podem ser tratados para a <strong>execução de contrato</strong> (art. 7º, V) e para o <strong>cumprimento de obrigação legal</strong> (art. 7º, II), quando aplicável.</p>
+
+      <h3>4. Compartilhamento de dados</h3>
+      <p>Não vendemos nem alugamos seus dados pessoais. Ao enviar o formulário, a mensagem é encaminhada diretamente ao nosso WhatsApp, cujo serviço é operado pela Meta Platforms, sujeito à política de privacidade do WhatsApp. O site é hospedado no GitHub Pages e utiliza fontes do Google Fonts, que podem registrar seu endereço IP ao carregar os recursos.</p>
+
+      <h3>5. Cookies e tecnologias similares</h3>
+      <p>Este site não utiliza cookies de rastreamento, publicidade ou análise comportamental. Empregamos apenas o armazenamento local do navegador para registrar a sua preferência de consentimento, o que é estritamente necessário para respeitar sua escolha. Recursos de terceiros (como o Google Fonts) podem coletar dados técnicos, conforme indicado no item anterior.</p>
+
+      <h3>6. Retenção dos dados</h3>
+      <p>Os dados preenchidos no formulário não são armazenados neste site — eles são apenas encaminhados ao WhatsApp para viabilizar o atendimento. As conversas e informações decorrentes do serviço são mantidas pelo período necessário à prestação do atendimento e ao cumprimento de eventuais obrigações legais.</p>
+
+      <h3>7. Seus direitos como titular</h3>
+      <p>Nos termos do art. 18 da LGPD, você pode, a qualquer momento, solicitar:</p>
+      <ul>
+        <li>Confirmação da existência de tratamento e acesso aos seus dados;</li>
+        <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+        <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
+        <li>Portabilidade dos dados a outro fornecedor, mediante requisição expressa;</li>
+        <li>Informação sobre as entidades com as quais seus dados foram compartilhados;</li>
+        <li>Revogação do consentimento e eliminação dos dados tratados com base nele.</li>
+      </ul>
+      <p>Para exercer seus direitos, envie um e-mail ao nosso encarregado (DPO): <a href="mailto:dpo@innovatis.com.br">dpo@innovatis.com.br</a>.</p>
+
+      <h3>8. Segurança</h3>
+      <p>Adotamos medidas técnicas e administrativas razoáveis para proteger seus dados pessoais contra acessos não autorizados, perda, alteração ou divulgação indevida. O site é servido por conexão segura (HTTPS).</p>
+
+      <h3>9. Alterações desta política</h3>
+      <p>Esta política pode ser atualizada para refletir mudanças em nossas práticas ou na legislação. A versão vigente será sempre publicada nesta página, com a data de atualização indicada abaixo.</p>
+
+      <p class="legal-updated">Última atualização: 07 de outubro de 2026.</p>
     </div>
   </div>
 </section>
@@ -2216,6 +2347,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
           <span>Innova<em>tis</em></span>
         </a>
         <p>Suporte técnico de TI rápido e de confiança para empresas e residências em Belo Horizonte e região metropolitana.</p>
+        <p class="footer-cnpj">CNPJ 42.042.979/0001-00</p>
       </div>
 
       <div class="footer-col">
@@ -2226,6 +2358,7 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#avaliacoes">Avaliações</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="#privacidade">Política de Privacidade</a></li>
         </ul>
       </div>
 
@@ -2242,7 +2375,11 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6"/></svg>
-            <a href="mailto:innovatis.solucoes@gmail.com">innovatis.solucoes@gmail.com</a>
+            <a href="mailto:contato@innovatis.com.br">contato@innovatis.com.br</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+            <a href="mailto:dpo@innovatis.com.br">DPO: dpo@innovatis.com.br</a>
           </li>
         </ul>
       </div>
@@ -2252,10 +2389,26 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
       <div class="socials" aria-label="Redes sociais">
         <a href="https://www.instagram.com/innovatis.solucoes" target="_blank" rel="noopener" aria-label="Instagram da Innovatis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
       </div>
-      <span>© <span id="anoAtual">2026</span> Innovatis Soluções em TI. Todos os direitos reservados.</span>
+      <span>© <span id="anoAtual">2026</span> Innovatis Soluções em TI — CNPJ 42.042.979/0001-00. Todos os direitos reservados.</span>
+    </div>
+    <div class="footer-legal">
+      <a href="#privacidade">Política de Privacidade</a>
+      <span aria-hidden="true">·</span>
+      <a href="mailto:dpo@innovatis.com.br">Encarregado de Dados (DPO)</a>
     </div>
   </div>
 </footer>
+
+<!-- LGPD — AVISO DE PRIVACIDADE E CONSENTIMENTO -->
+<div class="lgpd-banner" id="lgpdBanner" role="dialog" aria-live="polite" aria-label="Aviso de privacidade e consentimento" hidden>
+  <div class="lgpd-inner">
+    <p>Usamos recursos de terceiros (como Google Fonts) e armazenamos apenas a sua preferência de privacidade. Ao continuar, você declara ciência da nossa <a href="#privacidade">Política de Privacidade</a>, em conformidade com a LGPD. Nenhum dado do formulário é armazenado neste site.</p>
+    <div class="lgpd-actions">
+      <button type="button" class="lgpd-reject" id="lgpdReject">Rejeitar</button>
+      <button type="button" class="lgpd-accept" id="lgpdAccept">Aceitar</button>
+    </div>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -2705,8 +2858,9 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
       var msg = document.getElementById('f-msg').value.trim();
       var onde = document.getElementById('f-onde').value;
       var equip = document.getElementById('f-equipamento').value;
+      var consent = document.getElementById('f-consent').checked;
 
-      if (!nome || !fone || !onde || !equip || !msg) {
+      if (!nome || !fone || !onde || !equip || !msg || !consent) {
         var first = form.querySelector(':invalid');
         if (first) first.focus();
         return;
@@ -2758,6 +2912,32 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   /* 11. ANO NO FOOTER */
   var anoEl = document.getElementById('anoAtual');
   if (anoEl) anoEl.textContent = new Date().getFullYear();
+
+  /* 12. CONSENTIMENTO LGPD */
+  var lgpdBanner = document.getElementById('lgpdBanner');
+  if (lgpdBanner) {
+    var LGPD_KEY = 'innovatis-lgpd-consent';
+    var lgpdChoice = null;
+    try { lgpdChoice = window.localStorage.getItem(LGPD_KEY); } catch (e) {}
+
+    if (!lgpdChoice) {
+      lgpdBanner.hidden = false;
+      window.requestAnimationFrame(function () {
+        lgpdBanner.classList.add('is-visible');
+        document.body.classList.add('lgpd-open');
+      });
+    }
+
+    function closeLgpd(value) {
+      try { window.localStorage.setItem(LGPD_KEY, value); } catch (e) {}
+      lgpdBanner.classList.remove('is-visible');
+      document.body.classList.remove('lgpd-open');
+      window.setTimeout(function () { lgpdBanner.hidden = true; }, 400);
+    }
+
+    document.getElementById('lgpdAccept').addEventListener('click', function () { closeLgpd('accepted'); });
+    document.getElementById('lgpdReject').addEventListener('click', function () { closeLgpd('rejected'); });
+  }
 })();
 </script>
 </body>
