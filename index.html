@@ -37,10 +37,9 @@
 <!-- Favicon (SVG inline) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2306b6d4'/%3E%3Cstop offset='1' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cg stroke='%23ffffff' stroke-width='4.5' stroke-linecap='round'%3E%3Cpath d='M32 20v12'/%3E%3Cpath d='M14 46h36'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='32' cy='15' r='5.5'/%3E%3Ccircle cx='14' cy='46' r='5.5'/%3E%3Ccircle cx='50' cy='46' r='5.5'/%3E%3C/g%3E%3C/svg%3E">
 
-<!-- Google Fonts: Sora + Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Fontes hospedadas localmente (Sora + Inter) — sem requisições ao Google -->
+<link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Schema.org -->
 <script type="application/ld+json">
@@ -141,6 +140,14 @@
 </script>
 
 <style>
+/* ============================================================
+   FONTES LOCAIS (self-hosted) — Sora + Inter
+   ============================================================ */
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/sora-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Sora';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/sora-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 /* ============================================================
    VARIÁVEIS DE TEMA
    ============================================================ */
@@ -799,7 +806,17 @@ section{position:relative;z-index:1;scroll-margin-top:calc(var(--header-h) + 8px
   position:relative;border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--line);box-shadow:var(--shadow-md);
 }
-.map-frame iframe{width:100%;height:440px;border:0;display:block}
+.map-frame iframe{width:100%;height:440px;border:0;display:none}
+.map-frame.is-loaded iframe{display:block}
+.map-consent{
+  min-height:440px;display:grid;place-items:center;align-content:center;gap:12px;
+  text-align:center;padding:32px;background:var(--surface-2);
+}
+.map-consent svg{width:40px;height:40px;color:var(--brand)}
+.map-consent h3{font-size:1.05rem}
+.map-consent p{color:var(--muted);font-size:.9rem;max-width:48ch}
+.map-consent p a{color:var(--brand-strong);font-weight:700;text-decoration:underline}
+.map-frame.is-loaded .map-consent{display:none}
 .marker-card{
   position:absolute;left:16px;bottom:16px;z-index:2;max-width:290px;
   border:1px solid var(--line);border-radius:14px;padding:16px 18px;
@@ -2130,9 +2147,15 @@ body.lgpd-open .ig-float{bottom:190px}
     </div>
 
     <div class="map-frame reveal" data-d="1">
+      <div class="map-consent" id="mapConsent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>Mapa carregado do Google</h3>
+        <p>Para exibir o mapa, o Google pode coletar seu endereço IP e usar cookies. Ao carregar, você concorda com a <a href="#privacidade">Política de Privacidade</a>.</p>
+        <button type="button" class="btn btn-ghost" id="mapLoadBtn">Carregar mapa</button>
+      </div>
       <iframe
         title="Mapa — Innovatis Soluções em TI, Rua João Gualberto dos Santos, 47, Céu Azul, Belo Horizonte"
-        src="https://www.google.com/maps?q=Rua+Jo%C3%A3o+Gualberto+dos+Santos+47,+C%C3%A9u+Azul,+Belo+Horizonte+-+MG,+31580-500&output=embed"
+        data-src="https://www.google.com/maps?q=Rua+Jo%C3%A3o+Gualberto+dos+Santos+47,+C%C3%A9u+Azul,+Belo+Horizonte+-+MG,+31580-500&output=embed"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       <div class="marker-card">
         <small>Innovatis Soluções em TI</small>
@@ -2235,7 +2258,7 @@ body.lgpd-open .ig-float{bottom:190px}
         <div class="field">
           <label class="consent" for="f-consent">
             <input type="checkbox" id="f-consent" name="consentimento" required>
-            <span>Li e concordo com a <a href="#privacidade">Política de Privacidade</a> e autorizo o tratamento dos meus dados para retorno do contato e agendamento do atendimento, conforme a LGPD.</span>
+            <span>Li e concordo com a <a href="#privacidade">Política de Privacidade</a> e autorizo o tratamento dos meus dados para retorno do contato e agendamento, incluindo o envio da mensagem via WhatsApp (Meta), conforme a LGPD.</span>
           </label>
         </div>
 
@@ -2284,11 +2307,13 @@ body.lgpd-open .ig-float{bottom:190px}
       <h3>3. Bases legais</h3>
       <p>O tratamento dos dados do formulário é realizado com base no seu <strong>consentimento</strong> (art. 7º, I, da LGPD), manifestado no momento do envio. Dados necessários à execução dos serviços podem ser tratados para a <strong>execução de contrato</strong> (art. 7º, V) e para o <strong>cumprimento de obrigação legal</strong> (art. 7º, II), quando aplicável.</p>
 
-      <h3>4. Compartilhamento de dados</h3>
-      <p>Não vendemos nem alugamos seus dados pessoais. Ao enviar o formulário, a mensagem é encaminhada diretamente ao nosso WhatsApp, cujo serviço é operado pela Meta Platforms, sujeito à política de privacidade do WhatsApp. O site é hospedado no GitHub Pages e utiliza fontes do Google Fonts, que podem registrar seu endereço IP ao carregar os recursos.</p>
+      <h3>4. Compartilhamento e transferência internacional de dados</h3>
+      <p>Não vendemos nem alugamos seus dados pessoais. Ao enviar o formulário, a mensagem é encaminhada diretamente ao nosso WhatsApp, serviço operado pela Meta Platforms, sujeito à política de privacidade do WhatsApp. O mapa exibido na página é fornecido pelo Google Maps e só é carregado com o seu consentimento. As fontes tipográficas do site são hospedadas por nós, não havendo envio de dados ao Google por esse motivo.</p>
+      <p>O WhatsApp (Meta) e o Google Maps podem tratar dados em servidores localizados fora do Brasil, o que configura <strong>transferência internacional de dados</strong> (arts. 33 a 36 da LGPD). Essa transferência ocorre com base no seu <strong>consentimento específico</strong>, manifestado ao enviar o formulário ou ao aceitar/carregar o mapa. Você pode revogar esse consentimento a qualquer momento (ver item 7).</p>
 
       <h3>5. Cookies e tecnologias similares</h3>
-      <p>Este site não utiliza cookies de rastreamento, publicidade ou análise comportamental. Empregamos apenas o armazenamento local do navegador para registrar a sua preferência de consentimento, o que é estritamente necessário para respeitar sua escolha. Recursos de terceiros (como o Google Fonts) podem coletar dados técnicos, conforme indicado no item anterior.</p>
+      <p>Este site não utiliza cookies de rastreamento, publicidade ou análise comportamental. Empregamos apenas o armazenamento local do navegador para registrar a sua preferência de consentimento, o que é estritamente necessário para respeitar sua escolha.</p>
+      <p>O único recurso de terceiros é o mapa do <strong>Google Maps</strong>, que <strong>não é carregado automaticamente</strong>: ele permanece bloqueado até que você clique em “Carregar mapa” ou aceite o aviso de consentimento. Ao carregá-lo, o Google pode registrar seu endereço IP e utilizar cookies próprios, conforme a política de privacidade do Google.</p>
 
       <h3>6. Retenção dos dados</h3>
       <p>Os dados preenchidos no formulário não são armazenados neste site — eles são apenas encaminhados ao WhatsApp para viabilizar o atendimento. As conversas e informações decorrentes do serviço são mantidas pelo período necessário à prestação do atendimento e ao cumprimento de eventuais obrigações legais.</p>
@@ -2303,7 +2328,7 @@ body.lgpd-open .ig-float{bottom:190px}
         <li>Informação sobre as entidades com as quais seus dados foram compartilhados;</li>
         <li>Revogação do consentimento e eliminação dos dados tratados com base nele.</li>
       </ul>
-      <p>Para exercer seus direitos, envie um e-mail ao nosso encarregado (DPO): <a href="mailto:dpo@innovatis.com.br">dpo@innovatis.com.br</a>.</p>
+      <p>Para exercer seus direitos, envie um e-mail ao nosso encarregado (DPO): <a href="mailto:dpo@innovatis.com.br">dpo@innovatis.com.br</a>. Responderemos no prazo de até <strong>15 (quinze) dias</strong> contados da sua solicitação. Caso entenda que sua solicitação não foi atendida adequadamente, você também pode peticionar à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>.</p>
 
       <h3>8. Segurança</h3>
       <p>Adotamos medidas técnicas e administrativas razoáveis para proteger seus dados pessoais contra acessos não autorizados, perda, alteração ou divulgação indevida. O site é servido por conexão segura (HTTPS).</p>
@@ -2402,7 +2427,7 @@ body.lgpd-open .ig-float{bottom:190px}
 <!-- LGPD — AVISO DE PRIVACIDADE E CONSENTIMENTO -->
 <div class="lgpd-banner" id="lgpdBanner" role="dialog" aria-live="polite" aria-label="Aviso de privacidade e consentimento" hidden>
   <div class="lgpd-inner">
-    <p>Usamos recursos de terceiros (como Google Fonts) e armazenamos apenas a sua preferência de privacidade. Ao continuar, você declara ciência da nossa <a href="#privacidade">Política de Privacidade</a>, em conformidade com a LGPD. Nenhum dado do formulário é armazenado neste site.</p>
+    <p>As fontes deste site são hospedadas por nós: nenhum dado é enviado ao Google por causa delas. O único recurso externo é o <strong>Google Maps</strong>, que só carrega com o seu consentimento e pode coletar seu IP e usar cookies. Saiba mais na <a href="#privacidade">Política de Privacidade</a>. Nenhum dado do formulário é armazenado neste site.</p>
     <div class="lgpd-actions">
       <button type="button" class="lgpd-reject" id="lgpdReject">Rejeitar</button>
       <button type="button" class="lgpd-accept" id="lgpdAccept">Aceitar</button>
@@ -2914,9 +2939,9 @@ body.lgpd-open .ig-float{bottom:190px}
   if (anoEl) anoEl.textContent = new Date().getFullYear();
 
   /* 12. CONSENTIMENTO LGPD */
+  var LGPD_KEY = 'innovatis-lgpd-consent';
   var lgpdBanner = document.getElementById('lgpdBanner');
   if (lgpdBanner) {
-    var LGPD_KEY = 'innovatis-lgpd-consent';
     var lgpdChoice = null;
     try { lgpdChoice = window.localStorage.getItem(LGPD_KEY); } catch (e) {}
 
@@ -2933,11 +2958,29 @@ body.lgpd-open .ig-float{bottom:190px}
       lgpdBanner.classList.remove('is-visible');
       document.body.classList.remove('lgpd-open');
       window.setTimeout(function () { lgpdBanner.hidden = true; }, 400);
+      if (value === 'accepted') loadMap();
     }
 
     document.getElementById('lgpdAccept').addEventListener('click', function () { closeLgpd('accepted'); });
     document.getElementById('lgpdReject').addEventListener('click', function () { closeLgpd('rejected'); });
   }
+
+  /* 13. MAPA — CARREGAMENTO SOB CONSENTIMENTO (click-to-load) */
+  function loadMap() {
+    var mapFrame = document.querySelector('.map-frame');
+    if (!mapFrame || mapFrame.classList.contains('is-loaded')) return;
+    var mapIframe = mapFrame.querySelector('iframe[data-src]');
+    if (!mapIframe) return;
+    mapIframe.src = mapIframe.getAttribute('data-src');
+    mapFrame.classList.add('is-loaded');
+  }
+
+  var mapLoadBtn = document.getElementById('mapLoadBtn');
+  if (mapLoadBtn) mapLoadBtn.addEventListener('click', loadMap);
+
+  var lgpdStored = null;
+  try { lgpdStored = window.localStorage.getItem(LGPD_KEY); } catch (e) {}
+  if (lgpdStored === 'accepted') loadMap();
 })();
 </script>
 </body>

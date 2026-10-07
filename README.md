@@ -7,9 +7,19 @@ Deploy no GitHub Pages com domínio customizado `innovatis.com.br`.
 ## Arquivos do projeto
 
 - `index.html` — Página única (HTML + CSS + JS inline)
+- `fonts/` — Fontes Sora e Inter hospedadas localmente (woff2, sem CDN do Google)
 - `sitemap.xml` — Mapa do site para indexação
 - `robots.txt` — Instruções para rastreadores
 - `CNAME` — Domínio customizado (obrigatório para GitHub Pages)
+
+---
+
+## LGPD
+
+- Fontes self-hosted: nenhuma requisição ao Google Fonts no carregamento.
+- Mapa do Google carregado via **click-to-load** (`data-src`), só após consentimento.
+- Consentimento registrado em `localStorage` (chave `innovatis-lgpd-consent`).
+- Política de Privacidade na seção `#privacidade`; DPO `dpo@innovatis.com.br`.
 
 ---
 
@@ -131,7 +141,7 @@ Edite no `index.html` (procure por `AJUSTE:`):
 
 - HTML5 semântico + CSS3 (custom properties, grid, flex)
 - JavaScript vanilla (ES6+) — sem dependências externas
-- Google Fonts: **Sora** (títulos) + **Inter** (corpo)
+- Fontes **Sora** (títulos) + **Inter** (corpo), hospedadas localmente em `fonts/`
 - Progressive enhancement: funciona sem JS
 - `prefers-reduced-motion` e `prefers-color-scheme` respeitados
 - Schema.org `LocalBusiness` + Open Graph + Twitter Cards
