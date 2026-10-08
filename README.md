@@ -4,6 +4,16 @@ Deploy no GitHub Pages com domínio customizado `innovatis.com.br`.
 
 ---
 
+## Produtos próprios
+
+- **Não Perca Prazo** — radar jurídico para advogados e escritórios (`#nao-perca-prazo`).
+- **Prontto** — ordens de serviço digitais para assistência residencial de seguradoras (`#prontto`).
+- **Conecta Condomínio** — gestão condominial com assembleias auditáveis: convocação comprovável,
+  votação auditável, voto secreto, quórum reproduzível, ata versionada, assinatura eletrônica e
+  pacote de evidências (`#conecta-condominio`).
+
+---
+
 ## Arquivos do projeto
 
 - `index.html` — Página única (HTML + CSS + JS inline)
