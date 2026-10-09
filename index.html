@@ -1842,6 +1842,21 @@ body.lgpd-open .ig-float{bottom:190px}
       </p>
     </div>
 
+    <!-- TELAS (carrossel) -->
+    <div class="reveal" data-d="2" style="margin-top:72px">
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.5rem;text-align:center;margin-bottom:8px">Veja o Conecta por dentro</h3>
+      <p style="text-align:center;color:var(--muted);max-width:620px;margin:0 auto 24px">Telas reais do aplicativo. Dados pessoais desfocados por privacidade.</p>
+      <div id="cc-carousel" style="position:relative;max-width:960px;margin:0 auto">
+        <div style="overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)">
+          <div id="cc-slides" style="display:flex;transition:transform .5s ease"></div>
+        </div>
+        <button id="cc-prev" type="button" aria-label="Tela anterior" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:9999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-size:22px;line-height:1">&#8249;</button>
+        <button id="cc-next" type="button" aria-label="Próxima tela" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:9999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-size:22px;line-height:1">&#8250;</button>
+      </div>
+      <div id="cc-dots" style="display:flex;justify-content:center;gap:8px;margin-top:14px"></div>
+      <p id="cc-cap" style="text-align:center;color:var(--muted);margin-top:8px;font-size:.9rem"></p>
+    </div>
+
     <!-- CTA -->
     <div class="reveal" data-d="3" style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:48px">
       <a href="https://conectacondominio.innovatis.com.br" target="_blank" rel="noopener" class="btn" style="background:var(--grad);color:#fff;box-shadow:0 10px 30px -8px rgba(6,182,212,.55)">
@@ -3183,6 +3198,68 @@ body.lgpd-open .ig-float{bottom:190px}
   var lgpdStored = null;
   try { lgpdStored = window.localStorage.getItem(LGPD_KEY); } catch (e) {}
   if (lgpdStored === 'accepted') loadMap();
+})();
+</script>
+<script>
+(function () {
+  var slides = [
+    ['00-inicio.png', 'Início — visão geral do condomínio'],
+    ['01-comunicados.png', 'Comunicados com confirmação de leitura'],
+    ['05-visitantes.png', 'Visitantes com QR Code'],
+    ['04-encomendas.png', 'Encomendas na portaria'],
+    ['02-ocorrencias.png', 'Ocorrências e solicitações'],
+    ['03-reservas.png', 'Reservas de áreas comuns'],
+    ['06-assembleias.png', 'Assembleias auditáveis'],
+    ['07-relatorios.png', 'Relatórios para a gestão'],
+    ['08-gestao.png', 'Gestão de unidades e moradores']
+  ];
+  var track = document.getElementById('cc-slides');
+  var dots = document.getElementById('cc-dots');
+  var cap = document.getElementById('cc-cap');
+  var wrap = document.getElementById('cc-carousel');
+  if (!track || !wrap) return;
+
+  function paintDots() {
+    Array.prototype.forEach.call(dots.children, function (d, idx) {
+      d.style.width = idx === i ? '24px' : '10px';
+      d.style.background = idx === i ? 'var(--brand)' : 'var(--line)';
+    });
+  }
+  function render() {
+    track.style.transform = 'translateX(-' + (i * 100) + '%)';
+    if (cap) cap.textContent = slides[i][1];
+    paintDots();
+  }
+  function go(x) { i = (x + slides.length) % slides.length; render(); }
+  var i = 0;
+
+  slides.forEach(function (s, idx) {
+    var fig = document.createElement('figure');
+    fig.style.cssText = 'width:100%;flex:0 0 100%;margin:0';
+    var img = document.createElement('img');
+    img.src = 'screens/' + s[0];
+    img.alt = 'Tela do Conecta: ' + s[1];
+    img.loading = idx === 0 ? 'eager' : 'lazy';
+    img.style.cssText = 'display:block;width:100%;height:auto';
+    fig.appendChild(img);
+    track.appendChild(fig);
+
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.setAttribute('aria-label', 'Ir para: ' + s[1]);
+    d.style.cssText = 'height:10px;width:10px;border:0;border-radius:9999px;cursor:pointer;background:var(--line);transition:all .2s';
+    d.addEventListener('click', function () { go(idx); });
+    dots.appendChild(d);
+  });
+
+  document.getElementById('cc-prev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('cc-next').addEventListener('click', function () { go(i + 1); });
+
+  var timer = setInterval(function () { go(i + 1); }, 6000);
+  wrap.addEventListener('mouseenter', function () { clearInterval(timer); });
+  wrap.addEventListener('mouseleave', function () { timer = setInterval(function () { go(i + 1); }, 6000); });
+
+  render();
 })();
 </script>
 </body>
