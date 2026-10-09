@@ -103,7 +103,10 @@
   ],
   "logo": "https://innovatis.com.br/og-image.png",
   "image": ["https://innovatis.com.br/og-image.png"],
-  "sameAs": ["https://www.instagram.com/innovatis.solucoes"],
+  "sameAs": [
+    "https://www.instagram.com/innovatis.solucoes",
+    "https://share.google/FIsoLqVRDLWe3jOEu"
+  ],
   "hasMap": "https://www.google.com/maps/dir/?api=1&destination=Rua+Jo%C3%A3o+Gualberto+dos+Santos+47,+C%C3%A9u+Azul,+Belo+Horizonte+-+MG,+31580-500",
   "currenciesAccepted": "BRL",
   "paymentAccepted": "PIX, Cartão de crédito, Dinheiro",
@@ -116,13 +119,6 @@
       "availableLanguage": ["Portuguese"]
     }
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "bestRating": "5",
-    "worstRating": "1",
-    "reviewCount": "89"
-  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Serviços de TI",
@@ -314,11 +310,25 @@
 </script>
 
 <link rel="stylesheet" href="/styles.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DYPJMRBHM"></script>
+<!-- Google tag (gtag.js) com Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    if (window.localStorage.getItem('innovatis-lgpd-consent') === 'accepted') {
+      gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
+    }
+  } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DYPJMRBHM"></script>
+<script>
   gtag('js', new Date());
   gtag('config', 'G-0DYPJMRBHM');
 </script>
@@ -1916,6 +1926,7 @@
           <li><a href="/produtos/nao-perca-prazo/">Não Perca Prazo</a></li>
           <li><a href="/produtos/prontto/">Prontto</a></li>
           <li><a href="/produtos/conecta-condominio/">Conecta Condomínio</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/sobre/">Sobre a Innovatis</a></li>
           <li><a href="/contato/">Contato</a></li>
         </ul>
@@ -2489,6 +2500,10 @@
 
     function closeLgpd(value) {
       try { window.localStorage.setItem(LGPD_KEY, value); } catch (e) {}
+      if (typeof gtag === 'function') {
+        var state = value === 'accepted' ? 'granted' : 'denied';
+        gtag('consent', 'update', { ad_storage: state, ad_user_data: state, ad_personalization: state, analytics_storage: state });
+      }
       lgpdBanner.classList.remove('is-visible');
       document.body.classList.remove('lgpd-open');
       window.setTimeout(function () { lgpdBanner.hidden = true; }, 400);

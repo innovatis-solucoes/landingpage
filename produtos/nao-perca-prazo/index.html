@@ -31,11 +31,15 @@
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://innovatis.com.br/"},{"@type":"ListItem","position":2,"name":"Não Perca Prazo","item":"https://innovatis.com.br/produtos/nao-perca-prazo/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Não Perca Prazo","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://naopercaprazo.innovatis.com.br/","description":"Radar jurídico para advogados e escritórios com monitoramento de processos, prazos e audiências.","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Innovatis Soluções em TI","url":"https://innovatis.com.br/"}}</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DYPJMRBHM"></script>
+<!-- Google tag (gtag.js) com Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', wait_for_update:500 });
+  try { if (window.localStorage.getItem('innovatis-lgpd-consent') === 'accepted') { gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'}); } } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DYPJMRBHM"></script>
+<script>
   gtag('js', new Date());
   gtag('config', 'G-0DYPJMRBHM');
 </script>
@@ -145,6 +149,26 @@
     var t=document.getElementById('navToggle'), m=document.getElementById('navMenu');
     if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});}
   })();
+</script>
+<div class="lgpd-banner" id="lgpdBanner" role="dialog" aria-live="polite" aria-label="Aviso de privacidade e consentimento" hidden>
+  <div class="lgpd-inner">
+    <p>Usamos o <strong>Google Analytics</strong> para medir audiência (pode usar cookies). Você pode aceitar ou rejeitar. Saiba mais na <a href="/#privacidade">Política de Privacidade</a>.</p>
+    <div class="lgpd-actions">
+      <button type="button" class="lgpd-reject" id="lgpdReject">Rejeitar</button>
+      <button type="button" class="lgpd-accept" id="lgpdAccept">Aceitar</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='innovatis-lgpd-consent', b=document.getElementById('lgpdBanner');
+  if(!b) return;
+  var v=null; try{v=localStorage.getItem(KEY);}catch(e){}
+  if(!v){ b.hidden=false; requestAnimationFrame(function(){b.classList.add('is-visible');}); }
+  function close(val){ try{localStorage.setItem(KEY,val);}catch(e){} if(typeof gtag==='function'){var s=val==='accepted'?'granted':'denied';gtag('consent','update',{ad_storage:s,ad_user_data:s,ad_personalization:s,analytics_storage:s});} b.classList.remove('is-visible'); setTimeout(function(){b.hidden=true;},400); }
+  document.getElementById('lgpdAccept').addEventListener('click',function(){close('accepted');});
+  document.getElementById('lgpdReject').addEventListener('click',function(){close('rejected');});
+})();
 </script>
 </body>
 </html>
