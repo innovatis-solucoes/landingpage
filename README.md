@@ -11,6 +11,8 @@ Deploy no GitHub Pages com domínio customizado `innovatis.com.br`.
 - **Conecta Condomínio** — gestão condominial com assembleias auditáveis: convocação comprovável,
   votação auditável, voto secreto, quórum reproduzível, ata versionada, assinatura eletrônica e
   pacote de evidências (`#conecta-condominio`).
+- **AutoFlux** — gestão de oficinas mecânicas: clientes, veículos, orçamentos, ordens de serviço,
+  estoque, fornecedores e financeiro, com isolamento dos dados por oficina (`#autoflux`).
 
 ---
 
